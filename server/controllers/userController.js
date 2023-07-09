@@ -3,8 +3,15 @@ import bcrypt from "bcrypt"
 
 export const createUser =async(req,res,next) => {
     try{
-        const { firstName, lastName,email,password}=req.body
+        const { userName,
+        lastName,
+        password,
+        address,
+        email,
+        country,
+        ZIP}=req.body
         const checkUser= await User.findOne({email})
+        console.log(checkUser);
     if (checkUser){
         const err = new Error("user already existing..! please try to login")
         err.statusCode=400
@@ -17,12 +24,14 @@ export const createUser =async(req,res,next) => {
 
        
         const user = new User({
-            firstName,
-            lastName,
-            email,
-          
-             password:hashedPassword,
-            
+            userName,
+        lastName,
+        address,
+        email,
+        country,
+        ZIP,
+        password:hashedPassword,
+          country  
         })
 
         const newUser = await user.save()
