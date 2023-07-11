@@ -1,4 +1,4 @@
-import Bank from "../models/bankDataModel.js"
+import Bank from "../models/bankModel.js"
 export const addBankData=async(req,res,next)=>{
  try {
     await Bank.create(req.body)

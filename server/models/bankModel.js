@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 
 const bankSchema = new mongoose.Schema({
-  
+
   accountNumber: {
     type: String,
     required: true,
@@ -13,19 +13,24 @@ const bankSchema = new mongoose.Schema({
   },
   balance: {
     type: Number,
-    required: true,
+    required: false,
     default: 0
   },
   transferAmount: {
     type: Number,
-    required: true
+    required: false
   },
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  owner:{
+    type: mongoose.Schema.Types.ObjectId,     //Referenced(Eu)
+    ref: "user"
   }
+  
 });
 
-const Bank = mongoose.model('Bank', bankSchema);
+export default  mongoose.model('Bank', bankSchema);
 
-export default Bank;
+
