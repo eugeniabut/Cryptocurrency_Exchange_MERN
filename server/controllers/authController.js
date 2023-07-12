@@ -1,6 +1,7 @@
 import User from "../models/userModel.js"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+import { emailSender } from "../utils/emailSender.js"
 export const loginHandler = async (req, res, next) => {
     try {
         const { email, password } = req.body
@@ -62,5 +63,16 @@ export const passwordChangeHandler=async(req,res,next)=>{
     }
 
 }
-
-
+export const emailConfirmationHandler = async (req, res) => {
+    try {
+      const { token } = req.params;
+      console.log(token);
+      const decodedData = jwt.verify(token, process.env.JWT_SECRET_KEY);
+      const result = await User.findByIdAndUpdate(decodedData.userId, {
+        verified: true,
+      });
+      res.status(200).send(`Email verified successfully =>  <a href="${process.env.FE_URL}/login">Login</a>`);
+    } catch (err) {
+      res.status(401).send("Invalid Credentials");
+    }
+};

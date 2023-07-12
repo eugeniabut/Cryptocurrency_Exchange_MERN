@@ -1,20 +1,23 @@
 import React from 'react'
 import "./header.css"
+import { NavLink } from 'react-router-dom'
 function Header() {
   return (
     <>
 <nav class="nav">
     <div class="container">
         <div class="logo">
-            <a href="#">YourLogo</a>
+            <a href="/">YourLogo</a>
         </div>
         <div class="main_list" id="mainListDiv">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="login">login</a></li>
-                <li><a href="#">live Trading</a></li>
-                <li><a href="#">contact</a></li>
+           <li><NavLink to="/" className="link" >Home</NavLink></li> 
+           <li> <NavLink to="/about-us" className="link" >About Us</NavLink></li> 
+           <li> <NavLink to="/login" className="link" >login</NavLink></li>
+           <li> <NavLink to="/register" className="link" >register</NavLink></li>
+             
+           <li> <NavLink to="/trading-live" className="link" >live Trading</NavLink></li> 
+        
             </ul>
         </div>
         <div class="media_button">
