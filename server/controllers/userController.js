@@ -64,3 +64,15 @@ export const deleteUser = async (req, res) => {
       console.log(error.message);
     }
   };
+
+ export const updateUserProfile=async(req,res,next)=>{
+    try{    
+      console.log(req.body);
+        const result = await User.findOneAndUpdate({_id: req.userId}, req.body)
+        res.status(201).send("User updated successfully")
+    }
+    catch(err) {
+        console.log(err);
+        res.status(500).send("Something went wrong while updating the post")
+    }
+}

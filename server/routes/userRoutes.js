@@ -1,5 +1,5 @@
 import express from "express"
-import {createUser, deleteUser } from "../controllers/userController.js"
+import {createUser, deleteUser ,updateUserProfile} from "../controllers/userController.js"
 import {loginHandler,passwordChangeHandler}from "../controllers/authController.js"
 import { authorization } from "../middleware/authorization.js"
 import {validateInputs} from "../middleware/validator.js"
@@ -10,5 +10,6 @@ router.post("/create-user",validateInputs(userRules),createUser)
 router.post("/login",loginHandler)
 router.delete("/:id", authorization,deleteUser);
 router.put("/change-password/:id",authorization,passwordChangeHandler)
+router.patch('/update-user', authorization, updateUserProfile )
 
 export default router
