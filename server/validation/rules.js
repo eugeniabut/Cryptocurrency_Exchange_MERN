@@ -1,7 +1,7 @@
 import { body } from "express-validator";
 
 export const userRules = [
-  body("userName").notEmpty().withMessage("First name is required").trim(),
+  body("firstName").notEmpty().withMessage("First name is required").trim(),
   body("lastName").notEmpty().withMessage("Last name is required").trim(),
   body("email", "Email is required").isEmail().normalizeEmail(),
   body("password", "Password is required and length minimum 4 character")

@@ -26,7 +26,7 @@ try{
     if(result[0].statusCode === 202) return true
 }
 catch(err){
-    console.log("error occurred while sending email");
+    console.log(err.message);
     return false
 }
 }

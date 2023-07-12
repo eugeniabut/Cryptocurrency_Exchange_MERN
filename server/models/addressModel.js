@@ -1,24 +1,21 @@
 import mongoose from "mongoose";
 
 export const addressSchema = new mongoose.Schema({
-  postalCode: {
-    type: Number,
-  },
-  cityName: {
-    type: String,
-    required: true
-  },
   streetName: {
     type: String,
     required: true
-  },
-  houseNumber: {
+},
+cityName: {
     type: String,
     required: true
-  },
-  country: {
-    type: String,
-    enum: ["Germany", "USA", "Canada", "India", "Australia"],
-    
-  }
+},
+houseNumber: {
+    type: Number,
+    required: true
+},
+postalCode: {
+    type: Number,
+    required: true
+}
+
 });
