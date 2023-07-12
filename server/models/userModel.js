@@ -6,9 +6,11 @@ const userSchema = new mongoose.Schema({
   userName: { type: String, required: true },
   lastName: { type: String, required: true },
   password: { type: String, required: true },
-  address: { type: addressSchema, required: true }, // embedded (EU)
+  address: { type: addressSchema, required: true }, 
   email: { type: String, required: true, unique: true },
   userType: { type: String, default: "user" },
+  confirmationToken: {type: String,required: true},
+  verified:{type:Boolean,default:false}
  
 });
 

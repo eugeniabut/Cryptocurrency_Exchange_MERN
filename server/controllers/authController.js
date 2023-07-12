@@ -63,4 +63,15 @@ export const passwordChangeHandler=async(req,res,next)=>{
 
 }
 
-
+export const emailConfirmationHandler = async (req, res) => {
+    try {
+      const { token } = req.params;
+      const decodedData = jwt.verify(token, process.env.JWT_SECRET_KEY);
+      const result = await User.findByIdAndUpdate(decodedData.userId, {
+        verified: true,
+      });
+      res.status(200).send("Email verified successfully");
+    } catch (err) {
+      res.status(401).send("Invalid Credentials");
+    }
+  };

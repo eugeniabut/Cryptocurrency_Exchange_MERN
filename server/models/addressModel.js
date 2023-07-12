@@ -18,6 +18,7 @@ export const addressSchema = new mongoose.Schema({
   },
   country: {
     type: String,
-    enum: ["Germany", "USA", "Canada", "India", "Australia"]
+    enum: ["Germany", "USA", "Canada", "India", "Australia"],
+    
   }
 });
