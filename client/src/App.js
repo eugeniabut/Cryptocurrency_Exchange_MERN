@@ -1,4 +1,3 @@
-import './App.css';
 import Registration from './component/Registration';
 import Footer from './component/Footer';
 import Header from './component/Header';
@@ -7,7 +6,7 @@ import Login from './component/Login';
 import { Route, Routes } from "react-router-dom";
 import AboutUs from './component/AboutUs';
 import TradingLive from './component/TradingLive';
-
+import "./App.css"
 
 function App() {
   return (
