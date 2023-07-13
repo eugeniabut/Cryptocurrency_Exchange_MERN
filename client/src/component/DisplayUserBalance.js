@@ -8,12 +8,14 @@ const BankData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+
         const response = await axios.get(`${process.env.REACT_APP_BE_URL}/profile/bank-data`,{
           headers : {
             'Authorization': `Bearer ${JSON.parse(localStorage.getItem('my-app-token'))}`
           }
         });
         
+
         setBankData(response.data);
         setIsLoading(false);
       } catch (err) {

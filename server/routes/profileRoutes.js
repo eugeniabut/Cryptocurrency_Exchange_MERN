@@ -15,4 +15,5 @@ router.get("/bank-data",authorization,getData)
 
 
 
+
 export default router

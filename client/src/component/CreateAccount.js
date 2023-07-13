@@ -33,7 +33,7 @@ const CreateAccount = () => {
 
   return (
     <div>
-      <h2>User Profile</h2>
+      <h2>Create your account</h2>
       <form onSubmit={handleFormSubmit}>
         <label>Account Number:</label>
         <input

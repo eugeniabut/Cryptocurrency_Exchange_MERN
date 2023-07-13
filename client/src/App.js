@@ -10,9 +10,15 @@ import AboutUs from './component/AboutUs';
 import TradingLive from './component/TradingLive';
 import "./App.css"
 import CreateAccount from './component/CreateAccount';
+
 import BankData from "./component/DisplayUserBalance";
 import axios from "axios"
 import SecuredRoutes from "./component/SecuredRoutes";
+
+import DisplayUserBalance from './component/DisplayUserBalance'
+import Profile from './component/Profile';
+
+
 function App() {
 
   const [authenticated, setAuthenticated] = useState(false);
@@ -42,6 +48,12 @@ function App() {
 
         <Route path="/" element={<Home  />} />
         {/* <Route path="*" element={<NotFound />} /> */}
+
+       
+        <Route path="/profile/add-bank" element={<CreateAccount />} />
+        <Route path="/profile/get-bank" element={<DisplayUserBalance />} />
+        <Route path="/profile" element={<Profile />} />
+
       </Routes>
     
      <Footer/>
