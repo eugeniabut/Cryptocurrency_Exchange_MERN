@@ -40,7 +40,6 @@ const verified=req.body.verified
           
         })
         const newUser = await user.save()
-console.log(confirmationToken);
  // Email content and send function
 
  const subject = "Confirmation Email";

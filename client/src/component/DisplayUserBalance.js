@@ -8,7 +8,14 @@ const BankData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http:localhost:4000/profile/get-bank");
+
+        const response = await axios.get(`${process.env.REACT_APP_BE_URL}/profile/bank-data`,{
+          headers : {
+            'Authorization': `Bearer ${JSON.parse(localStorage.getItem('my-app-token'))}`
+          }
+        });
+        
+
         setBankData(response.data);
         setIsLoading(false);
       } catch (err) {
@@ -19,7 +26,7 @@ const BankData = () => {
 
     fetchData();
   }, []);
-
+console.log(bankData);
   return (
     <div>
       <h2>Bank Data</h2>
@@ -43,9 +50,9 @@ const BankData = () => {
                 <td>{data.accountNumber}</td>
                 <td>{data.accountHolder}</td>
                 <td>{data.balance}</td>
-                <td>{data.transferAmount}</td>
+                {/* <td>{data.transferAmount}</td>
                 <td>{data.createdAt}</td>
-                <td>{data.owner.name}</td>
+                <td>{data.owner.name}</td> */}
               </tr>
             ))}
           </tbody>

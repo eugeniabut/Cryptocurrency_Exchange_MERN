@@ -1,17 +1,69 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
+import axios from "axios"
+import { NavLink, useNavigate } from 'react-router-dom';
+function Login(props) {
+  const navigate = useNavigate();
+  const{setAuthenticated,setUserData,authenticated}=props
+  const [errorMessage, setErrorMessage] = useState("");
+  const [responseMsg, setResponseMsg] = useState("");
+  useEffect(()=>{
+    if(authenticated) navigate("/")
+  })
 
-function Login() {
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const userLogin = {
+      email: e.target["email"].value,
+      password: e.target["password"].value,
+    };
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_BE_URL}/users/login`,
+        userLogin
+      );
+      console.log(response.data);
+    localStorage.setItem("my-app-token", JSON.stringify(response.data.token))
+    setAuthenticated(true)
+    // setUserData({ userName:response.data.firstName,
+    //   lastName:response.data.lastName,
+    //   userEmail:response.data.email,})
+    
+      navigate("/login/profile")
+      e.target.reset();
+
+    } catch (err) {
+      // setErrorMessage(err.request.response);
+      console.log(err);
+    }
+  };
   return (
     <div>
-<form id="form_id" method="post" name="myform">
-<label>User Name :</label>
-<input type="text" name="username" id="username"/>
-<label>Password :</label>
-<input type="password" name="password" id="password"/>
-<input type="button" value="Login" id="submit" />
-</form>
-<span><b class="note">Note : </b>For this demo use following username and password. <br/><b class="valid">User Name : Formget<br/>Password : formget#123</b></span>    </div>
-  )
+      <h1>Log In</h1>
+      <form onSubmit={submitHandler} >
+        <input
+          type="email"
+          name="email"
+          placeholder="E-mail" required />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+
+        <input type="submit" value="Log In" />
+      </form>{" "}
+      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+      {responseMsg && <p style={{ color: "green" }}>{responseMsg}</p>}
+      <p className="mb-3 text-sm">
+        Need an Account? <br />
+        <NavLink to="/register" className="link">
+          Register
+        </NavLink>
+      </p>
+    </div>
+  );
 }
 
 export default Login

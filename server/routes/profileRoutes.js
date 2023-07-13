@@ -4,10 +4,9 @@ import {authorization} from "../middleware/authorization.js"
 const router= express.Router()
 
 
-//router.post("/add-bank",authorization,addBankData)
-router.post("/add-bank",addBankData)
-//router.get("/add",getData)
-router.get("/get-bank",getData)
+router.post("/add-bank",authorization,addBankData)
+router.get("/bank-data",authorization,getData)
+
 
 
 
