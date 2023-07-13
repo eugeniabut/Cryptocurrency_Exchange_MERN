@@ -1,29 +1,31 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./CreateAccount.css"
+import { useNavigate } from "react-router-dom";
 
 const CreateAccount = () => {
+  const navigate=useNavigate()
   const [accountNumber, setAccountNumber] = useState("");
   const [accountHolder, setAccountHolder] = useState("");
-  const [balance, setBalance] = useState(0);
-  const [transferAmount, setTransferAmount] = useState(0);
-  const [createdAt, setCreatedAt] = useState("");
-  const [owner, setOwner] = useState("");
+  
+// const [transferAmount, setTransferAmount] = useState(0);
+  // const [createdAt, setCreatedAt] = useState("");
+  // const [owner, setOwner] = useState("");
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:4000/profile/add-bank", {
+      const response = await axios.post(`${process.env.REACT_APP_BE_URL}/profile/add-bank`, {
         accountNumber,
         accountHolder,
-        balance,
-        transferAmount,
-        createdAt,
-        owner,
+      }, {
+        headers : {
+          'Authorization': `Bearer ${JSON.parse(localStorage.getItem('my-app-token'))}`
+        }
       });
-
-      console.log(response.data);
+      e.target.reset();
+      navigate("/bank-data")
     } catch (err) {
       console.log(err);
     }
@@ -47,7 +49,7 @@ const CreateAccount = () => {
           onChange={(e) => setAccountHolder(e.target.value)}
         />
 
-        <label>Balance:</label>
+        {/* <label>Balance:</label>
         <input
           type="number"
           value={balance}
@@ -74,7 +76,7 @@ const CreateAccount = () => {
           value={owner}
           onChange={(e) => setOwner(e.target.value)}
         />
-
+        */}
         <button type="submit">Submit</button>
       </form>
     </div>
