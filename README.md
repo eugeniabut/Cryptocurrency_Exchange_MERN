@@ -1,4 +1,4 @@
-# final-projectCryptocurrency Platform
+#Cryptos_Space
 Description: 
 Develop a cryptocurrency Platform for extchanging Cryptos using Nod.js. This application will allow users to manage and track their cryptocurrency investments. It will provide real-time updates on cryptocurrency prices, display the user's wallet balance, and offer various features to analyze and track their investments.
 Features:
