@@ -5,7 +5,7 @@ const router= express.Router()
 
 
 router.post("/add-bank",authorization,addBankData)
-router.get("/add",getData)
+router.get("/bank-data",authorization,getData)
 
 
 
