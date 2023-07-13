@@ -28,7 +28,7 @@
     position: fixed;
     line-height: 65px;
     text-align: center;
-    background-color: rgba(0,0,255,0.8);
+    background-color: rgba(13, 13, 14, 0.8);
 }
 
 .nav div.logo{
