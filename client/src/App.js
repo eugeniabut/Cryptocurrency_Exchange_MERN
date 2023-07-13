@@ -7,6 +7,9 @@ import { Route, Routes } from "react-router-dom";
 import AboutUs from './component/AboutUs';
 import TradingLive from './component/TradingLive';
 import "./App.css"
+import CreateAccount from './component/CreateAccount';
+import DisplayUserBalance from './component/DisplayUserBalance'
+import Profile from './component/Profile';
 
 function App() {
   return (
@@ -41,6 +44,12 @@ function App() {
 
         <Route path="/" element={<Home />} />
         {/* <Route path="*" element={<NotFound />} /> */}
+
+       
+        <Route path="/profile/add-bank" element={<CreateAccount />} />
+        <Route path="/profile/get-bank" element={<DisplayUserBalance />} />
+        <Route path="/profile" element={<Profile />} />
+
       </Routes>
     
      <Footer/>

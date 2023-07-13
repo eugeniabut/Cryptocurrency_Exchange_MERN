@@ -1,7 +1,7 @@
 import Bank from "../models/bankModel.js"
 export const addBankData=async(req,res,next)=>{
  try {
-    const { accountNumber, accountHolder, balance, transferAmount, createdAt, owner } = req.body;
+    const { accountNumber, accountHolder, balance, transferAmount, createdAt} = req.body;
 
     const bankData = new Bank({
       accountNumber,
@@ -9,7 +9,7 @@ export const addBankData=async(req,res,next)=>{
       balance,
       transferAmount,
       createdAt,
-      owner
+     
     });
 
     await bankData.save();
