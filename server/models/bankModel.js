@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-
+const sum=Math.floor(Math.random() * 200000)
 const bankSchema = new mongoose.Schema({
 
   accountNumber: {
@@ -11,14 +11,15 @@ const bankSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+ 
+  transferAmount: {
+    type: Number,
+    default: sum
+  },
   balance: {
     type: Number,
     required: false,
-    default: 0
-  },
-  transferAmount: {
-    type: Number,
-    required: false
+    default: sum
   },
   createdAt: {
     type: Date,
