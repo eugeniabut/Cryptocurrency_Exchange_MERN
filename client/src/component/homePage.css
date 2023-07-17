@@ -17,7 +17,9 @@
     display: flex;
   }
   
- 
+  .home  {
+    
+  }
   .cards-container  {
     width: 20rem;
   }
@@ -39,8 +41,7 @@ background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(11,3,45,1) 100%);
     margin-top: 30px;
 }
 .home{
-    background-color: rgba(13, 13, 14, 0.8);
-
+    background: #1e9fc4 linear-gradient(45deg, #2b2b3b, #101618 57%, #0b5955) repeat scroll 0 0;
 }
 
 
@@ -105,7 +106,7 @@ background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(11,3,45,1) 100%);
     padding: 0.88rem 1.5em;
     text-decoration: none;
     text-transform: uppercase;
-    transition: background 0.2s ease-in-out 0s;
+    /* transition: background 0.2s ease-in-out 0s; */
     vertical-align: middle;
 }
 a.cta-link:hover{

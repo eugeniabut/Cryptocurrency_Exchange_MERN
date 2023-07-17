@@ -8,11 +8,6 @@ function Home(props) {
 
   const {newsData,cryptosData}=props
 
-
-
-
-   
-
   return (
 <div className='home'>
   
