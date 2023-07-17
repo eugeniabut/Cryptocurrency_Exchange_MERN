@@ -5,14 +5,16 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 50px;
-  background-color: chocolate;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(71, 165, 42);
+
 }
 
-.list-inline {
+/* .list-inline {
   background-color: rgb(28, 139, 0);}
 
-
+ */
 .footer-basic ul {
   padding:0;
   list-style:none;

@@ -11,22 +11,22 @@ import { NavLink } from "react-router-dom";
 
 export default function App() {
   return (
-    <div class="footer-basic">
-      <footer>
-        <div class="social">
-          <a href="#">
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a href="#">
-            <FontAwesomeIcon icon={faSnapchat} />
-          </a>
-          <a href="#">
-            <FontAwesomeIcon icon={faTwitter} />
-          </a>
-          <a href="#">
-            <FontAwesomeIcon icon={faFacebook} />
-          </a>
-        </div>
+    <footer className=" footer-basic">
+      <div class="social">
+        <a href="#">
+          <FontAwesomeIcon icon={faInstagram} />
+        </a>
+        <a href="#">
+          <FontAwesomeIcon icon={faSnapchat} />
+        </a>
+        <a href="#">
+          <FontAwesomeIcon icon={faTwitter} />
+        </a>
+        <a href="#">
+          <FontAwesomeIcon icon={faFacebook} />
+        </a>
+      </div>
+      <div>
         <ul class="list-inline">
           <li>
             <NavLink to="/" className="list-inline-item">
@@ -58,9 +58,9 @@ export default function App() {
             </NavLink>
           </li>
         </ul>
-        <p class="copyright">Company Name © 2018</p>
-      </footer>
-    </div>
+      </div>
+      <p class="copyright">Company Name © 2018</p>
+    </footer>
     // <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     // <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
   );
