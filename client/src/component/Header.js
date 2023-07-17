@@ -15,9 +15,7 @@ function Header() {
            <li> <NavLink to="/about-us" className="link" >About Us</NavLink></li> 
            <li> <NavLink to="/login" className="link" >login</NavLink></li>
            <li> <NavLink to="/register" className="link" >register</NavLink></li>
-             
            <li> <NavLink to="/trading-live" className="link" >live Trading</NavLink></li> 
-        
             </ul>
         </div>
         <div class="media_button">

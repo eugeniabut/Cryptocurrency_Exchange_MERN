@@ -1,7 +1,5 @@
 import React from 'react'
 import "./homePage.css"
-import NewsCard from './NewsCard'
-import ReactCardSlider from "react-card-slider-component";
 import CryptosCart from './CryptosCart';
 import GetStated from './GetStated';
 import Carousel from 'react-bootstrap/Carousel';
