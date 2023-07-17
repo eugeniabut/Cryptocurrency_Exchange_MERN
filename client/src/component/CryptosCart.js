@@ -1,11 +1,11 @@
 import React from 'react'
 
-function CryptosCart() {
-  
+function CryptosCart(props) {
+  const {data}=props
+  console.log(data);
   return (
-    <div>
-      card ....
-    </div>
+    <div></div>
+  
   )
 }
 

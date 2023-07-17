@@ -1,22 +1,46 @@
 import React from 'react'
 import "./homePage.css"
-function Home() {
+import NewsCard from './NewsCard'
+import ReactCardSlider from "react-card-slider-component";
+import CryptosCart from './CryptosCart';
+import GetStated from './GetStated';
+import Carousel from 'react-bootstrap/Carousel';
+
+function Home(props) {
+
+  const {newsData,cryptosData}=props
+
+
+
+
+   
+
   return (
 <div className='home'>
-   <section class="large-cta-section skrollable skrollable-between">
-  <div class="medium-large-wrapper skrollable skrollable-after">
-    <div class="medium-text-wrapper">
-      <h2 class="h2 large white">Get started <span class="yellow">today</span>.</h2>
-      <h3 class="h3 white">Material Design delivers a cleaner and flatter user interface</h3>
-      <a class="cta-link footer-cta-link" href="https://app.neverbounce.com/register" alt="Try NeverBounce for free">Try It Free</a>
-    </div>
-  </div>
-  <img class="cta-purple-email skrollable skrollable-after" src="https://g.foolcdn.com/image/?url=https%3A//g.foolcdn.com/editorial/images/647879/bitcoin-logo.jpg&w=2000&op=resize" alt="email illustration"/>
-  <img src="https://neverbounce.com/images/background-images/cta-left-line.svg" class="cta-left-line" alt="graphic line element"/>
-  <img src="https://g.foolcdn.com/image/?url=https%3A//g.foolcdn.com/editorial/images/647879/bitcoin-logo.jpg&w=2000&op=resize" class="cta-teal-airplane" alt="paper airplane"/>
-  <img class="cta-blue-email skrollable skrollable-between" src="https://neverbounce.com/images/background-images/cta-blue-email.png" alt="email illustration"/>
-</section>
-<div className='trading-block'></div>
+  
+<GetStated/>
+
+<Carousel>
+{ newsData.map((data)=><Carousel.Item className='card-item news-text'>
+<img
+      
+        className="d-block w-30 image"
+        src={`${data.urlToImage}`}
+        alt="news"
+       
+      />
+      <Carousel.Caption  style={{color:"black"}}>
+       <a className='link' href={`${data.url}`} >  <h3>{data.title}</h3></a>
+        <p>{data.description}</p>
+        <small>{data.author}</small>
+        <span class="post-date"><i class="fa fa-clock-o"></i>{data.publishedAt}</span>
+      </Carousel.Caption>
+    </Carousel.Item>)} 
+
+  </Carousel>
+{ cryptosData.map(data=><CryptosCart  data={data}/>)}
+
+
 </div>
 
   )

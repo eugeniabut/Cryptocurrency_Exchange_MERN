@@ -1,37 +1,44 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Profile.css';
+import { useNavigate } from 'react-router-dom';
+import BankData from "./DisplayUserBalance"
 
-function Profile() {
+function Profile(props) {
+  const {userData}=props
+  const navigate=useNavigate()
+  const [checkUserId,setCheckUserId]=useState(true)
   const [isEditing, setIsEditing] = useState(false);
   const [profileData, setProfileData] = useState({
-   
     image: 'path/to/image.jpg',
     dateOfBirth:"DD-MM-YYYY",
-    name: 'Edit your Name',
-    email: 'Edit your password',
+    name:userData.lastName,
+    email:userData. userEmail,
     phone: 'Edit your phone',
     country: 'Edit your profile',
   });
+const submitHandler =(e)=>{
+  e.preventDefault();
+  setProfileData({image: e.target["image"].value,
+  dateOfBirth:e.target["birthD"].value,
+  name: e.target["name"].value,
+  email: e.target["email"].value,
+  phone: e.target["phone"].value,
+  country:e.target["country"].value,})
 
+}
   const handleEditClick = () => {
     setIsEditing(true);
   };
 
-  const handleSaveClick = () => {
-    setIsEditing(false);
-    // Perform save logic or API request here
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setProfileData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  return (
+const userIdHandler=(e)=>{
+  setCheckUserId(false)
+if(e.target["userID"].value===userData.userID) navigate("/add-bank")
+// e.target.style.display="none"
+ 
+}
+ 
+  return (<div className='profile-global'>
     <div className="container">
       <div className="row">
         <div className="col-md-6">
@@ -42,7 +49,7 @@ function Profile() {
     className="profile-image"
   />
 </div>
-          <div className="profile-info">
+          <div className="profile-info"  >
            <p> <b>Personal data:</b> </p>
             <p>
               <strong>Name:</strong> {profileData.name}
@@ -62,27 +69,28 @@ function Profile() {
             </p>
           </div>
         </div>
-        <div className="col-md-6">
-         
+      { checkUserId?( <div className="col-md-6"   >
             <label>Verify your Identity:</label>
-           <input className='identity' type="text" 
+            <form  className='submit-identity btn-primary' onSubmit={userIdHandler}>
+           <input name='userID' className='identity' type="text" 
            placeholder='Enter your ID'/>
           
-          <button className='submit-identity btn-primary'>Submit</button>
+          <button  className='submit-identity btn-primary'>Submit</button>
+            </form>
           <p> <b> Do we need Passport ID Number in database?     If ID is true, then show here bank data (navigate to DisplayUserBalance). Email and name can be from backend getUser, and other personal data just edited by user himself </b></p></div>
-      
-      </div>
+        
+     
+       ):
+          (<BankData/>)}  </div> 
       <div className="row">
         <div className="col">
           {isEditing ? (
-            <div>
+            <form onSubmit={submitHandler}>
               <label>
                 Image:
                 <input
                   type="text"
                   name="image"
-                  value={profileData.image}
-                  onChange={handleChange}
                   className="form-control"
                 />
               </label>
@@ -91,8 +99,14 @@ function Profile() {
                 <input
                   type="text"
                   name="name"
-                  value={profileData.name}
-                  onChange={handleChange}
+                  className="form-control"
+                />
+              </label>
+               <label>
+                date of birth:
+                <input
+                  type="text"
+                  name="birthD"
                   className="form-control"
                 />
               </label>
@@ -101,8 +115,6 @@ function Profile() {
                 <input
                   type="text"
                   name="email"
-                  value={profileData.email}
-                  onChange={handleChange}
                   className="form-control"
                 />
               </label>
@@ -111,8 +123,6 @@ function Profile() {
                 <input
                   type="text"
                   name="phone"
-                  value={profileData.phone}
-                  onChange={handleChange}
                   className="form-control"
                 />
               </label>
@@ -121,15 +131,13 @@ function Profile() {
                 <input
                   type="text"
                   name="country"
-                  value={profileData.country}
-                  onChange={handleChange}
                   className="form-control"
                 />
               </label>
-              <button className="btn btn-primary" onClick={handleSaveClick}>
+              <button className="btn btn-primary" >
                 Save
               </button>
-            </div>
+            </form>
           ) : (
             <button className="btn btn-primary" onClick={handleEditClick}>
               Edit Profile
@@ -137,7 +145,7 @@ function Profile() {
           )}
         </div>
       </div>
-    </div>
+    </div></div>
   );
 }
 
