@@ -25,7 +25,7 @@ const CreateAccount = () => {
         }
       });
       e.target.reset();
-      navigate("/bank-data")
+      navigate("/profile")
     } catch (err) {
       console.log(err);
     }

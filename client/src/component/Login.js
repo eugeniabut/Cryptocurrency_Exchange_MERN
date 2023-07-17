@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import axios from "axios"
+import "./login.css"
 import { NavLink, useNavigate } from 'react-router-dom';
 function Login(props) {
   const navigate = useNavigate();
@@ -24,15 +25,16 @@ function Login(props) {
       console.log(response.data);
     localStorage.setItem("my-app-token", JSON.stringify(response.data.token))
     setAuthenticated(true)
-    // setUserData({ userName:response.data.firstName,
-    //   lastName:response.data.lastName,
-    //   userEmail:response.data.email,})
+    setUserData({ userName:response.data.firstName,
+      lastName:response.data.lastName,
+      userEmail:response.data.email,
+    userID:response.data._id})
     
-      navigate("/login/profile")
+      navigate("/profile")
       e.target.reset();
 
     } catch (err) {
-      // setErrorMessage(err.request.response);
+     setErrorMessage(err.request.response);
       console.log(err);
     }
   };
