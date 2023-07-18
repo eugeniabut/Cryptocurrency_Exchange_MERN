@@ -1,0 +1,23 @@
+.tradingview-widget-container{
+    display: flex;
+align-items: center; 
+
+    height:80vh; 
+    background: #0b5955 linear-gradient(45deg, #000000, #101618 57%, #0b5955) repeat scroll 0 0;
+}
+/* .tradingview-widget-copyright{
+    background-color: rgb(24, 12, 12);
+
+height:80vh; 
+} */
+#tradingview_c1116{
+    align-content:space-around;
+padding: 3rem;
+width: 100%;
+height: 80%;
+}
+
+.cryptos-container{
+    width: 80%;height: 35rem;
+    border: 5px solid white;
+}

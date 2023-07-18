@@ -1,31 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
-
-
 .home{
-
-        /* solid background */
-        background: rgb(0,212,255);
-        
-        /* gradient background*/
-        background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(11,3,45,1) 100%);    
- 
+    height: 100vh;
+    background: #0b5955 linear-gradient(45deg, #000000, #101618 57%,) repeat scroll 0 0;
 }
 
-.container-fluid  {
-    width: 90%;
-    margin: auto;
-    display: flex;
-  }
-  
-  .home  {
-    
-  }
-  .cards-container  {
-    width: 20rem;
-  }
   .news-text{
-/* padding-left: 50%; */
-background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(11,3,45,1) 100%);    
+background-color:  #062a28dc;
+
   }
  
 .image{
@@ -34,20 +15,21 @@ background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(11,3,45,1) 100%);
 }  
 .link{
     text-decoration: none;
+color: #DAA520 ;
+font-size: large;
 
 }
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
-.contact-form {
-    margin-top: 30px;
+.news-box{
+    color: #DAA520;  
+font-size: large;
+    padding-left: 10rem;
 }
-.home{
-    background: #1e9fc4 linear-gradient(45deg, #2b2b3b, #101618 57%, #0b5955) repeat scroll 0 0;
-}
+
+
 
 
 .large-cta-section {
-    background: #1e9fc4 linear-gradient(45deg, #2b2b3b, #101618 57%, #0b5955) repeat scroll 0 0;
-    box-shadow: 0 6px 12px -4px rgba(54, 56, 66, 0.25) inset;
+    box-shadow: 0 6px 12px -4px #DAA520 inset;
     text-align: center;
     z-index: 1;
     height: 400px;
@@ -75,7 +57,6 @@ background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(11,3,45,1) 100%);
     font-weight: 300;
     line-height: 1.8rem;
     margin-top: 10px;
-    margin-bottom: 40px;
 }
 
 .footer-cta-link::after {
@@ -88,16 +69,13 @@ background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(11,3,45,1) 100%);
     height: 10em;
     left: -8.5em;
     pointer-events: none;
-    position: absolute;
+    position: relative;
     width: 7em;
 }
-.footer-cta-link {
-    position: relative;
-}
+
 .cta-link {
     background: #fff none repeat scroll 0 0;
     border-radius: 4px;
-    color: #1e9fc4;
     letter-spacing: 2px;
     line-height: 1rem;
     margin-left: 1em;
@@ -124,17 +102,9 @@ a.cta-link:hover{
     border-radius: 100%;
     transform: translate3d(0px, 0%, 0px);
 }
-.cta-blue-email {
-    bottom: -45px;
-    position: absolute;
-    
-    right: 15%;
-    width: 15em;
-    z-index: 0;
-    transform: translate3d(86.875px, -8.6875%, 0px);
-}
 
-.cta-left-line {
+
+/* .cta-left-line {
     left: 0;
     
     opacity: 0.7;
@@ -142,7 +112,7 @@ a.cta-link:hover{
     position: absolute;
     top: -38em;
     z-index: 0;
-}
+} */
 .cta-teal-airplane {
     opacity: 0.8;
   
@@ -155,10 +125,10 @@ a.cta-link:hover{
     top: 11em;
     z-index: 4;
 }
-.trading-block{
+/* .trading-block{
     width: 100%;
     height: 100%;
     border: #1e9fc4 solid 5px;
 
 
-}
+} */

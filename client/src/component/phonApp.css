@@ -1,0 +1,7 @@
+.phonApp{
+    background: #1e9fc4 linear-gradient(45deg, #000000, #0a0a0a 57%, #0b5955) repeat scroll 0 0;
+    text-align: center;
+/* height: 20%; */
+    z-index: 1;
+   
+}

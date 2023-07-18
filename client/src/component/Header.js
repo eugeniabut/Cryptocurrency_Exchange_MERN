@@ -3,11 +3,11 @@ import "./header.css"
 import { NavLink } from 'react-router-dom'
 function Header() {
   return (
-    <>
-<nav class="nav">
-    <div class="container">
+    <><section className='home' >
+<nav class="nav ">
+    <div class="container ">
         <div class="logo">
-            <a href="/">YourLogo</a>
+            <a href="/"><img src='./Logo.jpg' alt='logo'/></a>
         </div>
         <div class="main_list" id="mainListDiv">
             <ul>
@@ -28,7 +28,7 @@ function Header() {
     </div>
 </nav>
     
-<section class="home"></section>    </>
+</section>    </>
   )
 }
 

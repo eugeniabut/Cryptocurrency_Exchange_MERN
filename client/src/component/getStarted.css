@@ -1,13 +1,12 @@
 
   
 .large-cta-section {
-    background: #1e9fc4 linear-gradient(45deg, #2b2b3b, #101618 57%, #0b5955) repeat scroll 0 0;
-    box-shadow: 0 6px 12px -4px rgba(54, 56, 66, 0.25) inset;
+    background: #1e9fc4 linear-gradient(45deg, #000000, #0a0a0a 57%, #0b5955) repeat scroll 0 0;
+    box-shadow: 0 6px 12px -4px rgba(14, 14, 16, 0.25) inset;
     text-align: center;
     z-index: 1;
     height: 400px;
-    position: relative;
-    overflow: hidden;
+    /* position: relative; */
 }
 .medium-large-wrapper{
     padding-top: 50px;
@@ -21,7 +20,7 @@
     color: #fff;
 }
 .h2 > .yellow {
-    color: #f5ee33;
+    color:#DAA520;
     font-weight: 600;
 }
 .h3 {
@@ -29,8 +28,8 @@
     font-size: 1.4em;
     font-weight: 300;
     line-height: 1.8rem;
-    margin-top: 10px;
-    margin-bottom: 40px;
+    padding-bottom: 30px;
+   
 }
 
 .footer-cta-link::after {

@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import MyWallet from './MyWallet'
 
 function AboutUs(props) {
   return (
     <div>
-      about us 
+        <MyWallet/>
     </div>
   )
 }
