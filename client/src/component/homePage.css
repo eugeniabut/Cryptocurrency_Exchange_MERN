@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
 .home{
-    height: 100vh;
+    height: 100%;
     background: #0b5955 linear-gradient(45deg, #000000, #101618 57%,) repeat scroll 0 0;
 }
 
