@@ -1,25 +1,124 @@
-.profile-global{
-  display: g;
-}
-.profile-image-container {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 20px;
-  background-color: rgb(230, 234, 238);
-   margin-bottom: 3rem;
-}
-
-.profile-image {
+body{
+  background-color: rgb(3, 3, 3);
   width: 100%;
   height: 100%;
+}
+
+.dashboard{
+  background-color: rgb(183, 202, 15);
+  position: relative;
+  display: flex;
+}
+.sidebar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20rem;
+  height: 98vh;
+  border-radius: 10px;
+background-color: rgb(58, 63, 59);
+z-index:2}
+
+
+
+.main-content{
+  flex:1;
+  margin-left: 21rem;
+  margin-right: 1rem;
+  background-color: rgb(5, 5, 5);
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  height: 98vh;
+
+}
+
+
+.image-content,
+.card-content {
+  position: absolute;
+  border-radius: 10px;
+  width: 100%;
+  
+ 
+}
+
+.image-content {
+  height: 20rem;
+  
+ top: 0;
+ background-image: url('./images/crypto-gold.jpg');
+ background-size: cover;
+
+}
+
+.card-content {
+ width: 90%;
+ left: 5%;
+  height: 80%;
+
+  bottom: 2rem; 
+  z-index: 3;
+ 
+  
+}
+
+
+
+
+.card-body {
+  display: flex;
+background-color: lightgray;
+height: 92%;
+border-radius: 10px;
+
+}
+
+.sectionOne,
+.sectionTwo,
+.sectionThree{
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  margin:2rem
+
+}
+
+
+
+
+.card-heading{
+  display: flex;
+  justify-content: space-between;
+
+  height: 100px; 
+  background-color:rgb(65, 65, 65);
+  border-radius: 10px;
+  
+}
+.card-heading-info{
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 2rem;
+}
+.card-heading-info *{
+ 
+  font-size: 2rem;
+  padding-top: 1.2rem;
+  color:white;
+  margin-right: 2rem;
+}
+
+.profile-photo {
+ width: 5rem;
+ margin: 1rem;
+ 
   object-fit: cover;
  
 }
 
 .profile-info p {
-  margin-bottom: 1.8rem;
+  margin-bottom: 1rem;
 }
 
 .identity {
@@ -30,11 +129,25 @@
   margin-right: 1rem;
 }
 
-.container {
-  margin-top: 30px;
-}
+
+
 
 .submit-identity {
   border-radius: 5px;
 }
 
+
+.link-list{
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+
+
+.link-name{
+  color:white;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+
+}
