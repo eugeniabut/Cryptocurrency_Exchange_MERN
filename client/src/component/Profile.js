@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Profile.css";
+import ProfilePhoto from "./images/profile-free.png";
 
 import { NavLink } from "react-router-dom";
 
 function Profile(props) {
-  const {userData}=props
+  const { userData } = props;
 
-  const [checkUserId,setCheckUserId]=useState(true)
+  const [checkUserId, setCheckUserId] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [profileData, setProfileData] = useState({
     image: "path/to/image.jpg",
@@ -17,16 +18,16 @@ function Profile(props) {
     phone: "Edit your phone",
     country: "Edit your profile",
   });
-const submitHandler =(e)=>{
-  e.preventDefault();
-  setProfileData({image: e.target["image"].value,
-  dateOfBirth:e.target["birthD"].value,
-  name: e.target["name"].value,
-  email: e.target["email"].value,
-  phone: e.target["phone"].value,
-  country:e.target["country"].value,})
-
-}
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setProfileData({
+      dateOfBirth: e.target["birthD"].value,
+      name: e.target["name"].value,
+      email: e.target["email"].value,
+      phone: e.target["phone"].value,
+      country: e.target["country"].value,
+    });
+  };
   const handleEditClick = () => {
     setIsEditing(true);
   };
@@ -45,48 +46,53 @@ const submitHandler =(e)=>{
   };
 
   return (
-    <div className="dashboard">
+    <main>
       <div className="sidebar">
         <div className="link-list">
           <NavLink to="/home" className="link-name">
-            Home
+            Link
           </NavLink>
           <NavLink to="/about" className="link-name">
-            About
+            Link
           </NavLink>
           <NavLink to="/contact" className="link-name">
-            Contact
+            Link
           </NavLink>
         </div>
       </div>
       <div className="main-content">
-        <div className="image-content">
-          <img alt="coins" />
-        </div>
+   
+       
 
         <div className="card-content">
           {" "}
           {/* personal card content */}
           <div className="card-heading">
             <div>
-              <img className="profile-photo" src="" alt="Profile" />
+              <img className="profile-photo" src={ProfilePhoto} alt="" />
             </div>
 
-            <div className="card-heading-info">
-              <div>My Name</div>
-              <div>My Notes</div>
-              <div>My Post</div>
+            <div className="card-heading-links">
+              <NavLink to="/home" className="link-name">
+                Link
+              </NavLink>
+              <NavLink to="/about" className="link-name">
+                ink2{" "}
+              </NavLink>
+              <NavLink to="/contact" className="link-name">
+                Link3
+              </NavLink>
             </div>
           </div>
           <div className="card-body">
             <div className="sectionOne profile-info">
               <h5>Personal data:</h5>
               <p>
-                <b> Name:</b> {profileData.name}{" "}
+                <b> Name:</b> {"use props or {profileData.name}"}
               </p>
               <p>
                 {" "}
-                <b>Date of Birth:</b> {profileData.dateOfBirth}{" "}
+                <b>Date of Birth:</b>
               </p>
               <p>
                 <b>Email:</b> {profileData.email}
@@ -94,9 +100,7 @@ const submitHandler =(e)=>{
               <p>
                 <b>Phone:</b> {profileData.phone}
               </p>
-              <p>
-                <b>Country:</b> {profileData.country}
-              </p>{" "}
+
               <div className="row">
                 <div className="col">
                   {isEditing ? (
@@ -120,6 +124,16 @@ const submitHandler =(e)=>{
                           onChange={handleChange}
                           className="form-control"
                         />
+                        <label>
+                          Date of Birth:
+                          <input
+                            type="text"
+                            name="dateOfBirth"
+                            value={profileData.dateOfBirth}
+                            onChange={handleChange}
+                            className="form-control"
+                          />
+                        </label>
                       </label>
                       <label>
                         Email:
@@ -141,28 +155,13 @@ const submitHandler =(e)=>{
                           className="form-control"
                         />
                       </label>
-                      <label>
-                        Country:
-                        <input
-                          type="text"
-                          name="country"
-                          value={profileData.country}
-                          onChange={handleChange}
-                          className="form-control"
-                        />
-                      </label>
-                      <button
-                        className="btn btn-primary"
-                        onClick={handleSaveClick}
-                      >
+
+                      <button className="btn-edit" onClick={handleSaveClick}>
                         Save
                       </button>
                     </div>
                   ) : (
-                    <button
-                      className="btn btn-primary"
-                      onClick={handleEditClick}
-                    >
+                    <button className="btn-save" onClick={handleEditClick}>
                       Edit Profile
                     </button>
                   )}
@@ -173,21 +172,27 @@ const submitHandler =(e)=>{
             <div className="sectionTwo">My current info</div>
 
             <div className="sectionThree identity ">
-              <h5>Verify your Identity:</h5>
-              <input
-                className="identity"
-                type="text"
-                placeholder="Enter your ID"
-              />
-              <button className="submit-identity btn-primary">Submit</button>
+              <>
+                <h5>Verify your Identity:</h5>
+              </>
+              <>
+                <input
+                  className="identity-input"
+                  type="text"
+                  placeholder="Enter your ID"
+                />
+              </>
+              <>
+                <button className="identity-submit ">Submit</button>
+              </>
             </div>
           </div>
         </div>
 
-        {/*className = "bottom-content" / */}
-      </div>{" "}
-      {/*className = "main-content" / */}
-    </div> // className = "dashboard"
+       
+      </div>
+      
+    </main> 
   );
 }
 
