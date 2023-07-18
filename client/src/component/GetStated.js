@@ -7,7 +7,7 @@ function GetStated() {
   <div class="medium-large-wrapper skrollable skrollable-after">
     <div class="medium-text-wrapper">
       <h2 class="h2 large white">Get started <span class="yellow">today</span>.</h2>
-      <h3 class="h3 white">Material Design delivers a cleaner and flatter user interface</h3>
+      <h3 class="h3 white">Buy, trade, and hold 199+ cryptocurrencies on Binance</h3>
       <a class="cta-link footer-cta-link" href="/register" alt="Try NeverBounce for free">Try It Free</a>
     </div>
   </div>

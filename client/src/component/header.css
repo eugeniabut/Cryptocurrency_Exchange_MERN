@@ -17,16 +17,25 @@
 
 .container{
     margin-left: 5%;
-    margin-right: 5%;
+    margin-right: 5%; 
+ }
+.logo img{
+   
+    position:fixed;
+left: 0.5em;
+top: 0.5rem;
+    width: 5rem;
+    height: 5rem;
 }
-
 /* Navbar section */
 
 .nav{
     width: 100%;
+    background: #0b5955 linear-gradient(45deg, #000000, #101618 57%,) repeat scroll 0 0;
+
     /* height: 65px; */
-    position: fixed;
-    line-height: 65px;
+    position: relative;
+    /* line-height: 65px; */
     text-align: center;
     background-color: rgba(13, 13, 14, 0.8);
 }

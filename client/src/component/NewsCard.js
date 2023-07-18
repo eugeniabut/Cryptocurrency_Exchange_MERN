@@ -6,30 +6,6 @@ function NewsCard(props) {
     const {data}=props
     console.log(data);
   return (
-
-    // <div class="container-fluid">
-    // {/* <div class="row"> */}
-    //   {/* <div class="col-md-12"> */}
-    //     <div id="news-slider" class="owl-carousel">
-    //       <div class="post-slide">
-    //         <div class="post-img">
-    //           <img src={`${data.urlToImage}`} alt="image"/>
-    //           <a href={`${data.url}`} class="over-layer"><i class="fa fa-link"></i></a>
-    //         </div>
-    //         <div class="post-content">
-    //           <h3 class="post-title">
-    //             <a href={`${data.url}`} >{data.title}</a>
-    //           </h3>
-    //           <p class="post-description">{data.description}</p>
-    //           <small>{data.author}</small>
-    //           <span class="post-date"><i class="fa fa-clock-o"></i>{data.publishedAt}</span>
-    //           {/* <a href="#" class="read-more">read more</a> */}
-    //         </div>
-    //       </div>
-    //       {/* </div> */}
-    //     {/* </div> */}
-    //   </div>
-    // </div>
     <Carousel>
     <Carousel.Item>
       <img
