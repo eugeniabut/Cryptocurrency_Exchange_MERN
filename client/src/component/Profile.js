@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Profile.css";
-import userImg from "./images/user_img.jpg";
+
 import { NavLink } from "react-router-dom";
 
 function Profile(props) {
@@ -69,7 +69,7 @@ const submitHandler =(e)=>{
           {/* personal card content */}
           <div className="card-heading">
             <div>
-              <img className="profile-photo" src={userImg} alt="Profile" />
+              <img className="profile-photo" src="" alt="Profile" />
             </div>
 
             <div className="card-heading-info">
