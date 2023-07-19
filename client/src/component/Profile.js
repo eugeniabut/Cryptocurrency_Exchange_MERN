@@ -46,7 +46,7 @@ function Profile(props) {
   };
 
   return (
-    <main>
+    <main className="main">
       <div className="sidebar">
         <div className="link-list">
           <NavLink to="/home" className="link-name">
@@ -60,15 +60,14 @@ function Profile(props) {
           </NavLink>
         </div>
       </div>
-      <div className="main-content">
-   
-       
 
+
+      <div className="image-content">
+      
         <div className="card-content">
-          {" "}
-          {/* personal card content */}
+       
           <div className="card-heading">
-            <div>
+            <div >
               <img className="profile-photo" src={ProfilePhoto} alt="" />
             </div>
 
