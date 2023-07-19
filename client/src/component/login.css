@@ -5,7 +5,7 @@
   align-items: center;
   width: 100vw;
   height: 73.3vh;
-  padding: 2rem;
+  /* padding: 2rem;/ */
 }
 .login-form div{
   
@@ -26,4 +26,8 @@ background-color: aqua;
 .registration-text{
  padding-left: 15%;
 
+}
+.btn{
+background-color: antiquewhite;
+  height: 1.5rem;
 }

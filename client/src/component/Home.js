@@ -7,7 +7,7 @@ import PhonApp from './PhonApp';
 import { myStore } from '../myStore/dataStore.js';
 
 function Home() {
-  const newsData=myStore((state)=>state.newsData)
+  const newsData=myStore((state)=>state.newsData.articles?state.newsData.articles:[])
 console.log(newsData);
 
   return (
@@ -16,7 +16,7 @@ console.log(newsData);
 <div><GetStated/></div>
 
 <div><Carousel>
-{ newsData.articles.map((data)=><Carousel.Item className='card-item  news-text'>
+{ newsData.map((data)=><Carousel.Item className='card-item  news-text'>
 <img
       
         className="d-block w-30 image"

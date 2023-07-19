@@ -54,7 +54,7 @@ function Login(props) {
           required
         />
 
-        <input type="submit" value="Log In" />
+        <button className='btn' type="submit" value="Log In">login</button>
       </form>{" "}</div>
       <div>{errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
       {responseMsg && <p style={{ color: "green" }}>{responseMsg}</p>}</div>
