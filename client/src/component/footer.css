@@ -8,7 +8,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  align-content: center
+  /* align-content: center */
 ;  background-color: black
 
 }
@@ -17,7 +17,7 @@
 }
  .footer-img   img{
   border-radius: 5%;
-  position: fixed;
+  position: absolute;
   right: 20px;
   bottom: 20px;
     width: 7rem;

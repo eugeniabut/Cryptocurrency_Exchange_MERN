@@ -60,7 +60,8 @@ export default function TradingViewWidget() {
       <div id='tradingview_c1116' />
       <div className="tradingview-widget-copyright">
         <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span className="blue-text">Track all markets on TradingView</span></a>
-        <div className='cryptos-container'><CryptosCart/>  </div>
+        <div className='cryptos-container'> </div>
+        {/* <CryptosCart/>  */}
       </div>
         
 

@@ -34,9 +34,9 @@ function Home(props) {
       </Carousel.Caption>
     </Carousel.Item>)} 
   </Carousel></div>
-  <div>
-  <CryptosCart /></div>
-{/* { cryptosData.map(data=><CryptosCart  data={data}/>)}</div> */}
+  {/* <div>
+  <CryptosCart /></div> */}
+<div>{ cryptosData.map((data,index)=>{if(index<=10)return(<CryptosCart  data={data}/>)})}</div>
 <div>
 <PhonApp/></div>
 

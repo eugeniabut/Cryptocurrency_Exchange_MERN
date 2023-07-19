@@ -18,11 +18,16 @@ import SecuredRoutes from "./component/SecuredRoutes";
 import DisplayUserBalance from './component/DisplayUserBalance'
 import Profile from './component/Profile';
 import NewsCard from "./component/NewsCard";
+import { myStore } from "./myStore/dataStore.js";
 
 
 function App() {
-const [newsData,setNewsData]=useState([])
-const[cryptosData,setCryptosData]=useState([])
+// const [newsData,setNewsData]=useState([])
+const newsData=myStore((state)=>state.data.articles)
+const getNews=myStore((state)=>state.getNews)
+const cryptosData=myStore((state)=>state.cryptosData)
+const getCryptos=myStore((state)=>state.getCryptos)
+const[prices,setPrices]=useState([])
   const [authenticated, setAuthenticated] = useState(false);
   const [userData, setUserData] = useState({
     userName:"",
@@ -30,45 +35,22 @@ const[cryptosData,setCryptosData]=useState([])
     userEmail:"",
     userID:""
   
-   });
-const fetchNews=async()=>{
-  
-  const options = {
-    method: 'GET',
-    url: 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=333ad23a145a4832b2ca734696e3b06b',
-  };
-
-  try {
-  	const response = await axios.request(options);
-  setNewsData(response.data.articles);
-  } catch (error) {
-  	console.error(error);
-  }
-}
-const fetchCryptos=async()=>{  
-  
-  const options = {
-    method: 'GET',
-    url:'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd'
-      //url:"https://newsdata.io/api/1/crypto?apikey=pub_260065beaa4df95c2f842200733d53e9f2c3b"
-  };
-
-  try {
-  	const response = await axios.request(options);
-  setCryptosData(response.data);
-  } catch (error) {
-  	console.error(error);
-  }}
+   })
+   console.log(cryptosData);
   useEffect(()=>{
-    fetchCryptos()
-fetchNews()
+    getCryptos()
+getNews()
  },[]);
- console.log(cryptosData);
+
+//  console.log(cryptosData);
+
+
+console.log(prices);
   return (
-    <div >
+    <div class="bg-animation" >
      <Header/>
      <Routes>
-    
+  
         <Route path="/register" element={<Registration/>} />
         <Route path="/trading-live" element={<TradingLive/>} />
         <Route path="/about-us" element={<AboutUs/>} />

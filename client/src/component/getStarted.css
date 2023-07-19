@@ -1,12 +1,13 @@
 
   
 .large-cta-section {
-    background: #1e9fc4 linear-gradient(45deg, #000000, #0a0a0a 57%, #0b5955) repeat scroll 0 0;
+    background: #1e9fc4 linear-gradient(45deg, #000000, #0a0a0a 57%, 	#DAA520) repeat scroll 0 0;
     box-shadow: 0 6px 12px -4px rgba(14, 14, 16, 0.25) inset;
     text-align: center;
     z-index: 1;
-    height: 400px;
-    /* position: relative; */
+    height: 30vh;
+    border-bottom: #140f0489 4px solid;
+    position: relative;
 }
 .medium-large-wrapper{
     padding-top: 50px;
@@ -51,7 +52,7 @@
 .cta-link {
     background: #fff none repeat scroll 0 0;
     border-radius: 4px;
-    color: #1e9fc4;
+    color: #032c37;
     letter-spacing: 2px;
     line-height: 1rem;
     margin-left: 1em;
@@ -78,15 +79,7 @@ a.cta-link:hover{
     border-radius: 100%;
     transform: translate3d(0px, 0%, 0px);
 }
-.cta-blue-email {
-    bottom: -45px;
-    position: absolute;
-    
-    right: 15%;
-    width: 15em;
-    z-index: 0;
-    transform: translate3d(86.875px, -8.6875%, 0px);
-}
+
 
 .cta-left-line {
     left: 0;

@@ -39,9 +39,9 @@ function Login(props) {
     }
   };
   return (
-    <div>
-      <h1>Log In</h1>
-      <form onSubmit={submitHandler} >
+    <div className='login-form'>
+      <div><h1 >Log In</h1></div>
+      <div><form onSubmit={submitHandler} >
         <input
           type="email"
           name="email"
@@ -55,15 +55,15 @@ function Login(props) {
         />
 
         <input type="submit" value="Log In" />
-      </form>{" "}
-      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-      {responseMsg && <p style={{ color: "green" }}>{responseMsg}</p>}
-      <p className="mb-3 text-sm">
+      </form>{" "}</div>
+      <div>{errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+      {responseMsg && <p style={{ color: "green" }}>{responseMsg}</p>}</div>
+      <div><p className="mb-3 text-sm">
         Need an Account? <br />
         <NavLink to="/register" className="link">
           Register
         </NavLink>
-      </p>
+      </p></div>
     </div>
   );
 }
