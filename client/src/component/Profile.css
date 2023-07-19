@@ -14,7 +14,7 @@ margin-left:0.5%;
 margin-bottom: 0.5%;
 margin-top: 0.5%;
 width: 16%;
-height: 100svh;
+height: 100vh;
 border-radius: 10px;
 background-color: #0b5955;
 
@@ -133,4 +133,76 @@ margin-bottom: 2rem;
 .btn-save {
   background-color: #0b5955;
   border-radius: 6px;
+}
+
+@media only screen and (max-width: 600px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    order: 2;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    text-align: center;
+  }
+  .link-list{
+margin-top: 5%;
+margin-left: 0;
+  }
+
+  .image-content {
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .card-content {
+    order: 1;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .card-heading {
+  align-items: center; 
+}
+  
+  .card-heading-links {
+    display: none; 
+  }
+  
+  .profile-photo {
+  
+  margin-left: 40vw;
+  margin-top: 0.5rem; 
+  margin-bottom: 0.5rem; 
+ }
+
+.card-body{
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sectionTwo{
+  order:2;
+  width: 100%;
+ 
+  
+}
+
+.sectionOne{
+  display: none;
+  width: 100%; 
+   margin: 0;
+}
+
+.sectionThree{
+  order: 1;
+  width: 100%;
+}
+
+
 }
