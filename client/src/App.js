@@ -10,24 +10,17 @@ import AboutUs from './component/AboutUs';
 import TradingLive from './component/TradingLive';
 import "./App.css"
 import CreateAccount from './component/CreateAccount';
-
 import BankData from "./component/DisplayUserBalance";
-import axios from "axios"
 import SecuredRoutes from "./component/SecuredRoutes";
-
 import DisplayUserBalance from './component/DisplayUserBalance'
 import Profile from './component/Profile';
-import NewsCard from "./component/NewsCard";
 import { myStore } from "./myStore/dataStore.js";
 
 
 function App() {
-// const [newsData,setNewsData]=useState([])
-const newsData=myStore((state)=>state.data.articles)
-const getNews=myStore((state)=>state.getNews)
-const cryptosData=myStore((state)=>state.cryptosData)
-const getCryptos=myStore((state)=>state.getCryptos)
-const[prices,setPrices]=useState([])
+  const newsData=myStore((state)=>state.newsData)
+
+const getData=myStore((state)=>state.getData )
   const [authenticated, setAuthenticated] = useState(false);
   const [userData, setUserData] = useState({
     userName:"",
@@ -36,17 +29,10 @@ const[prices,setPrices]=useState([])
     userID:""
   
    })
-   console.log(cryptosData);
   useEffect(()=>{
-    getCryptos()
-getNews()
+   getData()
  },[]);
-
-//  console.log(cryptosData);
-
-
-console.log(prices);
-  return (
+   return (
     <div class="bg-animation" >
      <Header/>
      <Routes>
@@ -61,7 +47,7 @@ console.log(prices);
 
         <Route path="/login" element={<Login authenticated={authenticated} setAuthenticated={setAuthenticated} setUserData={setUserData} />}/>
 
-        <Route path="/" element={<Home newsData={newsData} cryptosData={cryptosData} ></Home>} />
+        <Route path="/" element={<Home ></Home>} />
         {/* <Route path="/" element={<NewsCard />} /> */}
         {/* <Route path="*" element={<NotFound />} /> */}
 

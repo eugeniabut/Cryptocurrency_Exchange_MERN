@@ -4,10 +4,11 @@ import CryptosCart from './CryptosCart';
 import GetStated from './GetStated';
 import Carousel from 'react-bootstrap/Carousel';
 import PhonApp from './PhonApp';
+import { myStore } from '../myStore/dataStore.js';
 
-function Home(props) {
-
-  const {newsData,cryptosData}=props
+function Home() {
+  const newsData=myStore((state)=>state.newsData)
+console.log(newsData);
 
   return (
 <div className='home'>
@@ -15,7 +16,7 @@ function Home(props) {
 <div><GetStated/></div>
 
 <div><Carousel>
-{ newsData.map((data)=><Carousel.Item className='card-item  news-text'>
+{ newsData.articles.map((data)=><Carousel.Item className='card-item  news-text'>
 <img
       
         className="d-block w-30 image"
@@ -36,7 +37,7 @@ function Home(props) {
   </Carousel></div>
   {/* <div>
   <CryptosCart /></div> */}
-<div>{ cryptosData.map((data,index)=>{if(index<=10)return(<CryptosCart  data={data}/>)})}</div>
+<div>(<CryptosCart  />)</div>
 <div>
 <PhonApp/></div>
 

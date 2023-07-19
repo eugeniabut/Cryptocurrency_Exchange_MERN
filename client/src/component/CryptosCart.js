@@ -1,8 +1,8 @@
 import React from 'react'
 import "./cryptosCart.css"
-function CryptosCart(props) {
-  const {data}=props
-//   console.log(data);
+import { myStore } from '../myStore/dataStore'
+function CryptosCart() {
+	const cryptos=myStore((state)=>state.cryptos)
   return (
    <> <div className='cryptos-card' >
 
@@ -19,7 +19,7 @@ function CryptosCart(props) {
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
+		{ cryptos.map((data,index)=>{if(index<=10)return(<tr>
 			<td>{data.symbol}</td>
 			<td>{data.id}</td>
 			<td>{data.current_price}</td>
@@ -27,9 +27,8 @@ function CryptosCart(props) {
 			<td>{data.price_change_percentage_24h}</td>
 			<td>{data.current_price}</td>
 			<td>{data.total_volume}</td>
-		</tr>
-		
-	</tbody></table></div>
+		</tr>)})}
+		</tbody></table></div>
       {/* <div className='reviews-card'></div> */}
    </>
   
