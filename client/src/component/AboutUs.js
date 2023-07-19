@@ -6,6 +6,7 @@ function AboutUs(props) {
   return (
     <div>
         <MyWallet/>
+        
     </div>
   )
 }

@@ -37,9 +37,9 @@ console.log(userProfile);
   }
 }
   return (
-    <div>
-<h1>Registration Form</h1>
-<form onSubmit={submitHandler} enctype="multipart/form-data">
+    <div className='login-form registration '>
+<div className='registration-text'><h1>Registration Form</h1></div>
+<div className='from'><form  onSubmit={submitHandler} enctype="multipart/form-data">
         <input
           type="text"
           name="firstName"
@@ -103,16 +103,17 @@ console.log(userProfile);
             <option value="AD">USA</option>
           </select>
         <input type="submit" value="Register" />
-      </form> {
+      </form> </div><div>{
         errorMessage 
           && <p style={{color:'red'}}>{errorMessage}</p>      
       }{  responseMsg 
-        && <p style={{color:'green'}}>{responseMsg}</p> }
-      <p className="mb-3 text-sm">
+        && <p style={{color:'green'}}>{responseMsg}</p> }</div>
+     <div> <p className="mb-3 text-sm" >
         Already have  an account? <br />
         <NavLink to="/login" className="link" >Log in</NavLink>
 
-      </p>  </div>
+      </p> </div> 
+      </div>
   )
 }
 

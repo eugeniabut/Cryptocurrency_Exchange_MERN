@@ -21,11 +21,11 @@
  }
 .logo img{
 
-    position:fixed;
-left: 0.5em;
+    position:absolute;
+left: 0.5rem;
 top: 0.5rem;
-    width: 5rem;
-    height: 5rem;
+    width: 3.5rem;
+    height: 3.5rem;
 }
 /* Navbar section */
 
