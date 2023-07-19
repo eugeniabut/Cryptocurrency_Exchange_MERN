@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   padding: 0;
@@ -48,6 +49,7 @@ border-radius: 10px;
   background-color: lightgray;
   height: 92%;
   border-radius: 10px;
+
 }
 
 .sectionOne,
@@ -72,23 +74,28 @@ margin-bottom: 2rem;
 }
 
 .card-heading-links {
+
   display: flex;
   justify-content: space-evenly;
   margin-right: 2rem;
 }
 
+
 .card-heading-links * {
   font-size: 2rem;
   padding-top: 1.2rem;
   color: white;
+
   margin-right: 2rem;
 }
 
 .profile-photo {
+
   width: 5rem;
   margin-left: 30%;
   margin-top: 15%;
   border-radius: 50%;
+
   object-fit: cover;
 }
 
@@ -107,11 +114,13 @@ margin-bottom: 2rem;
   margin-left: 2rem;
 }
 
+
 .link-name {
   color: white;
   margin-bottom: 2rem;
   font-size: 1.6rem;
 }
+
 
 
 .identity h5{
@@ -138,7 +147,7 @@ margin-bottom: 2rem;
 @media only screen and (max-width: 600px) {
   .main {
     flex-direction: column;
-  }
+  }s
 
   .sidebar {
     order: 2;
@@ -203,6 +212,7 @@ margin-left: 0;
   order: 1;
   width: 100%;
 }
+
 
 
 }
