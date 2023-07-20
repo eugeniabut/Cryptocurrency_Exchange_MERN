@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Profile.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCamera } from '@fortawesome/free-solid-svg-icons';
 
-import axios from "axios"
+
+import axios from "axios";
 
 import { NavLink } from "react-router-dom";
 
@@ -20,8 +23,7 @@ function Profile(props) {
     country: "Edit your profile",
   });
   const [image, setImage] = useState("");
-  const [imgUrl, setImgUrl] = useState('')
-
+  const [imgUrl, setImgUrl] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -50,30 +52,25 @@ function Profile(props) {
     }));
   };
   const imageChangeHandler = (e) => {
-    setImage(e.target.files[0])
-}
-
-const submitImageHandler = (e) => {
-
-  e.preventDefault()
- const data = new FormData()
- data.append('imageFile', image)
-
- axios.post('http://localhost:4000/uploads', data)
- .then(res => {
-   console.log(res.data.url);
-   setImgUrl(res.data.url);
-   setIsEditing(false);
- })
- .catch(err => console.log(err));
-};
-
-  const handleCancelClick = () => {
-   
-    setImage(null);
+    setImage(e.target.files[0]);
   };
 
+  const submitImageHandler = (e) => {
+    e.preventDefault();
+    const data = new FormData();
+    data.append("imageFile", image);
 
+    axios
+      .post("http://localhost:4000/uploads", data)
+      .then((res) => {
+        console.log(res.data.url);
+        setImgUrl(res.data.url);
+        setIsEditing(false);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  
 
   return (
     <main className="main">
@@ -91,38 +88,33 @@ const submitImageHandler = (e) => {
         </div>
       </div>
 
-
-      <div className="background-image">
-      
+      <div >
         <div className="card-content">
-       
-           <div className="card-heading">
-
+          <div className="card-heading">
             <div className="card-heading-photo-container">
               <div className="photo">
-               <img src={imgUrl}  alt="Profile"/>
+                <img src={imgUrl} alt="" />
               </div>
+            </div>
 
-
-              <div className="card-heading-photo-form">
-                {isEditing ? (
-                  <form onSubmit={submitImageHandler}>
-                    <input
-                      type="file"
-                      name="image"
-                      accept="image/png, image/jpg, image/jpeg, image/gif"
-                      onChange={imageChangeHandler}
-                    />
-                    <input type="submit" value="Upload" />
-                  </form>
-                ) : (
-                  <button className="btn-upload" onClick={handleEditClick}>
-                    Upload Image
-                  </button>
-                 
-                )} 
+            <div className="card-heading-photo-form">
+              {isEditing ? (
+                <form onSubmit={submitImageHandler}>
+                  <input
+                    type="file"
+                    name="image"
+                    accept="image/png, image/jpg, image/jpeg, image/gif"
+                    onChange={imageChangeHandler}
+                  />
+                  <input type="submit" value="Upload" />
+                </form>
+              ) : (
+                <div className="upload-icon" onClick={handleEditClick}>
+                <FontAwesomeIcon icon={faCamera} />
+              
               </div>
-      </div>
+              )}
+            </div>
 
             <div className="card-heading-links">
               <NavLink to="/home" className="link-name">
@@ -240,11 +232,8 @@ const submitImageHandler = (e) => {
             </div>
           </div>
         </div>
-
-       
       </div>
-      
-    </main> 
+    </main>
   );
 }
 
