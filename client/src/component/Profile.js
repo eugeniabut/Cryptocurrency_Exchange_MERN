@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Profile.css";
-import ProfilePhoto from "./images/profile-free.png";
+
+import axios from "axios"
+
 import { NavLink } from "react-router-dom";
+
 function Profile(props) {
   const { userData } = props;
+
   const [checkUserId, setCheckUserId] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [profileData, setProfileData] = useState({
@@ -15,6 +19,10 @@ function Profile(props) {
     phone: "Edit your phone",
     country: "Edit your profile",
   });
+  const [image, setImage] = useState("");
+  const [imgUrl, setImgUrl] = useState('')
+
+
   const submitHandler = (e) => {
     e.preventDefault();
     setProfileData({
@@ -28,10 +36,12 @@ function Profile(props) {
   const handleEditClick = () => {
     setIsEditing(true);
   };
+
   const handleSaveClick = () => {
     setIsEditing(false);
     // Perform save logic or API request here
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProfileData((prevData) => ({
@@ -39,6 +49,32 @@ function Profile(props) {
       [name]: value,
     }));
   };
+  const imageChangeHandler = (e) => {
+    setImage(e.target.files[0])
+}
+
+const submitImageHandler = (e) => {
+
+  e.preventDefault()
+ const data = new FormData()
+ data.append('imageFile', image)
+
+ axios.post('http://localhost:4000/uploads', data)
+ .then(res => {
+   console.log(res.data.url);
+   setImgUrl(res.data.url);
+   setIsEditing(false);
+ })
+ .catch(err => console.log(err));
+};
+
+  const handleCancelClick = () => {
+   
+    setImage(null);
+  };
+
+
+
   return (
     <main className="main">
       <div className="sidebar">
@@ -54,12 +90,40 @@ function Profile(props) {
           </NavLink>
         </div>
       </div>
-      <div className="image-content">
+
+
+      <div className="background-image">
+      
         <div className="card-content">
-          <div className="card-heading">
-            <div >
-              <img className="profile-photo" src={ProfilePhoto} alt="" />
-            </div>
+       
+           <div className="card-heading">
+
+            <div className="card-heading-photo-container">
+              <div className="photo">
+               <img src={imgUrl}  alt="Profile"/>
+              </div>
+
+
+              <div className="card-heading-photo-form">
+                {isEditing ? (
+                  <form onSubmit={submitImageHandler}>
+                    <input
+                      type="file"
+                      name="image"
+                      accept="image/png, image/jpg, image/jpeg, image/gif"
+                      onChange={imageChangeHandler}
+                    />
+                    <input type="submit" value="Upload" />
+                  </form>
+                ) : (
+                  <button className="btn-upload" onClick={handleEditClick}>
+                    Upload Image
+                  </button>
+                 
+                )} 
+              </div>
+      </div>
+
             <div className="card-heading-links">
               <NavLink to="/home" className="link-name">
                 Link
@@ -88,6 +152,7 @@ function Profile(props) {
               <p>
                 <b>Phone:</b> {profileData.phone}
               </p>
+
               <div className="row">
                 <div className="col">
                   {isEditing ? (
@@ -142,6 +207,7 @@ function Profile(props) {
                           className="form-control"
                         />
                       </label>
+
                       <button className="btn-edit" onClick={handleSaveClick}>
                         Save
                       </button>
@@ -154,7 +220,9 @@ function Profile(props) {
                 </div>
               </div>
             </div>
+
             <div className="sectionTwo">My current info</div>
+
             <div className="sectionThree identity ">
               <>
                 <h5>Verify your Identity:</h5>
@@ -172,8 +240,12 @@ function Profile(props) {
             </div>
           </div>
         </div>
+
+       
       </div>
-    </main>
+      
+    </main> 
   );
 }
+
 export default Profile;
