@@ -1,42 +1,49 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
   background-color:goldenrod;
-}
+} */
 .main{
+  width:100vw;
+  height: 100%;
   display: flex;
 }
 .sidebar {
-margin-left:0.5%;
+ margin-left:0.5%;
 margin-bottom: 0.5%;
 margin-top: 0.5%;
-width: 16%;
 height: 100vh;
 border-radius: 10px;
-background-color: #0B5955;
+background-color: #24262683;
 }
 
 .card-content {
-margin-left: 5%;
-padding-top: 5%;
-height: 90vh;
-width: 74vw;
+margin-left: 10%;
+padding-top: 10%;
+width: 70vw;
+
 border-radius: 10px;
 }
 .card-body {
-  display: flex;
+  display: grid;
   background-color: lightgray;
   height: 92%;
   border-radius: 10px;
 }
-.sectionOne,
-.sectionTwo,
-.sectionThree {
-  width: 33%;
+
+.sectionTwo  {
   display: flex;
   flex-direction: column;
-  margin: 2rem;
- align-items: center;
+  align-items: center;
+  width: 15rem;
+}
+.sectionTwo  h4{
+  padding: 1rem;
+  border-radius: 10%;
+  background-color: rgba(151, 114, 66, 0.462);
+  width: 10rem;
+  height: 10rem;
+  color: rgb(82, 46, 3);
 }
 .sectionOne h5{
 margin-top: 2rem;
@@ -44,9 +51,9 @@ margin-bottom: 2rem;
 }
 .card-heading {
   display: flex;
-  
+  /* width: 75vw; */
   height: 6.5rem;
-  background-color: #0B5955;
+  background-color: #3a3b3b96;
   border-radius: 10px;
 }
 .card-heading-photo-container{
@@ -54,15 +61,38 @@ margin-bottom: 2rem;
   align-items: center;
  margin-left: 3%;
 }
+.profile-data{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: rgba(210, 159, 40, 0.197);
+  border-radius: 3%;
+  padding: 3rem;
 
+}
+.profile-data .profile-picture{
+  padding-left:15%;
+
+}
+.avatar{
+  width:15rem;
+  border-radius: 5%;
+  box-shadow: 10px 20px #8888887a;
+
+}
+.profile-picture img{
+  border-radius: 20%;
+
+  box-shadow: 10px 20px #556e717a;
+ 
+}
 .photo{
-
+  margin: 9px;
   width: 90px;
   height: 90px;
- 
-
      border-radius: 50%;
-     background-color:goldenrod;
+     background-color:rgba(218, 165, 32, 0.517);
      overflow: hidden;
  }
  .photo img{
@@ -116,12 +146,30 @@ color:goldenrod;
   cursor: pointer;
   font-size: 2.4rem;
 }
-
+.col form{
+  width: 100%;
+  position: relative;
+  right: 10rem;
+}
 .upload-icon:hover {
  color:rgb(174, 131, 23);
 }
 
 
+/* Styling for the button when not editing */
+.upload-icon {
+  margin-top: 3rem;
+  margin-left: 1rem;
+color:goldenrod;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 2.4rem;
+}
+
+.upload-icon:hover {
+ color:rgb(174, 131, 23);
+}
 
 .card-heading-links {
   display: flex;
@@ -139,20 +187,25 @@ color:goldenrod;
 
 
 .profile-info p {
-  margin-bottom: 1rem;
+  width: 15rem;
+  height: 2rem;
+  /* margin: 1rem;
+  padding: 6.5px; */
+  background-color: rgba(131, 80, 22, 0.271);
 }
 .submit-identity {
   border-radius: 5px;
 }
 .link-list {
-  margin-top: 6rem;
+  margin-top: 10rem;
   display: flex;
   flex-direction: column;
   margin-left: 2rem;
+  width: 15vw;
 }
 .link-name {
   color: white;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   font-size: 1.6rem;
 }
 .identity h5{
@@ -171,6 +224,14 @@ color:goldenrod;
 .btn-save {
   background-color: #0B5955;
   border-radius: 6px;
+}
+
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+  .sidebar{
+    display: none;
+  }
+ 
+  
 }
 @media only screen and (max-width: 600px) {
   .main {
@@ -217,7 +278,7 @@ margin-left: 0;
 }
 .sectionTwo{
   order:2;
-  width: 100%;
+  /* width: 100%; */
 }
 .sectionOne{
   display: none;
@@ -226,6 +287,23 @@ margin-left: 0;
 }
 .sectionThree{
   order: 1;
-  width: 100%;
+  /* width: 100%; */
 }
+.coin-cart{
+  width: 30%;
+}
+}
+ .container{
+  /* width: 100%; */
+  height: 100%;
+   padding-left: 10rem;
+   }
+
+
+.coin-cart  tr td{
+  color: black;
+  /* width: 2rem; */
+ 
+
+  
 }

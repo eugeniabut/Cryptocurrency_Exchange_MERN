@@ -1,17 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
 .home{
+    /* width: 100vw; */
     height: 100%;
     /* background: #0b5955 linear-gradient(45deg, #000000, #101618 57%,) repeat scroll 0 0; */
 }
 
   .news-text{
-
-    /* background: radial-gradient(ellipse farthest-corner at right bottom, #242320 0%, #714e07 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
-                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #786531 25%, #5d4a1f 62.5%, #5d4a1f 100%); */
                 background-color: black;
                 box-shadow:10px 5px 5px  #171716;
-                /* border-radius: 50%; */
-height: 30vh;
+                height: 30vh;
 
   }
  
@@ -31,9 +28,6 @@ font-size: large;
     padding-left: 25rem;
 
 }
-
-
-
 
 .large-cta-section {
     box-shadow: 0 6px 12px -4px #DAA520 inset;
@@ -113,10 +107,22 @@ a.cta-link:hover{
     top: 11em;
     z-index: 4;
 }
-/* .trading-block{
-    width: 100%;
-    height: 100%;
-    border: #1e9fc4 solid 5px;
 
 
-} */
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+    .d-block{
+
+        width: 100vw;
+        height: 30vh;
+    }
+    .card-item{
+        width: 50vw;
+        height: 30vh;
+        padding: 1rem;
+    }
+   
+    
+}
+
+
+

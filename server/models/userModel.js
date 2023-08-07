@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import {addressSchema} from "./addressModel.js";
+import {coinSchema} from "./coinsModel.js";
 
 const userSchema = new mongoose.Schema({
 
@@ -19,19 +20,16 @@ address: {
       type: addressSchema,
       required: true
   },
-
-  // This one for one To Many relation
+  coine:[{ type: coinSchema,
+    required: true}],
 verified:{
   type: Boolean,
   default : false
-}
-  /* 
-Used for One to One relation
-{
-  type:mongoose.Schema.Types.ObjectId,
-  ref:'Post'
+},
+avatar:String,
+phone:String,
+aboutMe:String,
 
-} */
 }) 
 
 export default mongoose.model("User", userSchema);

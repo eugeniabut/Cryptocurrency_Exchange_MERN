@@ -1,6 +1,6 @@
 .container {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 40vw;
+    margin-left: 2rem ;
   }
   
   h2 {
@@ -10,7 +10,7 @@
   }
   
   table {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
   }
   
@@ -23,11 +23,12 @@
   
   tbody td {
     padding: 8px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #1f1d1d;
   }
   
   tbody td:last-child {
-    border-bottom: none;
+    border-bottom: 1px solid #1f1d1d;
+
   }
   
   .loading-message {

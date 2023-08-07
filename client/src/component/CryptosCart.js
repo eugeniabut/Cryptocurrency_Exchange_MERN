@@ -1,34 +1,59 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import "./cryptosCart.css"
 import { myStore } from '../myStore/dataStore'
-function CryptosCart() {
-	const cryptos=myStore((state)=>state.cryptos)
-  return (
-   <> <div className='cryptos-card' >
+import { useState } from 'react';
+import StorContext from "../context/index"
+import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
-<table class="container">
-	<thead>
-		<tr>
-			<th><h1>symbol</h1></th>
-			<th><h1>cryptos</h1></th>
-			<th><h1>current_price</h1></th>
-			<th><h1>price_change_24h</h1></th>
-			<th><h1>price_change_percentage_24h</h1></th>
-			<th><h1>current_price</h1></th>
-			<th><h1>total_volume</h1></th>
-		</tr>
-	</thead>
-	<tbody>
-		{ cryptos.map((data,index)=>{if(index<=10)return(<tr>
-			<td>{data.symbol}</td>
+function CryptosCart({data}) {
+	// console.log(some);
+	const{authenticated,counter,setCounter}=useContext(StorContext)
+const addCoin=async	(e)=>{
+	setCounter(counter+1)
+				const coin={
+					cryptos:data.id,
+					current_price:data.current_price,
+				 price_change_24h:data.price_change_24h,
+					price_change_percentage_24h:data.price_change_percentage_24h,
+					total_volume:data.total_volume,
+					image:data.image,
+					quantity:counter
+				}
+				
+				try {
+					const response = await axios.post(`${process.env.REACT_APP_BE_URL}/exchange/add-coin`,coin,{
+						headers : {
+						  'Authorization': `Bearer ${JSON.parse(localStorage.getItem('my-app-token'))}`
+						}
+					  })
+					  console.log( response.data.message);
+
+					 
+				  } catch (err) {
+					console.log(err.request.response)
+				
+				  }
+				  
+				}
+				
+				
+  return (
+   <> 
+		<tbody>
+		<tr >
+			<td>
+				 <img className='coin-img' src={data.image} alt={data.symbol} style={{width:30,height:30}}/>
+			</td> 
 			<td>{data.id}</td>
-			<td>{data.current_price}</td>
-			<td>{data.price_change_24h}</td>
-			<td>{data.price_change_percentage_24h}</td>
-			<td>{data.current_price}</td>
-			<td>{data.total_volume}</td>
-		</tr>)})}
-		</tbody></table></div>
+			<td className='th'>{data.current_price}</td>
+		{	data.price_change_24h>0?(<td style={{color:"green"}} >{data.price_change_24h}</td>):(<td style={{color:"red"}} >{data.price_change_24h}</td>)}
+			<td className='th'>{data.price_change_percentage_24h}</td>
+			<td className='th'>{data.current_price}</td>
+			<td className='th'>{data.total_volume}</td>
+			{authenticated?<td><button className='Buy-now'  value={data} onClick={addCoin}  >Buy Now</button></td>:""}
+		</tr></tbody>
+		
       {/* <div className='reviews-card'></div> */}
    </>
   

@@ -1,0 +1,19 @@
+.cryptos-list{
+    
+    height: 200px;
+
+overflow-y: scroll;
+}
+
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+    .container{
+
+        width: 90vw;
+        height: 30vh;
+    }
+   .th h1{
+    display: none;
+   }
+   
+    
+}

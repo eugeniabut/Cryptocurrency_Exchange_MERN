@@ -1,11 +1,12 @@
 // TradingViewWidget.jsx
 import CryptosCart from './CryptosCart';
+import CryptosList from './CryptosList';
 import "./trading.css"
 import React, { useEffect, useRef } from 'react';
 
 let tvScriptLoadingPromise;
 
-export default function TradingViewWidget() {
+export default function TradingViewWidget({userData} ) {
   const onLoadScriptRef = useRef();
 
   useEffect(
@@ -59,9 +60,9 @@ export default function TradingViewWidget() {
     <div className='tradingview-widget-container'>
       <div id='tradingview_c1116' />
       <div className="tradingview-widget-copyright">
-        <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span className="blue-text">Track all markets on TradingView</span></a>
+       <span className="blue-text">Track all markets on TradingView</span>
         <div className='cryptos-container'> </div>
-        {/* <CryptosCart/>  */}
+        <CryptosList userData={userData} /> 
       </div>
         
 
