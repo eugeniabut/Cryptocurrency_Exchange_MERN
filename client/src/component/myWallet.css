@@ -1,4 +1,35 @@
-.main-container{
-  width: 20rem;
-  height: 3rem;
+
+@import url('https://fonts.googleapis.com/css?family=Abel|Courgette|Cormorant+Garamond');
+
+.wallet{
+  display: flex;
+  color: antiquewhite;
+  flex-direction: column;
+align-content:space-around;
+justify-content: center;
+ width: 100vw;
+  height: 100vh;
+}
+.wallet-item{
+  font-size: larger;
+
+  color: white;
+  border: 2px rgb(152, 148, 148) solid; 
+}
+.wallet-item td{
+  padding: 2rem;
+  width: 20%;
+}
+
+
+.total-cart{
+  color: white;
+  padding: 5%;
+  border: 2px rgb(152, 148, 148) solid;
+  height: 4rem;
+  font-size: 2rem;
+}
+.some{
+   position: absolute;
+right: 10rem;
 }

@@ -76,6 +76,14 @@ export const getAllUsers = async (req,res,next)=>{
         next(err)
     }
 }
+export const getUser = async (req,res,next)=>{
+  try {
+      const user = await User.findById(req.params.id)
+     res.status(200).json(user)
+  } catch (err) {
+      next(err)
+  }
+}
 
 export const deleteUser = async (req, res) => {
     try {
@@ -89,7 +97,8 @@ export const deleteUser = async (req, res) => {
  export const updateUserProfile=async(req,res,next)=>{
     try{    
       console.log(req.body);
-        const result = await User.findOneAndUpdate({_id: req.userId}, req.body)
+        const result = await User.findOneAndUpdate({_id:req.params.id}, req.body)
+        // console.log(result);
         res.status(201).send("User updated successfully")
     }
     catch(err) {

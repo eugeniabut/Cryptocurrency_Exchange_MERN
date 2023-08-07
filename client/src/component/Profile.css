@@ -1,65 +1,49 @@
-
-body {
+/* body {
   margin: 0;
   padding: 0;
   background-color:goldenrod;
- 
-}
-
+} */
 .main{
+  width:100vw;
+  height: 100%;
   display: flex;
 }
 .sidebar {
-
-margin-left:0.5%;
+ margin-left:0.5%;
 margin-bottom: 0.5%;
 margin-top: 0.5%;
-width: 16%;
 height: 100vh;
 border-radius: 10px;
-background-color: #0b5955;
-
+background-color: #24262683;
 }
-
-.image-content {
-width: 83vw;
-margin-left:0.5%;
- margin-top: 0.5%;
- margin-bottom: 0.5%;
- margin-right: 0.5%;
-
-border-radius: 10px; 
-  background-image: url("./images/coin-gold1.jpg");
-}
-
 
 .card-content {
-margin-left: 5%;
-padding-top: 5%;
-height: 90vh;
-width: 74vw;
+margin-left: 10%;
+padding-top: 10%;
+width: 70vw;
+
 border-radius: 10px;
-
-
-
 }
-
 .card-body {
-  display: flex;
+  display: grid;
   background-color: lightgray;
   height: 92%;
   border-radius: 10px;
-
 }
 
-.sectionOne,
-.sectionTwo,
-.sectionThree {
-  width: 33%;
+.sectionTwo  {
   display: flex;
   flex-direction: column;
-  margin: 2rem;
- align-items: center;
+  align-items: center;
+  width: 15rem;
+}
+.sectionTwo  h4{
+  padding: 1rem;
+  border-radius: 10%;
+  background-color: rgba(151, 114, 66, 0.462);
+  width: 10rem;
+  height: 10rem;
+  color: rgb(82, 46, 3);
 }
 .sectionOne h5{
 margin-top: 2rem;
@@ -67,88 +51,178 @@ margin-bottom: 2rem;
 }
 .card-heading {
   display: flex;
-  justify-content: space-between;
+  /* width: 75vw; */
   height: 6.5rem;
-  background-color: #0b5955;
+  background-color: #3a3b3b96;
+  border-radius: 10px;
+}
+.card-heading-photo-container{
+  display: flex;
+  align-items: center;
+ margin-left: 3%;
+}
+.profile-data{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: rgba(210, 159, 40, 0.197);
+  border-radius: 3%;
+  padding: 3rem;
+
+}
+.profile-data .profile-picture{
+  padding-left:15%;
+
+}
+.avatar{
+  width:15rem;
+  border-radius: 5%;
+  box-shadow: 10px 20px #8888887a;
+
+}
+.profile-picture img{
+  border-radius: 20%;
+
+  box-shadow: 10px 20px #556e717a;
+ 
+}
+.photo{
+  margin: 9px;
+  width: 90px;
+  height: 90px;
+     border-radius: 50%;
+     background-color:rgba(218, 165, 32, 0.517);
+     overflow: hidden;
+ }
+ .photo img{
+   width: 100%;
+   height: 100%;
+   object-fit: cover; 
+ }
+ 
+
+.card-heading-photo-form {
+  display: flex;
+  align-items: center;
+  
+}
+
+.card-heading-photo-form form {
+  display: flex;
+ 
+
+ 
+  
+}
+.card-heading-photo-form input[type="file"] {
+  margin-bottom: 10px;
+  border: 1px solid goldenrod;
   border-radius: 10px;
 }
 
-.card-heading-links {
 
-  display: flex;
-  justify-content: space-evenly;
-  margin-right: 2rem;
+.card-heading-photo-form input[type="submit"] {
+  padding: 8px 16px;
+  background-color:goldenrod;
+  color:#0B5955;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+ margin-left: 30%;
+ margin-right: 30%;
+}
+.card-heading-photo-form input[type="submit"]:hover{
+  background-color:rgb(174, 131, 23);
+} 
+
+/* Styling for the button when not editing */
+.upload-icon {
+  margin-top: 3rem;
+  margin-left: 1rem;
+color:goldenrod;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 2.4rem;
+}
+.col form{
+  width: 100%;
+  position: relative;
+  right: 10rem;
+}
+.upload-icon:hover {
+ color:rgb(174, 131, 23);
 }
 
 
+
+.card-heading-links {
+  display: flex;
+  justify-content: center;
+ margin-left: 20%;
+}
 .card-heading-links * {
+ 
   font-size: 2rem;
   padding-top: 1.2rem;
   color: white;
-
   margin-right: 2rem;
+ 
 }
 
-.profile-photo {
-
-  width: 5rem;
-  margin-left: 30%;
-  margin-top: 15%;
-  border-radius: 50%;
-
-  object-fit: cover;
-}
 
 .profile-info p {
-  margin-bottom: 1rem;
+  width: 15rem;
+  height: 2rem;
+  /* margin: 1rem;
+  padding: 6.5px; */
+  background-color: rgba(131, 80, 22, 0.271);
 }
-
 .submit-identity {
   border-radius: 5px;
 }
-
 .link-list {
-  margin-top: 6rem;
+  margin-top: 10rem;
   display: flex;
   flex-direction: column;
   margin-left: 2rem;
+  width: 15vw;
 }
-
-
 .link-name {
   color: white;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   font-size: 1.6rem;
 }
-
-
-
 .identity h5{
   margin-top: 2rem;
 }
-
 .identity-submit {
   margin-top: 6%;
-  background-color: #0b5955;
+  background-color: #0B5955;
   border-radius: 6%;
 }
-
 .identity-input {
   margin-top: 6%;
   border-radius: 5px;
 }
-
 .btn-edit,
 .btn-save {
-  background-color: #0b5955;
+  background-color: #0B5955;
   border-radius: 6px;
 }
 
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+  .sidebar{
+    display: none;
+  }
+ 
+  
+}
 @media only screen and (max-width: 600px) {
   .main {
     flex-direction: column;
-  }s
-
+  }
   .sidebar {
     order: 2;
     margin: 0;
@@ -161,34 +235,27 @@ margin-bottom: 2rem;
 margin-top: 5%;
 margin-left: 0;
   }
-
   .image-content {
     margin: 0;
     width: 100%;
     border-radius: 0;
   }
-
   .card-content {
     order: 1;
     margin-left: 0;
     width: 100%;
   }
-
   .card-heading {
-  align-items: center; 
+  align-items: center;
 }
-  
   .card-heading-links {
-    display: none; 
+    display: none;
   }
-  
   .profile-photo {
-  
   margin-left: 40vw;
-  margin-top: 0.5rem; 
-  margin-bottom: 0.5rem; 
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
  }
-
 .card-body{
   border-radius: 0;
   display: flex;
@@ -197,22 +264,32 @@ margin-left: 0;
 }
 .sectionTwo{
   order:2;
-  width: 100%;
- 
-  
+  /* width: 100%; */
 }
-
 .sectionOne{
   display: none;
-  width: 100%; 
+  width: 100%;
    margin: 0;
 }
-
 .sectionThree{
   order: 1;
-  width: 100%;
+  /* width: 100%; */
 }
+.coin-cart{
+  width: 30%;
+}
+}
+ .container{
+  /* width: 100%; */
+  height: 100%;
+   padding-left: 10rem;
+   }
 
 
+.coin-cart  tr td{
+  color: black;
+  /* width: 2rem; */
+ 
 
+  
 }

@@ -3,8 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  height: 73.3vh;
+  /* width: 100vw; */
+  height: 80vh;
   /* padding: 2rem;/ */
 }
 .login-form div{
@@ -13,21 +13,36 @@ height: 5rem;
 align-self: center;
 width: 50%;
 }
- .form{
-background-color: aqua;
-}
+
 .mb-3{
   font-size: larger;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
- position: absolute;
- bottom: 200px;
+ /*  */
  padding-left: 15%;
 }
 .registration-text{
  padding-left: 15%;
 
 }
-.btn{
+/* .btn{
 background-color: antiquewhite;
   height: 1.5rem;
+} */
+
+
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+  .login-form{
+    padding: 10%;
+
+      width:90vw;
+      height: 100vh;
+  }
+ .login{
+  width: 15rem;
+  position: relative;
+  right: 10rem;
+ }
+
+ 
+  
 }

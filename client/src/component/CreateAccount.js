@@ -1,31 +1,34 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import "./CreateAccount.css"
 import { useNavigate } from "react-router-dom";
+import StorContext from "../context";
 
 const CreateAccount = () => {
   const navigate=useNavigate()
   const [accountNumber, setAccountNumber] = useState("");
   const [accountHolder, setAccountHolder] = useState("");
+ const{userData,authenticated}=useContext(StorContext)
   
 // const [transferAmount, setTransferAmount] = useState(0);
   // const [createdAt, setCreatedAt] = useState("");
   // const [owner, setOwner] = useState("");
-
+console.log(userData);
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
+const bankData={
+  accountNumber,
+  accountHolder,
+  userData
+}
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BE_URL}/profile/add-bank`, {
-        accountNumber,
-        accountHolder,
-      }, {
+      const response = await axios.post(`${process.env.REACT_APP_BE_URL}/profile/add-bank`, bankData, {
         headers : {
           'Authorization': `Bearer ${JSON.parse(localStorage.getItem('my-app-token'))}`
         }
       });
       e.target.reset();
-      navigate("/profile")
+     if(authenticated) {navigate("/bank-data")}else{navigate("*")}
     } catch (err) {
       console.log(err);
     }

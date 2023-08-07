@@ -1,47 +1,16 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
-/* body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-  /* line-height: 1.42em; */
-  /* color:#A7A1AE;
-  background-color:#4f4624;
-} */ 
-/* 
-h1 {
-  font-size:3em; 
-  font-weight: 300;
-  line-height:1em;
-  text-align: center;
-  color: #fad44d;
-}
-
-h2 {
-  font-size:1em; 
-  font-weight: 300;
-  text-align: center;
-  display: block;
-  line-height:1em;
-  padding-bottom: 2em;
-  color: #ead7d9;
-}
-
-h2 a {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #ffffff;
-  text-decoration: none;
-} */
-
-.blue { color: #757018; }
-.yellow { color: #FFF842; }
+.blue { color: #12120f; }
+.yellow { color: #131312; }
 
 .container th h1 {
 	  font-weight: bold;
 	  font-size: 1em;
   text-align: left;
-  color: #755018;
+  color: #171614;
+  font-size: larger;
+
 }
 
 .container td {
@@ -50,21 +19,24 @@ h2 a {
   -webkit-box-shadow: 0 2px 2px -2px #0E1119;
 	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
 	        box-shadow: 0 2px 2px -2px #0E1119;
+  color: #171614;
+  font-size: larger;
+
 }
 
 .container {
 	  text-align: left;
 	  overflow: hidden;
-	  width: 80%;
+	  /* width: 70%; */
 	  margin: 0 auto;
   display: table;
   padding: 0 0 8em 0;
 }
 
 .container td, .container th {
-	  padding-bottom: 2%;
-	  padding-top: 2%;
-  padding-left:2%;  
+	  /* padding-bottom: 2%; */
+	  /* padding-top: 2%;
+  padding-left:2%;   */
 }
 
 /* Background-color of the odd rows */
@@ -81,19 +53,18 @@ h2 a {
 	  background-color: #f8debeea;
 }
 
-.container td:first-child { color: #e6dedf; }
+.container td:first-child { color: #1c1919; }
 
-.container tr:hover {
-   background-color: #464A52;
+.Buy-now:hover {
 -webkit-box-shadow: 0 6px 6px -6px #0E1119;
 	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
 	        box-shadow: 0 6px 6px -6px #0E1119;
 }
-
-.container td:hover {
-  background-color: #ffba42;
-  color: #403E10;
-  font-weight: bold;
+.Buy-now{
+  border-radius: 10%;
+}
+.Buy-now:hover {
+  background-color: #d01919;
   
   box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
   transform: translate3d(6px, -6px, 0);
@@ -107,4 +78,17 @@ h2 a {
 @media (max-width: 800px) {
 .container td:nth-child(4),
 .container th:nth-child(4) { display: none; }
+}
+
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+  .cryptos-list{
+ padding: 1rem;
+      width: 100vw;
+      height: 30vh;
+  }
+ .th {
+  display: none;
+ }
+ 
+  
 }
