@@ -108,7 +108,35 @@ a.cta-link:hover{
     z-index: 4;
 }
 
+.review-form {
+  
+   margin-left: 20vw;
+   margin-right: 20vw;
+}
+.review-label {
+    color: goldenrod;
+   text-align: center;
+   font-family: "Roboto",sans-serif;
+    font-size: 1.4rem;
+   
+}
+.review-area {
+     background-color: #d2d1cc; 
+     border-radius: 5px;
+}
+.review-btn {
+    margin-top: 1rem;
+   
+    background-color: goldenrod;
+    color: black;
+    font-size: 1.4rem;
+    font-family: "Roboto",sans-serif;
+    border-radius: 5px;
 
+}
+.review-btn:hover{
+    background-color: #a77a08;
+}
 @media screen and (min-width: 400px) and (max-width: 1024px) {
     .d-block{
 

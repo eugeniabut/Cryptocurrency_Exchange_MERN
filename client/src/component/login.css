@@ -24,11 +24,6 @@ width: 50%;
  padding-left: 15%;
 
 }
-/* .btn{
-background-color: antiquewhite;
-  height: 1.5rem;
-} */
-
 
 @media screen and (min-width: 400px) and (max-width: 1024px) {
   .login-form{

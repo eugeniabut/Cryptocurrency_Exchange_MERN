@@ -1,42 +1,40 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React,{useState} from 'react'
+import axios from "axios"
 import { NavLink, useNavigate } from "react-router-dom";
 function Registration() {
-  const [errorMessage, setErrorMessage] = useState("");
-  const [responseMsg, setResponseMsg] = useState("");
-  const navigate = useNavigate();
-  const onchangeHandler = (e) => {
-    console.log(e.target.value);
-  };
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    const userProfile = {
-      firstName: e.target["firstName"].value,
-      lastName: e.target["lastName"].value,
-      password: e.target["password"].value,
-      confirmPassword: e.target["confirmPassword"].value,
-      email: e.target["email"].value,
-      address: {
-        streetName: e.target["streetName"].value,
-        cityName: e.target["cityName"].value,
-        postalCode: e.target["postalCode"].value,
-        houseNumber: e.target["houseNumber"].value,
-      },
-    };
-    console.log(userProfile);
-    try {
-      const response = await axios.post(
-        `${process.env.REACT_APP_BE_URL}/users/create-user`,
-        userProfile
-      );
-      e.target.reset();
-      console.log(response);
+  const [errorMessage, setErrorMessage] = useState("")
+  const [responseMsg,setResponseMsg]=useState("")
+const navigate=useNavigate()
+const onchangeHandler=(e)=>{
+console.log(e.target.value);
+}
+const submitHandler=async(e)=>{
+  e.preventDefault();
+  const userProfile = {
+    firstName: e.target["firstName"].value,
+    lastName: e.target["lastName"].value,
+    password: e.target["password"].value,
+    confirmPassword: e.target["confirmPassword"].value,
+    email: e.target["email"].value,
+    address:{
+    streetName: e.target["streetName"].value,
+    cityName: e.target["cityName"].value,
+    postalCode: e.target["postalCode"].value,
+    houseNumber: e.target["houseNumber"].value
+    
+    }  }
+console.log(userProfile);
+  try {
+    const response = await axios.post(`${process.env.REACT_APP_BE_URL}/users/create-user`, userProfile)
+      e.target.reset()
+      console.log( response);
       // navigate("/login")
-      setResponseMsg(response.data.message);
-    } catch (err) {
-      setErrorMessage(err.request.response);
-    }
-  };
+      setResponseMsg(response.data.message)
+  } catch (err) {
+    setErrorMessage(err.request.response)
+
+  }
+}
   return (
     <div className=''>
 <div className='registration-text'><h1>Registration Form</h1></div>
@@ -105,22 +103,20 @@ function Registration() {
             <option defaultValue="AD">USA</option>
           </select>
         <input type="submit" value="Register" />
-        </form>
-      <div>
-        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-        {responseMsg && <p style={{ color: "green" }}>{responseMsg}</p>}
+      </form>
+      <div>{
+        errorMessage 
+          && <p style={{color:'red'}}>{errorMessage}</p>      
+      }{  responseMsg 
+        && <p style={{color:'green'}}>{responseMsg}</p> }</div>
+     <div> <p className="mb-3 text-sm" >
+        Already have  an account? <br />
+        <NavLink to="/login" className="link" >Log in</NavLink> 
+
+     </p>  
+     </div>  </div>
       </div>
-      <div>
-        <p className="mb-3 text-sm">
-          Already have an account? <br />
-          <NavLink to="/login" className="link">
-            Log in
-          </NavLink>
-        </p>
-      </div>
-    </div>
-  </div>
-);
+  )
 }
 
-export default Registration;
+export default Registration
