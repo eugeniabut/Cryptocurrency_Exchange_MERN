@@ -1,8 +1,12 @@
 import Bank from "../models/bankModel.js"
 export const addBankData=async(req,res,next)=>{
  try {
-    const { accountNumber, accountHolder, balance, transferAmount, createdAt} = req.body;
-
+  console.log();
+    const {userId, accountNumber, accountHolder, balance, transferAmount, createdAt} = req.body;
+    const userBank= await Bank.findOne({owner:userId}) 
+    if(userBank){
+      const err= new Error("Sorry you can not have More then One Bank account")
+    } 
     const bankData = new Bank({
       accountNumber,
       accountHolder,

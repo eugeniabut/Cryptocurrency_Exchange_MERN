@@ -26,9 +26,10 @@ export const loginHandler = async (req, res, next) => {
                 firstName: checkUser.firstName,
                 lastName:checkUser.lastName,
                 userId: checkUser._id,
+                avatar:checkUser.avatar
             }
             const token = jwt.sign(payload, JWT_SECRET_KEY, { expiresIn: 3600 })
-            res.status(201).json({ message: "logged in successfully", token,  firstName: checkUser.firstName,lastName:checkUser.lastName, _id:checkUser._id,email
+            res.status(201).json({ message: "logged in successfully", token,  firstName: checkUser.firstName,lastName:checkUser.lastName, _id:checkUser._id,email,avatar:checkUser.avatar,aboutMe:checkUser.aboutMe
         })
 }
 }

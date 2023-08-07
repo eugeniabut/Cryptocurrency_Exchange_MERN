@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import "./displayUserBalance.css"
+import StorContext from "../context";
+import { useNavigate } from "react-router-dom";
 
 const BankData = () => {
-  const [bankData, setBankData] = useState([]);
+  const navigate=useNavigate()
+ const{bankData, authenticated,setBankData}=useContext(StorContext)
   const [isLoading, setIsLoading] = useState(true);
-
+// console.log(bankData);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -26,9 +30,8 @@ const BankData = () => {
 
     fetchData();
   }, []);
-console.log(bankData);
   return (
-    <div>
+    <div className="container">
       <h2>Bank Data</h2>
       {isLoading ? (
         <p>Loading data...</p>
@@ -41,7 +44,6 @@ console.log(bankData);
               <th>Balance</th>
               <th>Transfer Amount</th>
               <th>Created At</th>
-              <th>Owner</th>
             </tr>
           </thead>
           <tbody>
@@ -50,9 +52,8 @@ console.log(bankData);
                 <td>{data.accountNumber}</td>
                 <td>{data.accountHolder}</td>
                 <td>{data.balance}</td>
-                {/* <td>{data.transferAmount}</td>
+                <td>{data.transferAmount}</td>
                 <td>{data.createdAt}</td>
-                <td>{data.owner.name}</td> */}
               </tr>
             ))}
           </tbody>

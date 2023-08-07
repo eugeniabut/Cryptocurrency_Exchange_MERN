@@ -22,7 +22,7 @@ getData:async()=>{
       
         const newsData = await axios.request(options1);
         const cryptos = await axios.request(options2);
-        console.log(cryptos);
+        // console.log(cryptos);
         set({cryptos:cryptos.data, newsData:newsData.data})
     } catch (error) {
 set({error:error.message})  

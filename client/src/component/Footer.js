@@ -12,7 +12,7 @@ import { NavLink } from "react-router-dom";
 export default function App() {
   return (
     <footer className=" footer-basic">
-      <div class="social">
+      <div className="social">
         <a href="#">
           <FontAwesomeIcon icon={faInstagram} />
         </a>
@@ -27,7 +27,7 @@ export default function App() {
         </a>
       </div>
       <div>
-        <ul class="list-inline">
+        <ul className="list-inline">
           <li>
             <NavLink to="/" className="list-inline-item">
               Home
@@ -59,7 +59,7 @@ export default function App() {
           </li>
         </ul>
       </div>
-     <div> <p class="copyright">Company Name © 2018</p></div>
+     <div> <p className="copyright">Company Name © {new Date().getFullYear()}</p></div>
       <div className="footer-img"> <img src="./footer.jpg" alt="footer"/></div>
     </footer>
     // <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
