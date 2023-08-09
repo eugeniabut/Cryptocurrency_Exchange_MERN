@@ -108,12 +108,22 @@ a.cta-link:hover{
     z-index: 4;
 }
 
-.review-form {
+.review-form{
+width: 100%;
+margin: 0;
+}
+
+.review-read-write {
   
    margin-left: 20vw;
    margin-right: 20vw;
 }
+.review-read {
+border-bottom: 1px solid  #d2d1cc; 
+}
 .review-label {
+    margin-top: 1rem;
+    padding: 10px;
     color: goldenrod;
    text-align: center;
    font-family: "Roboto",sans-serif;
@@ -121,11 +131,12 @@ a.cta-link:hover{
    
 }
 .review-area {
-     background-color: #d2d1cc; 
+     background-color:  #fff; 
      border-radius: 5px;
 }
 .review-btn {
-    margin-top: 1rem;
+   margin-top: 1rem;
+   margin-bottom: 1rem;
    
     background-color: goldenrod;
     color: black;

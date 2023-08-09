@@ -225,6 +225,17 @@ color:goldenrod;
   background-color: #0B5955;
   border-radius: 6px;
 }
+.info {
+  color: white;
+  font-size: 2rem;
+}
+.info-support {
+  color:white;
+  font-size: 1.4rem;
+}
+.info-support:hover{
+  color: goldenrod;
+}
 
 @media screen and (min-width: 400px) and (max-width: 1024px) {
   .sidebar{

@@ -8,6 +8,7 @@ import { myStore } from '../myStore/dataStore.js';
 import CryptosList from './CryptosList';
 import StorContext from '../context';
 import axios from 'axios'
+import Reviews from './Reviews';
 
 function Home() {
   const{userData}=useContext(StorContext)
@@ -18,7 +19,7 @@ function Home() {
 
     try {
       const response = await axios.post("http://localhost:4000/review/review-create", {
-        review: reviewText,
+        reviewText: reviewText,
       });
 
       if (response.status === 200) {
@@ -66,18 +67,26 @@ function Home() {
 <div>(<CryptosList/>)</div>
 <div>
 <PhonApp/></div>
-
+<section className='review-read-write'>
+<div className='review-read'>
+        <Reviews />
+ </div>
+<div className='review-write'>
 <form className="review-form" onSubmit={handleReviewSubmit}>
         <label className='review-label' htmlFor="reviewText">Write a Review:</label>
         <textarea className='review-area'
           id="reviewText"
+        
           value={reviewText}
           onChange={(e) => setReviewText(e.target.value)}
         />
-        <button className="review-btn" type="submit">Submit Review</button>
+        <button className="review-btn" type="submit">Submit</button>
       </form>
 
 </div>
+</section>
+</div>
+
   )
 }
 
