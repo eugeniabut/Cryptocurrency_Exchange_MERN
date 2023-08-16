@@ -1,6 +1,7 @@
 .container {
   max-width: 400px;
   margin: 0 auto;
+  color: gold;
 }
 
 h2 {
@@ -8,13 +9,15 @@ h2 {
   font-size: 24px;
   margin-bottom: 16px;
   text-align: center;
+  color: antiquewhite;
 }
 
-form {
+.bank-form form {
   display: flex;
   flex-direction: column;
   margin-left:10rem;
   margin-right: 10rem;
+  margin: 20px;
 }
 
 label {
@@ -22,16 +25,16 @@ label {
   font-weight: bold;
 }
 
-input {
+/* input {
   padding: 8px;
   margin-bottom: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
+} */
 
 button {
   padding: 8px 16px;
-  background-color: #4285f4;
+  background-color: #da95265f;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -39,10 +42,10 @@ button {
 }
 
 button:hover {
-  background-color: #3367d6;
+  background-color: #d29614ae;
 }
 
-button:disabled {
+/* button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
-}
+} */

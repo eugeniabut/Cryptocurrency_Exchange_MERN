@@ -20,16 +20,12 @@ const verified=req.body.verified
         
         const hashedPassword = await bcrypt.hash(password, salt) 
 
-     
-       
-
  // Generate a token for email confirmation ->Eu
     const token = jwt.sign({ email }, process.env.JWT_SECRET_KEY, {
       expiresIn: '1d', 
     });
  //store user in db      
         const user = new User({
-        
           firstName,
           lastName,
           email,
@@ -41,11 +37,12 @@ const verified=req.body.verified
         })
         const newUser = await user.save()
  // Email content and send function
-
+console.log(newUser);
  const subject = "Confirmation Email";
  const plainText = "Registration at Cryptos!";
  const htmlText = `<h2>Dear ${user.firstName},</h2>
  <p>Thank you for registering at Cryptos.</p>
+ <p>This is Your ID : <h2>${newUser._id} </h2>  Pleas use it to identify your self</p>
  <p>Please click on the following link to verify your email:</p>
  <a href="${process.env.BASE_URL}/confirm-email/${token}">Verify Email</a>`;
    

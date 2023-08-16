@@ -4,7 +4,7 @@ import { myStore } from '../myStore/dataStore'
 import "./cryptosList.css"
 import StorContext from '../context'
 function CryptosList() {
-	const{authenticated,selectedCrypt,setSelectedCrypt}=useContext(StorContext)
+	const{authenticated}=useContext(StorContext)
     const cryptos=myStore((state)=>state.cryptos)
 
   return (

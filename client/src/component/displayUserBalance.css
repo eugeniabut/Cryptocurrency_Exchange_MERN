@@ -1,6 +1,11 @@
-.container {
-    max-width: 40vw;
-    margin-left: 2rem ;
+
+.bank-container{
+  display: flex;
+}
+.container-balance {
+padding: 10%;
+color: bisque;
+margin: 5%;
   }
   
   h2 {
@@ -9,24 +14,24 @@
     text-align: center;
   }
   
-  table {
+  .table {
     width: 90%;
     border-collapse: collapse;
   }
   
-  thead th {
+  .thead th {
     background-color: #f2f2f2;
     padding: 8px;
     font-weight: bold;
     text-align: left;
   }
   
-  tbody td {
+  .tbody td {
     padding: 8px;
     border-bottom: 1px solid #1f1d1d;
   }
   
-  tbody td:last-child {
+  .tbody td:last-child {
     border-bottom: 1px solid #1f1d1d;
 
   }

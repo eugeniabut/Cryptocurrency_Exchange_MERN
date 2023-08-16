@@ -9,7 +9,9 @@ function MyProfileForme() {
   const {
     profileData,
     setProfileData,
+    avatar,
     userData,
+    userId,
     selectedCrypt,
     bankData,
     authenticated,
@@ -18,37 +20,9 @@ function MyProfileForme() {
   const navigate = useNavigate();
   const [image, setImage] = useState("");
   const [imgUrl, setImgUrl] = useState("");
-  const [checkUserId, setCheckUserId] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
-  const submitImageHandler = (e) => {
-    e.preventDefault();
-  };
-  const coinBSOffer = async (e) => {
-    try {
-    const data = {
-      cryptos: e.target.name.cryptos,
-      current_price: +e.target.name.current_price,
-      price_change_percentage_24h: +e.target.name.price_change_24h,
-      quantity: e.target.name.quantity,
-    };
-      const response = await axios.post(
-        `${process.env.REACT_APP_BE_URL}/exchange/coin-offer`,
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${JSON.parse(
-              localStorage.getItem("my-app-token")
-            )}`,
-          },
-        }
-      );
-      console.log(response.data.message);
-    } catch (err) {
-      console.log(err.request.response);
-    }
-  };
-  const submitHandler = (e) => {
-    e.preventDefault();
+  const[walletList,setWalletList]=useState([{}])
+  const imageUploder=async()=>{
 
     const data = new FormData();
     data.append("imageFile", image);
@@ -57,8 +31,22 @@ function MyProfileForme() {
       .post(`${process.env.REACT_APP_BE_URL}/uploads`, data)
       .then((res) => {
         setImgUrl(res.data.url);
-      })
-      .catch((err) => console.log(err));
+        console.log(res.data.url);
+            })
+      .catch((err) => console.log(err));}
+ 
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    // const data = new FormData();
+    // data.append("imageFile", image);
+
+    // axios
+    //   .post(`${process.env.REACT_APP_BE_URL}/uploads`, data)
+    //   .then((res) => {
+    //     setImgUrl(res.data.url);
+    //   })
+    //   .catch((err) => console.log(err));
     const updateData = {
       firstName: e.target["firstName"].value,
       lastName: e.target["lastName"].value,
@@ -68,7 +56,7 @@ function MyProfileForme() {
     };
     axios
       .put(
-        `${process.env.REACT_APP_BE_URL}/users/update-profile/${userData.userID}`,
+        `${process.env.REACT_APP_BE_URL}/users/update-profile/${userId}`,
         updateData,
         {
           headers: {
@@ -79,13 +67,13 @@ function MyProfileForme() {
         }
       )
       .then((res) => {
-        
+        setIsEditing(false)
         console.log(res.data)})
       .catch((err) => console.log(err));
   };
   const getUser = async () => {
     axios
-      .get(`${process.env.REACT_APP_BE_URL}/users/profile/${userData.userID}`, {
+      .get(`${process.env.REACT_APP_BE_URL}/users/profile/${userId}`, {
         headers: {
           Authorization: `Bearer ${JSON.parse(
             localStorage.getItem("my-app-token")
@@ -104,17 +92,16 @@ function MyProfileForme() {
       })
       .catch((err) => console.log(err));
   };
-  useEffect(() => {
+
+
+
+ useEffect(() => {
     getUser();
-  }, [isEditing]);
+  }, [imgUrl,isEditing]);
   const handleEditClick = () => {
     setIsEditing(true);
   };
-  const userIdHandler = (e) => {
-    setCheckUserId(false);
-    if (e.target["bankID"].value === bankData._id) navigate("/add-bank");
-    // e.target.style.display="none"
-  };
+
   return (
     <div className="card-body">
       <div className="profile-data">
@@ -186,7 +173,7 @@ function MyProfileForme() {
                       accept="image/png, image/jpg, image/jpeg, image/gif"
                       onChange={(e) => setImage(e.target.files[0])}
                     />
-                    <input type="submit" value="Upload" />
+                    <input type="button" value="Upload" onClick={imageUploder} />
                   </label>
                   <button className="btn btn-primary">Save</button>
                 </form>
@@ -206,86 +193,10 @@ function MyProfileForme() {
           <h4>{profileData.aboutMe}</h4>
         </div>
         <div className="profile-picture">
-          <img src={profileData.avatar} alt="avatar" style={{ width: 200 }} />
+          <img src={avatar} alt="avatar" style={{ width: 200 }} />
         </div>
       </div>
-      <div className="sectionThree identity ">
-        {!checkUserId ? (
-          <div className="col-md-6">
-            <label>Verify your Identity:</label>
-            <form
-              className="submit-identity btn-primary"
-              onSubmit={userIdHandler}
-            >
-              <input
-                name="bankID"
-                className="identity"
-                type="text"
-                placeholder="Enter your ID"
-              />
-              <button className="submit-identity btn-primary">Submit</button>
-            </form>
-            <p>
-              {" "}
-              <b>
-                {" "}
-                Do we need Passport ID Number in database? If ID is true, then
-                show here bank data (navigate to DisplayUserBalance). Email and
-                name can be from backend getUser, and other personal data just
-                edited by user himself{" "}
-              </b>
-            </p>
-          </div>
-        ) : (
-          <div className="coin-cart">
-            {authenticated ? <BankData /> : ""}{" "}
-            <div>
-              <h3>your coins :</h3>
-              {selectedCrypt.map((data, i) => {
-                if (i > 0)
-                  return (
-                    <tr
-                      style={{ backgroundColor: "goldenrod" }}
-                      className="wallet-item"
-                    >
-                      <td>
-                        <img
-                          className="coin-img"
-                          src={data.image}
-                          alt={data.symbol}
-                          style={{ width: 30, height: 30 }}
-                        />{" "}
-                      </td>
-                      <td>{data.id}</td>
-                      <td>{data.current_price}</td>
-                      <td>x{data.quantity}</td>
-                      <td style={{ color: "green" }}>
-                        {data.price_change_24h}
-                      </td>
-                      <td>{data.price_change_percentage_24h}</td>
-                      <td>{data.total_volume}</td>
-                      <td>
-                        <button
-                          style={{ background: "red" }}
-                          value={data
-                          //   cryptos: data.cryptos,
-                          //  current_price: data.current_price,
-                          //  price_change_percentage_24h: data.price_change_percentage_24h,
-                          //   quantity:data.quantity
-                          }
-                          className="btn"
-                          onClick={coinBSOffer}
-                        >
-                          sale{" "}
-                        </button>
-                      </td>
-                    </tr>
-                  );
-              })}
-            </div>
-          </div>
-        )}
-      </div>
+    
     </div>
   );
 }
