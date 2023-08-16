@@ -1,0 +1,8 @@
+.coins-wallet{
+    display: flex;
+    color: antiquewhite;
+    align-content: center;
+}
+.coins-container{
+    padding: 10%;
+}

@@ -77,3 +77,15 @@ export const emailConfirmationHandler = async (req, res) => {
       res.status(401).send("Invalid Credentials");
     }
 };
+export const authorizeUser = async (req, res, next) => {
+    try {
+      const userId = req.userId;
+      console.log(userId);
+      const user = await User.findById(userId);
+  
+      res.status(201).json({ userName: user.firstName, userId: user._id , avatar: user.avatar});
+  
+    } catch (err) {
+      next(err)
+    }
+  };
