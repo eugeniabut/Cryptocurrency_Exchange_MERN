@@ -156,6 +156,20 @@ color:goldenrod;
 }
 
 
+/* Styling for the button when not editing */
+.upload-icon {
+  margin-top: 3rem;
+  margin-left: 1rem;
+color:goldenrod;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 2.4rem;
+}
+
+.upload-icon:hover {
+ color:rgb(174, 131, 23);
+}
 
 .card-heading-links {
   display: flex;
@@ -210,6 +224,17 @@ color:goldenrod;
 .btn-save {
   background-color: #0B5955;
   border-radius: 6px;
+}
+.info {
+  color: white;
+  font-size: 2rem;
+}
+.info-support {
+  color:white;
+  font-size: 1.4rem;
+}
+.info-support:hover{
+  color: goldenrod;
 }
 
 @media screen and (min-width: 400px) and (max-width: 1024px) {
