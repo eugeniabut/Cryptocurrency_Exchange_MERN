@@ -118,3 +118,13 @@ export const getOfferCoins=async(req,res,next)=>{
     next(err);
   }
 }
+export const deleteAllCoins =async (req, res,next) => {
+  try {
+    // Delete all documents from the collection
+    const result = await coinsModel.deleteMany({});
+    res.json({ message: 'All documents deleted' });
+  } catch (err) {
+    console.error('Error deleting documents:', err);
+    res.status(500).json({ error: 'An error occurred' });
+  }
+};

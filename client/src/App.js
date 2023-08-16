@@ -19,15 +19,26 @@ import StorContext from "./context/index.js";
 import MyWallet from "./component/MyWallet";
 import NotFound from "./component/NotFound";
 import CoinsBS from "./component/CoinsBS";
+import axios from "axios";
+import CoinsToSell from "./component/CoinsToSell";
 
 
 function App() {
  useContext(StorContext)
  const [wallet,setWallet]=useState([{}])
+ const [checkUserId, setCheckUserId] = useState(false);
+const[coinsToSell,setCoinsToSell]=useState([{}])
+const [value,setValue]=useState([0])
+
+const [countSell,setCountSell]=useState(0)
  const [bankData, setBankData] = useState({});
    const newsData=myStore((state)=>state.newsData)
    const [avatar, setAvatar] = useState("")
-   const[counter,setCounter]=useState(0)
+   const[counter,setCounter]=useState(1)
+  const [walletList, setWalletList] = useState([{}]);
+
+   const [userId,setUserId]=useState("")
+   const [userName,setUserName]=useState("")
    const [selectedCrypt,setSelectedCrypt]=useState([{
   //   image:"",
   //   id:"",
@@ -57,21 +68,47 @@ const getData=myStore((state)=>state.getData )
    aboutMe:""
   
    })
-   console.log(localStorage);
 
 const logoutHandler = () => {
-  console.log("test the logout");
-  setAuthenticated(false);
-  setAvatar(false)
-  localStorage.removeItem("my-app-token");
-  console.log(localStorage);
+localStorage.removeItem("my-app-token");
+setAuthenticated(false);
 };
   useEffect(()=>{
    getData()
  },[]);
+
+
+
+ useEffect(() => {
+  const token = JSON.parse(localStorage.getItem("my-app-token"));
+
+  if (token !== null) {
+    axios
+      .get(`${process.env.REACT_APP_BE_URL}/users/authorize-user`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setUserName(response.data.userName);
+        setAuthenticated(true);
+        setUserId(response.data.userId);
+        setAvatar(response.data.avatar)
+        
+      })
+      .catch((err) => {
+        if(err.response.status === 401)
+        localStorage.removeItem("my-app-token");
+        console.log(err.message)
+      });
+  }
+}, [counter]);
+// console.log(avatar);
+
    return (
     <div className="bg-animation" >
-    <StorContext.Provider value={{counter,setCounter,profileData, setProfileData,wallet,setWallet,bankData, setBankData, selectedCrypt,setSelectedCrypt,logoutHandler, avatar, setUserData,newsData,userData,setAuthenticated, authenticated}}>
+    <StorContext.Provider value={{counter,userId,avatar,countSell,setCountSell,setCounter,profileData, setProfileData,wallet,setWallet,bankData,walletList, setWalletList, setBankData, selectedCrypt,setSelectedCrypt,logoutHandler, checkUserId, setCheckUserId,setUserData,newsData,userData,setAuthenticated, authenticated, coinsToSell,value,setValue,
+    setCoinsToSell,}}>
 
      <Header/>
      <Routes>
@@ -79,18 +116,34 @@ const logoutHandler = () => {
         <Route path="/register" element={<Registration/>} />
         <Route path="/trading-live" element={<TradingLive />} />
         <Route path="/about-us" element={<AboutUs/>} />
-         <Route path="/profile" element={<Profile />} />
+        {authenticated? <Route path="/profile" element={<Profile />} />:
+        <Route path="*" element={<NotFound />} />
+        
+        }
         <Route path="/bank-data" element={<BankData/>} />
         {/* <Route path="/bank-data" element={<SecuredRoutes></SecuredRoutes>} /> */}
 
-        <Route path="/login" element={<Login/>}/>
+        {<Route path="/login" element={<Login/>}/>}
 
         <Route path="/" element={<Home  ></Home>} />
         <Route path="*" element={<NotFound />} />
 
-        <Route path="/add-bank" element={<CreateAccount />} />
-        <Route path="/get-bank" element={<DisplayUserBalance />} />
-        <Route path="/my-wallet" element={<MyWallet />} />
+       {authenticated? <Route path="/add-bank" element={<CreateAccount />} />:
+        <Route path="*" element={<NotFound />} />
+        
+        }
+       {authenticated? <Route path="/get-bank" element={<DisplayUserBalance />} />:
+        <Route path="*" element={<NotFound />} />
+           }
+            {authenticated? <Route path="/sell-coins" element={<CoinsToSell />} />:
+        <Route path="*" element={<NotFound />} />
+        
+        
+        }
+        {authenticated?<Route path="/my-wallet" element={<MyWallet />} />:
+        <Route path="*" element={<NotFound />} />
+        
+        }
         <Route  path="/coins" element={<CoinsBS/>}/>
       </Routes>
     

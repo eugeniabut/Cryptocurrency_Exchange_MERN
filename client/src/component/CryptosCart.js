@@ -8,10 +8,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 function CryptosCart({data}) {
 	// console.log(some);
-	const{authenticated,counter,setCounter}=useContext(StorContext)
+	const{authenticated,counter,setCounter,selectedCrypt,setSelectedCrypt}=useContext(StorContext)
 const addCoin=async	(e)=>{
 	setCounter(counter+1)
 				const coin={
+					id:uuidv4(),
 					cryptos:data.id,
 					current_price:data.current_price,
 				 price_change_24h:data.price_change_24h,
@@ -20,20 +21,20 @@ const addCoin=async	(e)=>{
 					image:data.image,
 					quantity:counter
 				}
-				
-				try {
-					const response = await axios.post(`${process.env.REACT_APP_BE_URL}/exchange/add-coin`,coin,{
-						headers : {
-						  'Authorization': `Bearer ${JSON.parse(localStorage.getItem('my-app-token'))}`
-						}
-					  })
-					  console.log( response.data.message);
+				setSelectedCrypt([...selectedCrypt,coin])
+				// try {
+				// 	const response = await axios.post(`${process.env.REACT_APP_BE_URL}/exchange/add-coin`,coin,{
+				// 		headers : {
+				// 		  'Authorization': `Bearer ${JSON.parse(localStorage.getItem('my-app-token'))}`
+				// 		}
+				// 	  })
+				// 	  console.log( response.data.message);
 
 					 
-				  } catch (err) {
-					console.log(err.request.response)
+				//   } catch (err) {
+				// 	console.log(err.request.response)
 				
-				  }
+				//   }
 				  
 				}
 				

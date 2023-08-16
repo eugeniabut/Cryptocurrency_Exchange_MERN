@@ -1,0 +1,20 @@
+.registration{
+    /* height: 80vh; */
+    background-color:rgba(191, 161, 86, 0.216);
+
+
+}
+.body-registration{
+    background-color:rgba(191, 161, 86, 0.216);
+    height: 80vh;
+
+
+}
+.main-registration{
+    height: 40%;
+width: 50%;
+
+}
+.registr-img{
+   padding: 30%;
+}

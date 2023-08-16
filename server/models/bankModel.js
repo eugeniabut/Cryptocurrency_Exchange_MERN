@@ -27,7 +27,8 @@ const bankSchema = new mongoose.Schema({
   },
   owner:{
     type: mongoose.Schema.Types.ObjectId,     //Referenced(Eu)
-    ref: "user"
+    ref: "user",
+      unique:true
   }
   
 });

@@ -1,13 +1,20 @@
 
 @import url('https://fonts.googleapis.com/css?family=Abel|Courgette|Cormorant+Garamond');
+.wallet-container{
+  display: flex;
+  width: 100vw;
+}
 
+.sidebar{
+  width: 15vw;
+}
 .wallet{
   display: flex;
   color: antiquewhite;
   flex-direction: column;
 align-content:space-around;
 justify-content: center;
- width: 100vw;
+ width: 80vw;
   height: 100vh;
 }
 .wallet-item{
@@ -23,11 +30,16 @@ justify-content: center;
 
 
 .total-cart{
-  color: white;
-  padding: 5%;
+  display: flex;
+  align-items:center ;
+  align-content: center;
+    color: white;
   border: 2px rgb(152, 148, 148) solid;
-  height: 4rem;
+  height: 8rem;
   font-size: 2rem;
+}
+.total-cart span{
+  padding: 5%;
 }
 .some{
    position: absolute;

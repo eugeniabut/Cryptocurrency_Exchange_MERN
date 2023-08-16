@@ -8,8 +8,8 @@ import axios from "axios";
 import CreateAccount from "./CreateAccount";
 import MyProfileForme from "./MyProfileForme";
 function Profile() {
-  const { profileData} = useContext(StorContext);
-
+  const { avatar} = useContext(StorContext);
+console.log(`avatar`, avatar);
   return (
     <main className="main">
       <div className="sidebar">
@@ -29,7 +29,7 @@ function Profile() {
         <div className="card-content">
           <div className="card-heading">
             <div className="photo">
-              <img src={profileData.avatar} alt="avatar" />
+              <img src={avatar} alt="avatar" />
             </div>
             <div className="card-heading-photo-form">
           
