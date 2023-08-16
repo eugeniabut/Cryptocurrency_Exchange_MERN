@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone, faEnvelope,  faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
 import "./Profile.css";
 import ProfilePhoto from "./images/profile-free.png";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
@@ -21,16 +24,17 @@ function Profile() {
           </p> 
           
            
-           <p className="info-support">Call us: 0800 0000 77</p> 
-           <p className="info-support">Order a call</p> 
-          <a className="info-support" href={`mailto:${emailAddress}`}>Write us: {emailAddress}</a>
+          <p className="info-support">
+            <FontAwesomeIcon icon={faPhone} />  0800 0000 77
+          </p>
+          <p className="info-support">    
+           <FontAwesomeIcon icon={faPhoneAlt} /> order a call back </p>
+          
+          <a className="info-support" href={`mailto:${emailAddress}`}>
+            <FontAwesomeIcon icon={faEnvelope} />  {emailAddress}
+          </a>
 
-          <NavLink to="/home" className="link-name">
-            Home
-          </NavLink>
-          <NavLink to="/my-wallet" className="link-name">
-            My Wallet{" "}
-          </NavLink>
+         
           <NavLink to="/coins" className="link-name">
           coins 
           </NavLink>
@@ -43,17 +47,26 @@ function Profile() {
               <img src={profileData.avatar} alt="avatar" />
             </div>
             <div className="card-heading-photo-form">
-          
+            <h3>
+                {profileData.firstName} {profileData.lastName}
+              </h3>
             </div>
+            
+            
+           
 
             <div className="card-heading-links">
-              <NavLink to="/my-wallet" className=" link-name">
-                My Wallet{" "}
+              <NavLink to="/my-wallet" className="link-name">
+                My Wallet
               </NavLink>
-              <NavLink to="/trading-live" className=" link-name">
-                live Trading
+              <NavLink to="/trading-live" className="link-name">
+                My live Trading
+              </NavLink>
+              <NavLink to="/home" className="link-name profile-logout">
+                Logout
               </NavLink>
             </div>
+            
           </div>
          <MyProfileForme/>
         </div>

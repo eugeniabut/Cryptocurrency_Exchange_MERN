@@ -11,19 +11,20 @@ import axios from 'axios'
 import Reviews from './Reviews';
 
 function Home() {
-  const{userData}=useContext(StorContext)
+  const{profileData}=useContext(StorContext)
   const newsData=myStore((state)=>state.newsData.articles?state.newsData.articles:[])
   const [reviewText, setReviewText] = useState("");
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await axios.post("http://localhost:4000/review/review-create", {
+  
+        firstName: profileData.firstName,
         reviewText: reviewText,
       });
-
+  
       if (response.status === 200) {
-       
         console.log("Review submitted successfully");
         setReviewText("");
       } else {
