@@ -5,10 +5,12 @@ import connectDB from "./config/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import userProfile from "./routes/profileRoutes.js";
 import reviewRoutes from "./routes/reviewRoutes.js";
+import motivationRoute from "./routes/motivationRoute.js";
 import exchange from "./routes/exchange.js";
 import cloudinary from "cloudinary";
 import multer from "multer";
 import fs from 'fs';
+
 
 dotenv.config();
 
@@ -39,6 +41,7 @@ app.use("/users", userRoutes);
 app.use("/profile", userProfile);
 app.use("/exchange", exchange);
 app.use("/review", reviewRoutes);
+app.use("/motivation", motivationRoute)
 
 app.post("/uploads", upload.single("imageFile"), (req, res) => {
   cloudinary.v2.uploader.upload(
