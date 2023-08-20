@@ -2,58 +2,56 @@ import React, { useContext, useEffect, useState } from "react";
 import StorContext from "../context";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import BankData from "./DisplayUserBalance";
-import "./Profile.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone, faEnvelope, faPen, faImage } from "@fortawesome/free-solid-svg-icons";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Profile.css";
 
 function MyProfileForme() {
-  const {
-    profileData,
-    setProfileData,
-    avatar,
-    userData,
-    userId,
-    selectedCrypt,
-    bankData,
-    authenticated,
-  } = useContext(StorContext);
-  console.log(selectedCrypt);
+  const { profileData, setProfileData, userId } = useContext(StorContext);
   const navigate = useNavigate();
-  const [image, setImage] = useState("");
-  const [imgUrl, setImgUrl] = useState("");
-  const [isEditing, setIsEditing] = useState(false);
-  const[walletList,setWalletList]=useState([{}])
-  const imageUploder=async()=>{
+  const [image, setImage] = useState(null);
+  const [imgUrl, setImgUrl] = useState(profileData.avatar || "");
+  const [editingField, setEditingField] = useState(null);
 
+  const imageUploader = async () => {
     const data = new FormData();
     data.append("imageFile", image);
+  
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_BE_URL}/uploads`,
+        data
+      );
+      setImgUrl(res.data.url);
+      setProfileData((prevData) => ({
+        ...prevData,
+        avatar: res.data.url, 
+      }));
+      console.log(res.data.url);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
 
-    axios
-      .post(`${process.env.REACT_APP_BE_URL}/uploads`, data)
-      .then((res) => {
-        setImgUrl(res.data.url);
-        console.log(res.data.url);
-            })
-      .catch((err) => console.log(err));}
- 
-  const submitHandler = (e) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setProfileData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    // const data = new FormData();
-    // data.append("imageFile", image);
-
-    // axios
-    //   .post(`${process.env.REACT_APP_BE_URL}/uploads`, data)
-    //   .then((res) => {
-    //     setImgUrl(res.data.url);
-    //   })
-    //   .catch((err) => console.log(err));
+    
     const updateData = {
-      firstName: e.target["firstName"].value,
-      lastName: e.target["lastName"].value,
-      phone: e.target["phone"].value,
-      aboutMe: e.target["aboutMe"].value,
+      ...profileData,
       avatar: imgUrl,
     };
+  
     axios
       .put(
         `${process.env.REACT_APP_BE_URL}/users/update-profile/${userId}`,
@@ -67,136 +65,212 @@ function MyProfileForme() {
         }
       )
       .then((res) => {
-        setIsEditing(false)
-        console.log(res.data)})
-      .catch((err) => console.log(err));
-  };
-  const getUser = async () => {
-    axios
-      .get(`${process.env.REACT_APP_BE_URL}/users/profile/${userId}`, {
-        headers: {
-          Authorization: `Bearer ${JSON.parse(
-            localStorage.getItem("my-app-token")
-          )}`,
-        },
-      })
-      .then((res) => {
         console.log(res.data);
-        setProfileData({
-          firstName: res.data.firstName,
-          lastName: res.data.lastName,
-          phone: res.data.phone,
-          aboutMe: res.data.aboutMe,
-          avatar: res.data.avatar,
-        });
       })
       .catch((err) => console.log(err));
   };
 
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0]);
+  };
+
+  const handleImageSubmit = () => {
+    imageUploader();
+  };
 
 
- useEffect(() => {
+
+
+  const renderEmailField = () => {
+    return (
+      <div>
+        <p>
+          {editingField === "email" ? (
+            <form onSubmit={(e) => handleSubmit(e)}>
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className="icon-edit"
+                onClick={() => setEditingField(null)}
+              />
+              <input
+                type="text"
+                name="email"
+                className="form-control"
+                value={profileData.email}
+                onChange={handleInputChange}
+              />
+            </form>
+          ) : (
+            <>
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className="icon-edit"
+                onClick={() => setEditingField("email")}
+              />
+              <strong>{profileData.email}</strong>
+            </>
+          )}
+        </p>
+      </div>
+    );
+  };
+
+  const renderPhoneField = () => {
+    return (
+      <div>
+        <p>
+          {editingField === "phone" ? (
+            <form onSubmit={(e) => handleSubmit(e)}>
+              <FontAwesomeIcon
+                icon={faPhone}
+                className="icon-edit"
+                onClick={() => setEditingField(null)}
+              />
+              <input
+                type="text"
+                name="phone"
+                className="form-control"
+                value={profileData.phone}
+                onChange={handleInputChange}
+              />
+            </form>
+          ) : (
+            <>
+              <FontAwesomeIcon
+                icon={faPhone}
+                className="icon-edit"
+                onClick={() => setEditingField("phone")}
+              />
+              <strong>{profileData.phone}</strong>
+            </>
+          )}
+        </p>
+      </div>
+    );
+  };
+
+  const renderAboutMeField = () => {
+    return (
+      <div>
+        <p>
+          {editingField === "aboutMe" ? (
+            <form onSubmit={(e) => handleSubmit(e)}>
+              <div>
+                {" "}
+                <FontAwesomeIcon
+                  icon={faPen}
+                  className="icon-edit"
+                  onClick={() => setEditingField(null)}
+                />{" "}
+              </div>
+
+              <textarea
+                type="text"
+                name="aboutMe"
+                className="my-notes-text"
+                value={profileData.aboutMe}
+                onChange={handleInputChange}
+              />
+            </form>
+          ) : (
+            <>
+              <div>
+                <strong>{profileData.aboutMe}</strong>
+              </div>
+
+              <div>
+                <FontAwesomeIcon
+                  icon={faPen}
+                  className="icon-edit"
+                  onClick={() => setEditingField("aboutMe")}
+                />
+              </div>
+            </>
+          )}
+        </p>
+      </div>
+    );
+  };
+
+  
+
+  useEffect(() => {
     getUser();
-  }, [imgUrl,isEditing]);
-  const handleEditClick = () => {
-    setIsEditing(true);
+  }, []);
+
+  const getUser = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_BE_URL}/users/profile/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${JSON.parse(
+              localStorage.getItem("my-app-token")
+            )}`,
+          },
+        }
+      );
+      console.log("Response data:", response.data);
+      const { firstName, lastName, email, phone, aboutMe, avatar } =
+        response.data;
+  
+      console.log("Fetched profile data:", response.data);
+
+      setImgUrl(avatar || "");
+
+      console.log("Fetched profile data:", response.data);
+  
+      
+  
+      setProfileData({
+        firstName,
+        lastName,
+        email,
+        phone,
+        aboutMe,
+        avatar,
+      
+      });
+    } catch (error) {
+      console.log("Error fetching user profile:", error);
+    }
   };
 
   return (
-    <div className="card-body">
-      <div className="profile-data">
-        <div className="sectionOne profile-info">
-          <p>
-            {" "}
-            <b>Personal data:</b>{" "}
-          </p>
-          <p>
-            <strong>firstName:</strong> {profileData.firstName}
-          </p>
-          <p>
-            <strong>lastName:</strong> {profileData.lastName}
-          </p>
-          <p>
-            <strong>Email:</strong> {userData.userEmail}
-          </p>
-          <p>
-            <strong>Phone:</strong> {profileData.phone}
-          </p>
+    <div className="card-container">
+      <div className="card-internal-container">
+        <div className="section-gold-card">
+          <div className="profile-picture">
+             <img src={profileData.avatar} alt="avatar" style={{ width: 200 }} />
+            <label htmlFor="avatar-input">
+              <FontAwesomeIcon
+                icon={faImage}
+                className="icon-edit"
+              />
+            </label>
+            <input
+              type="file"
+              id="avatar-input"
+              onChange={handleImageChange}
+              style={{ display: "none" }}
+            />
+            <button onClick={handleImageSubmit}>Upload</button>
+          </div>
 
-          <div className="row">
-            <div className="col">
-              {isEditing ? (
-                <form onSubmit={submitHandler}>
-                  <label>
-                    firstName:
-                    <input
-                      type="text"
-                      name="firstName"
-                      className="form-control"
-                      placeholder={profileData.firstName}
-                    />
-                  </label>
-                  <label>
-                    lastName:
-                    <input
-                      type="text"
-                      name="lastName"
-                      className="form-control"
-                      placeholder={profileData.lastName}
-                    />
-                  </label>
-
-                  <label>
-                    Phone:
-                    <input
-                      type="text"
-                      name="phone"
-                      className="form-control"
-                      placeholder={profileData.phone}
-                    />
-                  </label>
-
-                  <label>
-                    about Me
-                    <input
-                      type="text"
-                      name="aboutMe"
-                      className="form-control"
-                      placeholder={profileData.aboutMe}
-                    />
-                  </label>
-                  <label>
-                    {" "}
-                    <input
-                      type="file"
-                      name="image"
-                      accept="image/png, image/jpg, image/jpeg, image/gif"
-                      onChange={(e) => setImage(e.target.files[0])}
-                    />
-                    <input type="button" value="Upload" onClick={imageUploder} />
-                  </label>
-                  <button className="btn btn-primary">Save</button>
-                </form>
-              ) : (
-                <button className="btn btn-primary" onClick={handleEditClick}>
-                  Edit Profile
-                </button>
-              )}
-            </div>
+          <div className="profile-data">
+            <h3>
+              {profileData.firstName} {profileData.lastName}
+            </h3>
+            {renderEmailField()}
+            {renderPhoneField()}
           </div>
         </div>
-        <div className="sectionTwo">
-          <h3>Hey {profileData.firstName}</h3>
 
-          
-          <h3> About ME : </h3>
-          <h4>{profileData.aboutMe}</h4>
-        </div>
-        <div className="profile-picture">
-          <img src={avatar} alt="avatar" style={{ width: 200 }} />
+        <div className="section-my-notes">
+          <h4>My Notes</h4>
+          {renderAboutMeField()}
         </div>
       </div>
-    
     </div>
   );
 }

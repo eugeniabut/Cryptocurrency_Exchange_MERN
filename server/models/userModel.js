@@ -26,9 +26,15 @@ verified:{
   type: Boolean,
   default : false
 },
-avatar:String,
-phone:String,
-aboutMe:String,
+avatar:{
+  type: String
+},
+phone:{
+  type: String
+},
+aboutMe:{
+  type: String
+},
 
 }) 
 

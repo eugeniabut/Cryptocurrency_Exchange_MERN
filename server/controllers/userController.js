@@ -91,15 +91,19 @@ export const deleteUser = async (req, res) => {
     }
   };
 
- export const updateUserProfile=async(req,res,next)=>{
-    try{    
-      console.log(req.body);
-        const result = await User.findOneAndUpdate({_id:req.params.id}, req.body)
-        // console.log(result);
-        res.status(201).send("User updated successfully")
+  export const updateUserProfile = async (req, res, next) => {
+    try {
+      const { firstName, lastName, ...updateData } = req.body;
+
+      if (firstName || lastName) {
+        return res.status(400).json({ error: "First Name and Last Name cannot be updated." });
+      }
+  
+      const result = await User.findOneAndUpdate({ _id: req.params.id }, updateData);
+      
+      res.status(201).send("User updated successfully");
+    } catch (err) {
+      console.log(err);
+      res.status(500).send("Something went wrong while updating the post");
     }
-    catch(err) {
-        console.log(err);
-        res.status(500).send("Something went wrong while updating the post")
-    }
-}
+  };

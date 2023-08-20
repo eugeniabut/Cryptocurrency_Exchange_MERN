@@ -13,6 +13,5 @@ router.put("/change-password/:id",authorization,passwordChangeHandler)
 router.put("/update-profile/:id",authorization,updateUserProfile)
 router.get("/profile/:id",authorization,getUser)
 router.get('/authorize-user', authorization, authorizeUser)
-
-router.get('/confirm-email/:token', emailConfirmationHandler)  //Eu-day3
+router.get('/confirm-email/:token', emailConfirmationHandler)  
 export default router
