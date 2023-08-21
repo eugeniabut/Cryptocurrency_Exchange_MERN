@@ -11,20 +11,16 @@ import axios from 'axios'
 import Reviews from './Reviews';
 
 function Home() {
-  const{profileData}=useContext(StorContext)
+  const{userData,reviewText, setReviewText}=useContext(StorContext)
   const newsData=myStore((state)=>state.newsData.articles?state.newsData.articles:[])
-  const [reviewText, setReviewText] = useState("");
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
-  
     try {
-      const response = await axios.post("http://localhost:4000/review/review-create", {
-  
-        firstName: profileData.firstName,
+      const response = await axios.post(`${process.env.REACT_APP_BE_URL}/review/review-create`, {
         reviewText: reviewText,
       });
-  
-      if (response.status === 200) {
+      if (response.status === 201) {
+       
         console.log("Review submitted successfully");
         setReviewText("");
       } else {
@@ -66,8 +62,8 @@ function Home() {
   {/* <div>
   <CryptosCart /></div> */}
 <div>(<CryptosList/>)</div>
-<div>
-<PhonApp/></div>
+
+<div> <PhonApp/></div>
 <section className='review-read-write'>
 <div className='review-read'>
         <Reviews />

@@ -1,20 +1,21 @@
 import React, { useState, useEffect} from 'react';
 import './Reviews.css';
-import axios from "axios";
-
-
+import axios from "axios"
+import { useContext } from 'react';
+import StorContext from '../context';
 
 function Reviews() {
+  const {reviewText}=useContext(StorContext)
   const [reviews, setReviews] = useState([]);
   
 
   useEffect(() => {
     fetchReviews();
-  }, []);
+  }, [reviewText]);
 
   const fetchReviews = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/review/all-reviews');
+      const response = await axios.get(`${process.env.REACT_APP_BE_URL}/review/all-reviews`);
       if (response.status === 200) {
         setReviews(response.data);
       } else {
