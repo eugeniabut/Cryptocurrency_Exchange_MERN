@@ -10,6 +10,7 @@ function MyProfileForme() {
     profileData,
     setProfileData,
     avatar,
+    setAvatar,
     userData,
     userId,
     selectedCrypt,
@@ -30,7 +31,7 @@ function MyProfileForme() {
     axios
       .post(`${process.env.REACT_APP_BE_URL}/uploads`, data)
       .then((res) => {
-        setImgUrl(res.data.url);
+        setAvatar(res.data.url);
         console.log(res.data.url);
             })
       .catch((err) => console.log(err));}
@@ -52,7 +53,7 @@ function MyProfileForme() {
       lastName: e.target["lastName"].value,
       phone: e.target["phone"].value,
       aboutMe: e.target["aboutMe"].value,
-      avatar: imgUrl,
+      avatar: avatar,
     };
     axios
       .put(
@@ -85,9 +86,10 @@ function MyProfileForme() {
         setProfileData({
           firstName: res.data.firstName,
           lastName: res.data.lastName,
+          email:userData.userEmail,
           phone: res.data.phone,
           aboutMe: res.data.aboutMe,
-          avatar: res.data.avatar,
+          avatar: avatar,
         });
       })
       .catch((err) => console.log(err));
@@ -97,7 +99,7 @@ function MyProfileForme() {
 
  useEffect(() => {
     getUser();
-  }, [imgUrl,isEditing]);
+  }, [avatar,isEditing]);
   const handleEditClick = () => {
     setIsEditing(true);
   };

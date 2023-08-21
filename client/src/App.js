@@ -29,6 +29,7 @@ function App() {
  const [checkUserId, setCheckUserId] = useState(false);
 const[coinsToSell,setCoinsToSell]=useState([{}])
 const [value,setValue]=useState([0])
+const [reviewText, setReviewText] = useState("");
 
 const [countSell,setCountSell]=useState(0)
  const [bankData, setBankData] = useState({});
@@ -107,7 +108,7 @@ setAuthenticated(false);
 
    return (
     <div className="bg-animation" >
-    <StorContext.Provider value={{counter,userId,avatar,countSell,setCountSell,setCounter,profileData, setProfileData,wallet,setWallet,bankData,walletList, setWalletList, setBankData, selectedCrypt,setSelectedCrypt,logoutHandler, checkUserId, setCheckUserId,setUserData,newsData,userData,setAuthenticated, authenticated, coinsToSell,value,setValue,
+    <StorContext.Provider value={{reviewText, setReviewText,counter,userId,avatar,setAvatar,countSell,setCountSell,setCounter,profileData, setProfileData,wallet,setWallet,bankData,walletList, setWalletList, setBankData, selectedCrypt,setSelectedCrypt,logoutHandler, checkUserId, setCheckUserId,setUserData,newsData,userData,setAuthenticated, authenticated, coinsToSell,value,setValue,
     setCoinsToSell,}}>
 
      <Header/>
