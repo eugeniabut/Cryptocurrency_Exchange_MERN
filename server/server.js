@@ -10,7 +10,6 @@ import cloudinary from "cloudinary";
 import multer from "multer";
 import fs from 'fs';
 
-
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
@@ -41,27 +40,19 @@ app.use("/profile", userProfile);
 app.use("/exchange", exchange);
 app.use("/review", reviewRoutes);
 
-
-app.post("/uploads", upload.single("imageFile"), async (req, res) => {
-  try {
-    const result = await cloudinary.v2.uploader.upload(
-      req.file.path,
-      { public_id: Date.now() + req.file.originalname }
-    );
-
-    // Update the user's document with the new avatar URL
-    const userId = req.body.userId; // Make sure you provide the correct field name for user ID
-    await User.findOneAndUpdate(
-      { _id: userId }, // Use the correct query to find the user
-      { avatar: result.secure_url } // Update the avatar field with the new URL
-    );
-
-    fs.unlinkSync(req.file.path);
-    console.log(result);
-    res.json(result);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
+app.post("/uploads", upload.single("imageFile"), (req, res) => {
+  cloudinary.v2.uploader.upload(
+    req.file.path,
+    { public_id: Date.now() + req.file.originalname },
+    (error, result) => {
+      if (error) {
+        res.status(500).json({ error: error.message });
+      } else {
+        fs.unlinkSync(req.file.path);
+        res.json(result);
+      }
+    }
+  );
 });
 
 connectDB();
