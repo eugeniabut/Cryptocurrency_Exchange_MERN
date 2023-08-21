@@ -94,9 +94,27 @@ export const deleteUser = async (req, res) => {
   };
 
  export const updateUserProfile=async(req,res,next)=>{
+
+
+const { firstName,
+  lastName,
+  phone ,
+  aboutMe, email,avatar}=req.body
+  const bodyOfRequest = {
+    firstName,
+    lastName,
+    phone ,
+    aboutMe,
+    email,avatar
+}
+const updateData = {}
+/* Looping through the newly created object bodyOfRequest to check which field need to be updated on database */
+for (const [key, value] of Object.entries(bodyOfRequest)){
+    if(value) {updateData[key] = value}
+}
     try{    
       console.log(req.body);
-        const result = await User.findOneAndUpdate({_id:req.params.id}, req.body)
+        const result = await User.findOneAndUpdate({_id:req.params.id},updateData)
         // console.log(result);
         res.status(201).send("User updated successfully")
     }
