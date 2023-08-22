@@ -1,0 +1,100 @@
+
+   .card-internal-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius:10px ;
+  
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  background-color:bisque
+  }
+    
+    .section-gold-card {
+      display: grid;
+  grid-template-columns: 0.7fr 1.2fr;
+      background-color: rgb(178, 140, 91);
+      border-radius:10px ;
+     gap: 1rem;
+     margin-left: 2rem;
+    }
+   .section-my-notes{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: bisque;
+   }
+  
+ 
+   .my-notes-text{
+    margin-top: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 1.6rem;
+   }
+  .avatar{
+    width:15rem;
+    border-radius: 5%;
+    box-shadow: 10px 20px #8888887a;
+  
+  }
+
+  .profile-picture {
+    margin-top: 2rem;
+    margin-left: 2rem;
+   
+    
+  }
+  .profile-picture img {
+    width: 160px;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .profile-data {
+margin-top: 2rem ;
+  }
+ 
+  .icon-edit {
+    background-color: rgb(178, 140, 91);
+  
+    color: black;
+    margin-left:0.5rem ;
+ 
+  }
+  .icon-edit:hover {
+    background-color: rgb(178, 140, 91);
+    color: black;
+    margin-left:0.5rem ;
+  }
+
+.icon-edit:hover::after{
+    content: "Edit your Profile";
+    padding-left: 5px;
+}
+/* editings  */
+.edit-field {
+
+  width: min-content;
+    margin-left: 0.8rem;
+    margin-bottom: 0.4rem;
+   
+   
+}
+
+.btn-save {
+    background-color: black;
+    border-radius: 5px;
+}
+.btn-upload {
+    background-color: bisque;
+    color: black;
+    border-radius: 5px;
+}
+.input-choose-image{
+
+line-height: 1.8rem;
+border-radius: 5px;
+margin-bottom: 0.5rem;
+}

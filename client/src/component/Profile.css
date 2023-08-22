@@ -3,127 +3,96 @@
   padding: 0;
 }
 
-.main{
-  width:100vw;
+.main {
+  width: 100vw;
   height: 100%;
   display: flex;
 }
-
+/* Sidebar */
 .sidebar {
- margin-left:0.5%;
-margin-bottom: 0.5%;
-margin-top: 0.5%;
-height: 100vh;
-border-radius: 10px;
-background-color: #9f7d1e65;
+ margin: 0.5%;
+  height: 68vh;
+  border-radius: 10px;
+  background-color: #9f7d1e65;
 }
 
-/* Card heading */
+
+
+/* Card*/
+
+.card-content {
+  margin-left: 9%;
+  margin-top: 2rem;
+  background-color: #3a3b3b96;
+  width: 70vw;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
 .card-heading {
   display: flex;
-  /* width: 75vw; */
+  align-items: self-end;
+ 
   height: 6.5rem;
   background-color: #3a3b3b96;
   border-radius: 10px;
+  
 }
-
-
-.card-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;  
-
-}
-
 
 .card-heading-links .link-name {
   color: white;
-  margin: 0 2rem; 
+  margin:  2rem;
   font-size: 2rem;
-
-
 }
-.card-heading-links .profile-logout{
+.card-heading-links .profile-logout {
   color: goldenrod;
- 
- 
-}
-.card-heading-links .profile-logout:hover{
-color: gold;
 
 }
-
-
+.card-heading-links .profile-logout:hover {
+  color: bisque;
+}
 
 /* Links Left */
 
 .link-list {
-  margin-top: 10rem;
-  display: flex;
-  flex-direction: column;
-  margin-left: 2rem;
+  margin-top: 26rem;
+  margin-left: 1rem;
   width: 15vw;
+}
+.link-list h3 {
+  color: white;
+  margin-bottom: 2rem;
 }
 .link-name {
   color: white;
-  margin-bottom: 4rem;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 .info-support {
-  color:white;
+  color: white;
   font-size: 1.4rem;
+  cursor: pointer;
 }
-.info-support:hover{
-  color: goldenrod;
+.info-support:hover {
+color: bisque;
 }
 
-/* Card  */
-.card-content {
-  margin-left: 10%;
-  padding-top: 10%;
-  width: 70vw;
-  border-radius: 10px;
-  }
-  .card-container {
-    background-color: lightgray;
-    border-radius: 10px;
-  }
- .card-internal-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-radius:10px ;
-
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-background-color: bisque;
+.fa-phone-call,
+.fa-envelop {
+  display: none;
+margin-left: 0.5rem;
 }
-  
-  .section-gold-card {
-    display: grid;
-grid-template-columns: 0.8fr 1.2fr;
-    background-color: rgb(178, 140, 91);
-    border-radius:10px ;
-   gap: 10px;
-   margin-left: 2rem;
-  }
- .section-my-notes{
-display: flex;
-flex-direction: column;
-align-items: center;
-padding-left: 1rem;
-padding-right: 1rem;
- }
 
- .section-my-notes :nth-child(1) {
-  font-family: cursive;
-  font-size: 2rem;
+.fa-phone-callback {
+  display: none;
+  border-radius: 5px;
+  margin-left: 0.5rem;
 }
+
+.one:hover .fa-phone-call,
+.two:hover .fa-phone-callback,
+.three:hover .fa-envelop {
+  display: inline-block;
  
-.avatar{
-  width:15rem;
-  border-radius: 5%;
-  box-shadow: 10px 20px #8888887a;
-
 }
-
