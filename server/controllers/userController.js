@@ -74,10 +74,11 @@ export const getAllUsers = async (req,res,next)=>{
     }
 }
 export const getUser = async (req,res,next)=>{
-  console.log("test");
   try {
-    console.log(res.params.id);
-      const user = await User.findOne({_id:req.params.id})
+  console.log("test");
+
+    console.log(req.params.id);
+      const user = await User.findById(req.params.id)
      res.status(200).json(user)
   } catch (err) {
       next(err)
