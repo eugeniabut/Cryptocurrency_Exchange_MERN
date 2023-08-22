@@ -22,29 +22,7 @@ function CoinsBS() {
     authenticated,
   } = useContext(StorContext);
 const coinBSOffer =  (e) => {
-  // try {
-  // const data = {
-  //   cryptos: e.target.name.cryptos,
-  //   current_price: +e.target.name.current_price,
-  //   price_change_percentage_24h: +e.target.name.price_change_24h,
-  //   quantity: e.target.name.quantity,
-  // };
-
-  //   const response = await axios.post(
-  //     `${process.env.REACT_APP_BE_URL}/exchange/coin-offer`,
-  //     data,
-  //     {
-  //       headers: {
-  //         Authorization: `Bearer ${JSON.parse(
-  //           localStorage.getItem("my-app-token")
-  //         )}`,
-  //       },
-  //     }
-  //   );
-  //   console.log(response.data.message);
-  // } catch (err) {
-  //   console.log(err.request.response);
-  // }
+ 
 const coins=[]
 console.log(e.target.name);
 const coin=walletList.find((elem)=>elem._id===e.target.name)
