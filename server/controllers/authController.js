@@ -78,12 +78,13 @@ export const emailConfirmationHandler = async (req, res) => {
     }
 };
 export const authorizeUser = async (req, res, next) => {
+  console.log(req);
     try {
       const userId = req.userId;
       console.log(userId);
       const user = await User.findById(userId);
   
-      res.status(201).json({ userName: user.firstName, userId: user._id , avatar: user.avatar});
+      res.status(201).json({ firstName: user.firstName, userId: user._id , avatar: user.avatar});
   
     } catch (err) {
       next(err)

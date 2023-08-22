@@ -9,10 +9,14 @@ function CoinsToSell() {
   const {
     value,setValue,
     coinsToSell,
-    setCoinsToSell,}= useContext(StorContext)
+    setCoinsToSell}= useContext(StorContext)
 
-    const goToSell=(e)=>{
-      const newVal=e.target.name
+    const goToSell=(e,data)=>{
+      console.log(e.target.name["value"]);
+      // const newCoinsToSell=coinsToSell.filter((item)=>
+      //   // item.id!==data.id
+      // )
+      const newVal=e.target.name.value
       setValue([...value,parsePath(newVal)])
     }
     console.log(value);
@@ -59,9 +63,9 @@ function CoinsToSell() {
           <td>
             <button
               style={{ background: "red" }}
-              name={data.current_price+(data.current_price* data.price_change_percentage_24h)}
+              name={{value:data.current_price+(data.current_price* data.price_change_percentage_24h),id:data.id}}
               className="btn"
-              onClick={(e)=>goToSell(e)}
+              onClick={(e,data)=>goToSell(e,data)}
             >
               sell{" "}
             </button>

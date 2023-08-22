@@ -103,8 +103,8 @@ setAuthenticated(false);
         console.log(err.message)
       });
   }
-}, [counter]);
-// console.log(avatar);
+}, []);
+ console.log(userId);
 
    return (
     <div className="bg-animation" >
