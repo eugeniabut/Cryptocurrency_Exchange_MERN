@@ -6,7 +6,12 @@ import BankData from "./DisplayUserBalance";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone, faEnvelope, faPen, faPenNib } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPhone,
+  faEnvelope,
+  faPen,
+  faPenNib,
+} from "@fortawesome/free-solid-svg-icons";
 
 import "./myProfileForme.css";
 
@@ -22,13 +27,15 @@ function MyProfileForme() {
     bankData,
     authenticated,
   } = useContext(StorContext);
-  console.log(selectedCrypt);
+
+  //console.log(selectedCrypt);
   const navigate = useNavigate();
   const [image, setImage] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [isAboutMeEditing, setIsAboutMeEditing] = useState(false);
   const [walletList, setWalletList] = useState([{}]);
+
   const imageUploder = async () => {
     const data = new FormData();
     data.append("imageFile", image);
@@ -44,18 +51,12 @@ function MyProfileForme() {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    console.log("submit handler called");
 
-    const updateData = {
-      firstName: e.target["firstName"].value,
-      lastName: e.target["lastName"].value,
-      phone: e.target["phone"].value,
-      aboutMe: e.target["aboutMe"].value,
-      avatar: avatar,
-    };
     axios
       .put(
         `${process.env.REACT_APP_BE_URL}/users/update-profile/${userId}`,
-        updateData,
+        profileData,
         {
           headers: {
             Authorization: `Bearer ${JSON.parse(
@@ -70,6 +71,7 @@ function MyProfileForme() {
       })
       .catch((err) => console.log(err));
   };
+
   const getUser = async () => {
     axios
       .get(`${process.env.REACT_APP_BE_URL}/users/profile/${userId}`, {
@@ -84,10 +86,10 @@ function MyProfileForme() {
         setProfileData({
           firstName: res.data.firstName,
           lastName: res.data.lastName,
-          email: userData.userEmail,
+          email:res.data.email,
           phone: res.data.phone,
           aboutMe: res.data.aboutMe,
-          avatar: avatar,
+          avatar: res.data.avatar ? res.data.avatar : avatar,
         });
       })
       .catch((err) => console.log(err));
@@ -98,23 +100,18 @@ function MyProfileForme() {
   }, [avatar, isEditing]);
 
   const handleEditClick = () => {
-    setIsEditing(true);
+    setIsEditing(!isEditing);
   };
-
 
   const handleAboutMeEditClick = () => {
     setIsAboutMeEditing(true);
-  };
-
-  const handleSaveClick = () => {
-    setIsEditing(false);
-    setIsAboutMeEditing(false);
   };
 
   const handleAboutMeChange = (e) => {
     const updatedProfileData = { ...profileData, aboutMe: e.target.value };
     setProfileData(updatedProfileData);
   };
+
 
   return (
     <div className="card-body">
@@ -125,8 +122,14 @@ function MyProfileForme() {
           </div>
 
           <div className="profile-data">
+            <div className="profile-logo">
+              <img
+                src={`${process.env.PUBLIC_URL}/crypto-space.png`}
+                alt="Logo"
+              />
+            </div>
             <h3>
-              <strong></strong> {profileData.firstName} {profileData.lastName}
+              {profileData.firstName} {profileData.lastName}
             </h3>
 
             <p>
@@ -136,71 +139,83 @@ function MyProfileForme() {
               <FontAwesomeIcon icon={faPhone} /> {profileData.phone}
             </p>
           </div>
-
+          {/* HERE STARTS THT EDIT FORM */}
           <div className="edit-field">
             {isEditing ? (
-              <form onSubmit={submitHandler}>
-                <div className="edit-left">
-                  <label>
-                    First Name:
-                    <input
-                      type="text"
-                      name="firstName"
-                      className="form-control"
-                      placeholder={profileData.firstName}
-                    />
-                  </label>
-                  <label>
-                    Last Name:
-                    <input
-                      type="text"
-                      name="lastName"
-                      className="form-control"
-                      placeholder={profileData.lastName}
-                    />
-                  </label>
+              <>
+                <form onSubmit={submitHandler}>
+                  <div className="edit-left">
+                    <label>
+                      First Name:
+                      <input
+                        type="text"
+                        name="firstName"
+                        className="form-control"
+                        value={profileData.firstName}
+                        onChange={e => {setProfileData({...profileData, firstName: e.target.value})}}
+                      />
+                    </label>
+                    <label>
+                      Last Name:
+                      <input
+                        type="text"
+                        name="lastName"
+                        className="form-control"
+                        value={profileData.lastName}
+                        onChange={e => {setProfileData({...profileData, lastName: e.target.value})}}
+                      />
+                    </label>
 
-                  <label>
-                    Phone:
-                    <input
-                      type="text"
-                      name="phone"
-                      className="form-control"
-                      placeholder={profileData.phone}
-                    />
-                  </label>
+                    <label>
+                      Phone:
+                      <input
+                        type="text"
+                        name="phone"
+                        className="form-control"
+                        value={profileData.phone}
+                        onChange={e => {setProfileData({...profileData, phone: e.target.value})}}
+/>
+                    </label>
 
-                  <label>
-                    Email:
-                    <input
-                      type="email"
-                      name="email"
-                      className="form-control"
-                      placeholder={profileData.email}
-                    />
-                  </label>
-                </div>
-                
-                <div className="edit-right">
-                
-                <label>
-                  {" "}
-                  <input
-                    className="input-choose-image"
-                    type="file"
-                    name="image"
-                    accept="image/png, image/jpg, image/jpeg, image/gif"
-                    onChange={(e) => setImage(e.target.files[0])}
-                  />
-                  <button className="btn-upload " onClick={imageUploder}>
-                    {" "}
-                    Upload Image
-                  </button>
-                </label>
-                <button className="btn-save" onClick={handleSaveClick} >Save</button>
-                </div>
-              </form>
-              
+                    <label>
+                      Email:
+                      <input
+                        type="email"
+                        name="email"
+                        className="form-control"
+                        value={profileData.email}
+                        onChange={e => {setProfileData({...profileData, email: e.target.value})}}
+                      />
+                    </label>
+                  </div>
+
+                  <div className="edit-right">
+                    <label>
+                      {" "}
+                      <input
+                        className="input-choose-image"
+                        type="file"
+                        name="image"
+                        accept="image/png, image/jpg, image/jpeg, image/gif"
+                        onChange={(e) => setImage(e.target.files[0])}
+                      />
+                      <button className="btn-upload " onClick={imageUploder}>
+                        {" "}
+                        Upload Image
+                      </button>
+                    </label>
+                    <button className="btn-save" type="submit">
+                      Save
+                    </button>
+                    <button
+                      className="btn-save btn-textarea"
+                      onClick={handleEditClick}
+                    >
+                      Close without saving
+                    </button>
+                  </div>
+                </form>
+              </>
             ) : (
               <button className="icon-edit" onClick={handleEditClick}>
                 <FontAwesomeIcon icon={faPen} />
@@ -209,33 +224,40 @@ function MyProfileForme() {
           </div>
         </div>
 
-
         <div className="section-my-notes">
-      <h3> My Notes : </h3>
-      {isAboutMeEditing ? (
-        <div>
-          <textarea
-            name="aboutMe"
-            rows="7"
-            className="form-control textarea"
-            value={profileData.aboutMe}
-            onChange={handleAboutMeChange}  // Add this line
-          ></textarea>
-          <button className="btn-save btn-textarea" onClick={handleSaveClick}>
-            Save
-          </button>
+          <h3> My Notes : </h3>
+         
+          {isAboutMeEditing ? ( <>
+          <form onSubmit={submitHandler}>
+            <div className="textarea-before-editing">
+              <textarea
+                name="aboutMe"
+                rows="7"
+                className="form-control textarea"
+                value={profileData.aboutMe}
+                onChange={e => {setProfileData({...profileData, aboutMe: e.target.value})}}
+                
+                
+               
+              ></textarea>
+              <button type="submit" className="btn-save btn-textarea">Save</button>
+            </div>
+           </form>
+           </>
+          ) : (
+            <div className="textarea-editing">
+              <h4 className="my-notes-text">{profileData.aboutMe}</h4>
+
+              <button 
+                className="icon-edit-my-notes"
+                onClick={handleEditClick}>
+             
+                <FontAwesomeIcon icon={faPenNib} />
+              </button>
+            </div>
+          )}
         </div>
-      ) : (
-        <div>
-          <h4 className="my-notes-text">{profileData.aboutMe}</h4>
-          <button className="icon-edit-my-notes" onClick={handleAboutMeEditClick}>
-            <FontAwesomeIcon icon={faPenNib} />
-          </button>
-        </div>
-      )}
-    </div>
       </div>
-     
     </div>
   );
 }

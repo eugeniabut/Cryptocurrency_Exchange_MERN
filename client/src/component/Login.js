@@ -44,7 +44,7 @@ function Login(props) {
         userEmail: response.data.email,
         userID: response.data._id,
         avatar:response.data.avatar,
-      aboutMe:response.data.aboutMe
+        aboutMe:response.data.aboutMe
       });
 
       navigate("/profile");

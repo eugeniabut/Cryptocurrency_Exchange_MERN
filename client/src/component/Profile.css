@@ -10,13 +10,11 @@
 }
 /* Sidebar */
 .sidebar {
- margin: 0.5%;
+  margin: 0.5%;
   height: 68vh;
   border-radius: 10px;
   background-color: #9f7d1e65;
 }
-
-
 
 /* Card*/
 
@@ -29,30 +27,32 @@
   display: flex;
   flex-direction: column;
 }
+/* card headind */ 
 
 .card-heading {
   display: flex;
-  align-items: self-end;
- 
+  justify-content: end;
+  padding-right: 0.5rem;
   height: 6.5rem;
   background-color: #3a3b3b96;
   border-radius: 10px;
-  
 }
 
-.card-heading-links .link-name {
+ .link-name {
+  color: bisque;
+  margin: 2rem;
+  font-size: 2rem;
+}
+.link-name:hover{
   color: white;
-  margin:  2rem;
+  margin: 2rem;
   font-size: 2rem;
 }
-.card-heading-links .profile-logout {
-  color: goldenrod;
-  font-size: 2rem;
+.fa-times-circle {
+  margin-top: 2.4rem;
+  font-size: 3rem;
+}
 
-}
-.card-heading-links .profile-logout:hover {
-  color: white
-}
 
 /* Links Left */
 
@@ -65,10 +65,7 @@
   color: white;
   margin-bottom: 2rem;
 }
-.link-name {
-  color: white;
-  font-size: 2rem;
-}
+
 
 .info-support {
   color: white;
@@ -76,13 +73,13 @@
   cursor: pointer;
 }
 .info-support:hover {
-color: bisque;
+  color: bisque;
 }
 
 .fa-phone-call,
 .fa-envelop {
   display: none;
-margin-left: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .fa-phone-callback {
@@ -95,5 +92,4 @@ margin-left: 0.5rem;
 .two:hover .fa-phone-callback,
 .three:hover .fa-envelop {
   display: inline-block;
- 
 }

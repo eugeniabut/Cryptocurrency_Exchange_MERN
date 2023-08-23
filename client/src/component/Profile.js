@@ -61,22 +61,21 @@ function Profile() {
         <div className="card-content">
           <div className="card-heading">
            <div className="card-heading-links">
+           
               <NavLink to="/my-wallet" className="link-name">
                 My Wallet
               </NavLink>
               <NavLink to="/trading-live" className="link-name">
                 My live Trading
               </NavLink>
-              <NavLink to="/" className="profile-logout" onClick={logoutHandler} >
+              <NavLink to="/" className=" link-name profile-logout" onClick={logoutHandler} >
               <i className="fas fa-times-circle"></i> 
               </NavLink>
-            </div>
             
+            </div>
           </div>
          <div className="">  <MyProfileForme /></div>
-         <div> <img src="https://g.foolcdn.com/image/?url=https%3A//g.foolcdn.com/editorial/images/647879/bitcoin-logo.jpg&amp;w=2000&amp;op=resize" 
-      className="cta-teal-airplane" alt="paper airplane"></img></div>
-
+        
         </div>
       </div>
     </main>
