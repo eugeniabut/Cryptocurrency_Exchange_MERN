@@ -17,10 +17,11 @@ import MyProfileForme from "./MyProfileForme";
 
 
 function Profile() {
-  const { avatar, profileData } = useContext(StorContext);
+  const { avatar, profileData, logoutHandler} = useContext(StorContext);
   console.log(`avatar`, avatar);
   const emailAddress = "cryptospace@gmail.com";
   const [orderStatus, setOrderStatus] = useState("Order a call");
+ 
 
   const handleButtonClick = () => {
     setOrderStatus("We call you back");
@@ -29,7 +30,7 @@ function Profile() {
     <main className="main">
       <div className="sidebar">
         <div className="link-list">
-          <h3> Support Team:</h3>
+          <h4> Support:</h4>
 
           <p className="info-support one">
             <FontAwesomeIcon icon={faPhone}/>
@@ -66,14 +67,15 @@ function Profile() {
               <NavLink to="/trading-live" className="link-name">
                 My live Trading
               </NavLink>
-              <NavLink to="/home" className="link-name profile-logout">
+              <NavLink to="/" className="profile-logout" onClick={logoutHandler} >
               <i className="fas fa-times-circle"></i> 
               </NavLink>
             </div>
             
           </div>
          <div className="">  <MyProfileForme /></div>
-         
+         <div> <img src="https://g.foolcdn.com/image/?url=https%3A//g.foolcdn.com/editorial/images/647879/bitcoin-logo.jpg&amp;w=2000&amp;op=resize" 
+      className="cta-teal-airplane" alt="paper airplane"></img></div>
 
         </div>
       </div>

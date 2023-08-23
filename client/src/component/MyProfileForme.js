@@ -6,7 +6,7 @@ import BankData from "./DisplayUserBalance";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone, faEnvelope, faPen } from "@fortawesome/free-solid-svg-icons";
+import { faPhone, faEnvelope, faPen, faPenNib } from "@fortawesome/free-solid-svg-icons";
 
 import "./myProfileForme.css";
 
@@ -27,6 +27,7 @@ function MyProfileForme() {
   const [image, setImage] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [isEditing, setIsEditing] = useState(false);
+  const [isAboutMeEditing, setIsAboutMeEditing] = useState(false);
   const [walletList, setWalletList] = useState([{}]);
   const imageUploder = async () => {
     const data = new FormData();
@@ -100,6 +101,21 @@ function MyProfileForme() {
     setIsEditing(true);
   };
 
+
+  const handleAboutMeEditClick = () => {
+    setIsAboutMeEditing(true);
+  };
+
+  const handleSaveClick = () => {
+    setIsEditing(false);
+    setIsAboutMeEditing(false);
+  };
+
+  const handleAboutMeChange = (e) => {
+    const updatedProfileData = { ...profileData, aboutMe: e.target.value };
+    setProfileData(updatedProfileData);
+  };
+
   return (
     <div className="card-body">
       <div className="card-internal-container">
@@ -166,15 +182,7 @@ function MyProfileForme() {
                 </div>
                 
                 <div className="edit-right">
-                <label>
-                  My Notes:
-                  <textarea
-                    name="aboutMe"
-                    rows="4"
-                    className="form-control"
-                    placeholder={profileData.aboutMe}
-                  ></textarea>
-                </label>
+                
                 <label>
                   {" "}
                   <input
@@ -189,7 +197,7 @@ function MyProfileForme() {
                     Upload Image
                   </button>
                 </label>
-                <button className="btn-save">Save</button>
+                <button className="btn-save" onClick={handleSaveClick} >Save</button>
                 </div>
               </form>
               
@@ -200,11 +208,34 @@ function MyProfileForme() {
             )}
           </div>
         </div>
+
+
         <div className="section-my-notes">
-          <h3> My Notes : </h3>
-          <h4 className="my-notes-text">{profileData.aboutMe}</h4>
+      <h3> My Notes : </h3>
+      {isAboutMeEditing ? (
+        <div>
+          <textarea
+            name="aboutMe"
+            rows="7"
+            className="form-control textarea"
+            value={profileData.aboutMe}
+            onChange={handleAboutMeChange}  // Add this line
+          ></textarea>
+          <button className="btn-save btn-textarea" onClick={handleSaveClick}>
+            Save
+          </button>
         </div>
+      ) : (
+        <div>
+          <h4 className="my-notes-text">{profileData.aboutMe}</h4>
+          <button className="icon-edit-my-notes" onClick={handleAboutMeEditClick}>
+            <FontAwesomeIcon icon={faPenNib} />
+          </button>
+        </div>
+      )}
+    </div>
       </div>
+     
     </div>
   );
 }

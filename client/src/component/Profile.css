@@ -47,26 +47,27 @@
 }
 .card-heading-links .profile-logout {
   color: goldenrod;
+  font-size: 2rem;
 
 }
 .card-heading-links .profile-logout:hover {
-  color: bisque;
+  color: white
 }
 
 /* Links Left */
 
 .link-list {
-  margin-top: 26rem;
+  margin-top: 2rem;
   margin-left: 1rem;
   width: 15vw;
 }
-.link-list h3 {
+.link-list h4 {
   color: white;
   margin-bottom: 2rem;
 }
 .link-name {
   color: white;
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .info-support {
