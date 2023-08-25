@@ -35,7 +35,6 @@ function Login(props) {
         `${process.env.REACT_APP_BE_URL}/users/login`,
         userLogin
       );
-      console.log(response.data);
       localStorage.setItem("my-app-token", JSON.stringify(response.data.token));
     setAuthenticated(true);
       setUserData({

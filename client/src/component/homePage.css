@@ -110,7 +110,11 @@ a.cta-link:hover{
 
 .review-form{
 width: 100%;
-margin: 0;
+margin-top: 2rem;
+display: flex;
+flex-direction: column;
+padding-left: 1rem;
+padding-right: 2.4rem;
 }
 
 .review-read-write {

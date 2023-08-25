@@ -28,31 +28,37 @@ function MyProfileForme() {
     authenticated,
   } = useContext(StorContext);
 
-  //console.log(selectedCrypt);
   const navigate = useNavigate();
-  const [image, setImage] = useState("");
-  const [imgUrl, setImgUrl] = useState("");
+
+  // const [imgUrl, setImgUrl] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [isAboutMeEditing, setIsAboutMeEditing] = useState(false);
-  const [walletList, setWalletList] = useState([{}]);
+  // const [editProfileData, setEditProfileData] = useState({ ...profileData });
+  // const [editAboutMe, setEditAboutMe] = useState(profileData.aboutMe);
 
-  const imageUploder = async () => {
+  const imageUploader = async (imageUpdated) => {
     const data = new FormData();
-    data.append("imageFile", image);
+    data.append("imageFile", imageUpdated);
 
-    axios
-      .post(`${process.env.REACT_APP_BE_URL}/uploads`, data)
-      .then((res) => {
-        setAvatar(res.data.url);
-        console.log(res.data.url);
-      })
-      .catch((err) => console.log(err));
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_BE_URL}/uploads`,
+        data
+      );
+      const newAvatarUrl = res.data.url;
+
+      // Update avatar in context
+      setAvatar(newAvatarUrl);
+
+      // Update avatar in profileData in context
+      setProfileData({ ...profileData, avatar: newAvatarUrl });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  const submitHandler = (e) => {
+  const handleProfileFormSubmit = (e) => {
     e.preventDefault();
-    console.log("submit handler called");
-
     axios
       .put(
         `${process.env.REACT_APP_BE_URL}/users/update-profile/${userId}`,
@@ -67,51 +73,67 @@ function MyProfileForme() {
       )
       .then((res) => {
         setIsEditing(false);
-        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleAboutMeSubmit = (e) => {
+    e.preventDefault();
+
+    axios
+      .put(
+        `${process.env.REACT_APP_BE_URL}/users/update-profile/${userId}`,
+        profileData,
+        {
+          headers: {
+            Authorization: `Bearer ${JSON.parse(
+              localStorage.getItem("my-app-token")
+            )}`,
+          },
+        }
+      )
+      .then((res) => {
+        setIsAboutMeEditing(false);
       })
       .catch((err) => console.log(err));
   };
 
   const getUser = async () => {
-    axios
-      .get(`${process.env.REACT_APP_BE_URL}/users/profile/${userId}`, {
-        headers: {
-          Authorization: `Bearer ${JSON.parse(
-            localStorage.getItem("my-app-token")
-          )}`,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        setProfileData({
-          firstName: res.data.firstName,
-          lastName: res.data.lastName,
-          email:res.data.email,
-          phone: res.data.phone,
-          aboutMe: res.data.aboutMe,
-          avatar: res.data.avatar ? res.data.avatar : avatar,
-        });
-      })
-      .catch((err) => console.log(err));
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_BE_URL}/users/profile/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${JSON.parse(
+              localStorage.getItem("my-app-token")
+            )}`,
+          },
+        }
+      );
+      setProfileData({
+        firstName: res.data.firstName,
+        lastName: res.data.lastName,
+        email: res.data.email,
+        phone: res.data.phone,
+        aboutMe: res.data.aboutMe,
+        avatar: res.data.avatar ? res.data.avatar : avatar,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
     getUser();
-  }, [avatar, isEditing]);
+  }, []);
 
-  const handleEditClick = () => {
+  const handleProfileEditClick = () => {
     setIsEditing(!isEditing);
   };
 
   const handleAboutMeEditClick = () => {
-    setIsAboutMeEditing(true);
+    setIsAboutMeEditing(!isAboutMeEditing);
   };
-
-  const handleAboutMeChange = (e) => {
-    const updatedProfileData = { ...profileData, aboutMe: e.target.value };
-    setProfileData(updatedProfileData);
-  };
-
 
   return (
     <div className="card-body">
@@ -128,23 +150,25 @@ function MyProfileForme() {
                 alt="Logo"
               />
             </div>
+            <div>
             <h3>
               {profileData.firstName} {profileData.lastName}
             </h3>
 
             <p>
-              <FontAwesomeIcon icon={faEnvelope} /> {userData.userEmail}
+              <FontAwesomeIcon icon={faEnvelope} /> {profileData.email}
             </p>
             <p>
               <FontAwesomeIcon icon={faPhone} /> {profileData.phone}
             </p>
+            </div>
           </div>
-          {/* HERE STARTS THT EDIT FORM */}
+          {/* Profile Edit Form */}
           <div className="edit-field">
             {isEditing ? (
               <>
-                <form onSubmit={submitHandler}>
-                  <div className="edit-left">
+                <form className="profile-form" onSubmit={handleProfileFormSubmit}>
+                
                     <label>
                       First Name:
                       <input
@@ -152,7 +176,12 @@ function MyProfileForme() {
                         name="firstName"
                         className="form-control"
                         value={profileData.firstName}
-                        onChange={e => {setProfileData({...profileData, firstName: e.target.value})}}
+                        onChange={(e) => {
+                          setProfileData({
+                            ...profileData,
+                            firstName: e.target.value,
+                          });
+                        }}
                       />
                     </label>
                     <label>
@@ -162,10 +191,14 @@ function MyProfileForme() {
                         name="lastName"
                         className="form-control"
                         value={profileData.lastName}
-                        onChange={e => {setProfileData({...profileData, lastName: e.target.value})}}
+                        onChange={(e) => {
+                          setProfileData({
+                            ...profileData,
+                            lastName: e.target.value,
+                          });
+                        }}
                       />
                     </label>
-
                     <label>
                       Phone:
                       <input
@@ -173,10 +206,14 @@ function MyProfileForme() {
                         name="phone"
                         className="form-control"
                         value={profileData.phone}
-                        onChange={e => {setProfileData({...profileData, phone: e.target.value})}}
-/>
+                        onChange={(e) => {
+                          setProfileData({
+                            ...profileData,
+                            phone: e.target.value,
+                          });
+                        }}
+                      />
                     </label>
-
                     <label>
                       Email:
                       <input
@@ -184,12 +221,16 @@ function MyProfileForme() {
                         name="email"
                         className="form-control"
                         value={profileData.email}
-                        onChange={e => {setProfileData({...profileData, email: e.target.value})}}
+                        onChange={(e) => {
+                          setProfileData({
+                            ...profileData,
+                            email: e.target.value,
+                          });
+                        }}
                       />
                     </label>
-                  </div>
-
-                  <div className="edit-right">
+              
+                
                     <label>
                       {" "}
                       <input
@@ -197,61 +238,63 @@ function MyProfileForme() {
                         type="file"
                         name="image"
                         accept="image/png, image/jpg, image/jpeg, image/gif"
-                        onChange={(e) => setImage(e.target.files[0])}
+                        onChange={(e) => imageUploader(e.target.files[0])}
                       />
-                      <button className="btn-upload " onClick={imageUploder}>
-                        {" "}
-                        Upload Image
-                      </button>
                     </label>
-                    <button className="btn-save" type="submit">
-                      Save
+                       <div className="buttons-profile">
+                    <button className="btn-save btn-profile btn-save-changes" type="submit">
+                      Save Changes
                     </button>
                     <button
-                      className="btn-save btn-textarea"
-                      onClick={handleEditClick}
+                      className="btn-close btn-profile"
+                      onClick={handleProfileEditClick}
                     >
-                      Close without saving
+                      Close
                     </button>
-                  </div>
+                 </div>
                 </form>
               </>
             ) : (
-              <button className="icon-edit" onClick={handleEditClick}>
+            
+              <button className="icon-edit" onClick={handleProfileEditClick}>
                 <FontAwesomeIcon icon={faPen} />
               </button>
             )}
           </div>
         </div>
-
+        {/* About Me Edit Form */}
         <div className="section-my-notes">
           <h3> My Notes : </h3>
-         
-          {isAboutMeEditing ? ( <>
-          <form onSubmit={submitHandler}>
-            <div className="textarea-before-editing">
-              <textarea
-                name="aboutMe"
-                rows="7"
-                className="form-control textarea"
-                value={profileData.aboutMe}
-                onChange={e => {setProfileData({...profileData, aboutMe: e.target.value})}}
-                
-                
-               
-              ></textarea>
-              <button type="submit" className="btn-save btn-textarea">Save</button>
-            </div>
-           </form>
-           </>
+          {isAboutMeEditing ? (
+            <form onSubmit={handleAboutMeSubmit}>
+              <div className="textarea-before-editing">
+                <textarea
+                  name="aboutMe"
+                  rows="7"
+                  className="form-control textarea"
+                  value={profileData.aboutMe}
+                  onChange={(e) => {
+                    setProfileData({ ...profileData, aboutMe: e.target.value });
+                  }}
+                ></textarea>
+                <button className="btn-save btn-notes btn-notes-first" type="submit">
+                  Save
+                </button>
+                <button
+                  className="btn-close btn-notes"
+                  onClick={handleAboutMeEditClick}
+                >
+                  Close 
+                </button>
+              </div>
+            </form>
           ) : (
             <div className="textarea-editing">
               <h4 className="my-notes-text">{profileData.aboutMe}</h4>
-
-              <button 
+              <button
                 className="icon-edit-my-notes"
-                onClick={handleEditClick}>
-             
+                onClick={handleAboutMeEditClick}
+              >
                 <FontAwesomeIcon icon={faPenNib} />
               </button>
             </div>

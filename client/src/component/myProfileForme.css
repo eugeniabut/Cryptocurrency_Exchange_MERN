@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     border-radius:10px ;
-  
+
     padding-top: 2rem;
     padding-bottom: 2rem;
   background-color:bisque
@@ -11,7 +11,7 @@
     
     .section-gold-card {
       display: grid;
-  grid-template-columns: 0.7fr 1.2fr;
+  grid-template-columns: 0.6fr 1.2fr;
       background-color: rgb(178, 140, 91);
       border-radius:10px ;
      gap: 1rem;
@@ -33,12 +33,7 @@
     font-style: italic;
     font-size: 1.6rem;
    }
-  .avatar{
-    width:15rem;
-    border-radius: 5%;
-    box-shadow: 10px 20px #8888887a;
-  
-  }
+ 
 
   .profile-picture {
     margin-top: 2rem;
@@ -55,7 +50,8 @@
   .profile-data {
 margin-top: 2rem ;
   }
- 
+
+
   .icon-edit {
     background-color: rgb(178, 140, 91);
   
@@ -92,39 +88,47 @@ margin-top: 2rem ;
 /* editings  */
 .edit-field {
 
- 
+ width: 100%;
     margin-left: 0.8rem;
-    margin-bottom: 0.4rem;
-   
-   
+    margin-bottom: 0.6rem;
 }
 
 .btn-save {
+   background-color: bisque;
+    border-radius: 5px;
+    color: black;
+}
+
+.btn-save:hover {
+ background-color: rgb(79, 239, 10); 
+ }
+.btn-save-changes {
+  margin-right: 1rem;
+}
+.btn-close {
     background-color: black;
+    color:white;
     border-radius: 5px;
 }
-.btn-upload {
-    background-color: bisque;
-    color: black;
-    border-radius: 5px;
+.btn-close:hover{
+  background-color: rgb(79, 239, 10); 
+  color: black;
 }
 .input-choose-image{
-
+margin-top: 0.8rem;
+margin-bottom: 0.8rem;
 line-height: 1.8rem;
 border-radius: 5px;
-margin-bottom: 0.5rem;
+
 }
 
-.btn-textarea {
+.btn-notes {
  margin-top: 1rem;
-
 }
-.btn-textarea:hover {
-  margin-top: 1rem;
- 
-  background-color: rgb(178, 140, 91);
-  color: black;
- }
+.btn-notes-first{
+  background-color: rgb(178, 140, 91); ;
+}
+
 .textarea-editing{
   display: flex;
   flex-direction: column;
@@ -136,5 +140,85 @@ margin-bottom: 0.5rem;
 .profile-logo img{
 width: 100%;
 padding-right: 6%;
-margin-bottom: 1rem;
+margin-bottom: 1.5rem;
+}
+
+
+
+/* For iPad mini */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .card-content {
+    width: 90vw;
+  }
+   
+  .card-internal-container {
+    display: flex;
+flex-direction: column;
+   
+  }
+}
+
+.section-gold-card {
+  margin: 0.5rem;
+  margin-top: auto;
+}
+
+.section-my-notes{
+  margin-top:2rem ;
+}
+/* For iPhon 12Pro width up to 393px */
+@media (max-width: 393px) 
+{
+
+  .section-gold-card {
+    margin: 0.5rem;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+  }
+  
+.profile-picture {
+  margin-left: 0;
+}
+.profile-data {
+margin-top: 1rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+   .card-heading-links {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+
+  }
+
+  .icon-edit {
+    margin-left: 7rem;
+  }
+.profile-logo {
+  width: 80%;
+}
+
+   .link-name {
+    margin: 0.5rem;
+    font-size: 1.5rem;
+
+  }
+
+  .fa-times-circle {
+    margin-top: 0.6rem;
+    font-size: 2.5rem;
+  }
+
+ 
 }

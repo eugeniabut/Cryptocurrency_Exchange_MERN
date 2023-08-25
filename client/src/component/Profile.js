@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./Profile.css";
 import ProfilePhoto from "./images/profile-free.png";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { NavLink, Link, useNavigate, useParams } from "react-router-dom";
 import StorContext from "../context";
 import axios from "axios";
 import CreateAccount from "./CreateAccount";
@@ -17,60 +17,25 @@ import MyProfileForme from "./MyProfileForme";
 
 
 function Profile() {
-  const { avatar, profileData, logoutHandler} = useContext(StorContext);
-  console.log(`avatar`, avatar);
-  const emailAddress = "cryptospace@gmail.com";
-  const [orderStatus, setOrderStatus] = useState("Order a call");
- 
+  const {logoutHandler} = useContext(StorContext);
 
-  const handleButtonClick = () => {
-    setOrderStatus("We call you back");
-  }
   return (
     <main className="main">
-      <div className="sidebar">
-        <div className="link-list">
-          <h4> Support:</h4>
-
-          <p className="info-support one">
-            <FontAwesomeIcon icon={faPhone}/>
-            <p className="fa-phone-call"> 0151 555 77 00</p>
-          </p>
-
-
-          <p className="info-support two">
-      <FontAwesomeIcon icon={faPhoneAlt} /> 
-      <button
-        type="button"  
-        className="fa-phone-callback"
-        onClick={handleButtonClick} 
-      >
-        {orderStatus}
-      </button>
-    </p>
-
-          <a className="info-support three" href={`mailto:${emailAddress}`}>
-            <FontAwesomeIcon icon={faEnvelope} /> 
-            <p className="fa-envelop">Send a message</p>
-          </a>
-
-          
-        </div>
-      </div>
+     
       <div className="">
         <div className="card-content">
           <div className="card-heading">
            <div className="card-heading-links">
            
-              <NavLink to="/my-wallet" className="link-name">
+              <Link to="/my-wallet" className="link-name">
                 My Wallet
-              </NavLink>
-              <NavLink to="/trading-live" className="link-name">
+              </Link>
+              <Link to="/trading-live" className="link-name">
                 My live Trading
-              </NavLink>
-              <NavLink to="/" className=" link-name profile-logout" onClick={logoutHandler} >
+              </Link>
+              <Link to="/" className=" link-name profile-logout" onClick={logoutHandler} >
               <i className="fas fa-times-circle"></i> 
-              </NavLink>
+              </Link>
             
             </div>
           </div>
