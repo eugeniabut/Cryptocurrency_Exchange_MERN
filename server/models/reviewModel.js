@@ -1,6 +1,13 @@
 import mongoose from "mongoose";
 
 const reviewSchema = new mongoose.Schema({
+  avatar:{
+    type:String
+  },
+  firstName:{
+    type:String
+
+  },
   reviewText: {
     type: String,
     required: true,

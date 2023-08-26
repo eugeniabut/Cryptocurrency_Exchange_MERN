@@ -2,7 +2,6 @@ import Bank from "../models/bankModel.js"
 import userModel from "../models/userModel.js";
 export const addBankData=async(req,res,next)=>{
  try {
-  console.log();
     const { accountNumber, accountHolder} = req.body;
     const userBank= await userModel.findById({_id:req.params.id}) 
     if(!userBank){

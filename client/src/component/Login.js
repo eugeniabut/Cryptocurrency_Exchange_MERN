@@ -35,7 +35,6 @@ function Login(props) {
         `${process.env.REACT_APP_BE_URL}/users/login`,
         userLogin
       );
-      console.log(response.data);
       localStorage.setItem("my-app-token", JSON.stringify(response.data.token));
     setAuthenticated(true);
       setUserData({
@@ -44,7 +43,7 @@ function Login(props) {
         userEmail: response.data.email,
         userID: response.data._id,
         avatar:response.data.avatar,
-      aboutMe:response.data.aboutMe
+        aboutMe:response.data.aboutMe
       });
 
       navigate("/profile");

@@ -2,14 +2,16 @@ import Review from "../models/reviewModel.js";
 
 export const createReview = async (req, res, next) => {
   try {
-    const { reviewText } = req.body; // Destructuring from req.body
+    const { reviewText, avatar, firstName } = req.body; // Destructuring from req.body
 
     if (!reviewText || reviewText.trim() === '') {
       return res.status(400).json({ message: "Review text is required and cannot be empty." });
     }
 
     const review = new Review({
-      reviewText: reviewText, // Use 'reviewText' property name instead of 'review'
+      avatar: avatar,
+      firstName: firstName,
+      reviewText: reviewText,
     });
 
     const newReview = await review.save();
@@ -23,13 +25,26 @@ export const createReview = async (req, res, next) => {
 
 export const getAllReviews = async (req, res) => {
   try {
-    const reviews = await Review.find().select('reviewText');
-    res.status(200).json(reviews);
+    const reviews = await Review.find().select('avatar firstName reviewText createdAt');
+    const formattedReviews = reviews.map(review => ({
+      avatar: review.avatar,
+      firstName: review.firstName,
+      reviewText: review.reviewText,
+      date: formatDate(review.createdAt),
+    }));
+
+    res.status(200).json(formattedReviews);
   } catch (error) {
     console.error('Error fetching reviews:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+// To format date in "YYYY/MM/DD" format:
+function formatDate(date) {
+  const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+  return date.toLocaleDateString('en-US', options).replace(/\//g, '-');
+}
 
 
 
