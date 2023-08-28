@@ -30,8 +30,8 @@ function MyProfileForme() {
 
   const navigate = useNavigate();
 
-  // const [imgUrl, setImgUrl] = useState("");
-  const [isEditing, setIsEditing] = useState(false);
+console.log(userId); 
+ const [isEditing, setIsEditing] = useState(false);
   const [isAboutMeEditing, setIsAboutMeEditing] = useState(false);
   // const [editProfileData, setEditProfileData] = useState({ ...profileData });
   // const [editAboutMe, setEditAboutMe] = useState(profileData.aboutMe);
@@ -116,7 +116,8 @@ function MyProfileForme() {
         email: res.data.email,
         phone: res.data.phone,
         aboutMe: res.data.aboutMe,
-        avatar: res.data.avatar ? res.data.avatar : avatar,
+        avatar: res.data.avatar 
+        // ? res.data.avatar : avatar,
       });
     } catch (err) {
       console.log(err);

@@ -131,14 +131,14 @@ function MyWallet() {
     <div className="wallet-container">
       <div className="sidebar">
         <div className="link-list">
-          <NavLink to="/bank-data" className="link-name">
+          <NavLink  style={{textDecoration: 'none'}} to="/bank-data" className="link-name">
             Your Bank
           </NavLink>
-          <NavLink to="/sell-coins" className="link-name">
+          <NavLink  style={{textDecoration: 'none'}}to="/sell-coins" className="link-name">
             Coins to sell{" "}
             
           </NavLink>
-          <NavLink to="/coins" className="link-name">
+          <NavLink  style={{textDecoration: 'none'}}to="/coins" className="link-name">
             your wallet coins{" "}
             {!update ? (
               <FontAwesomeIcon icon={faBell} style={{ color: "#e81111" }} />

@@ -98,7 +98,7 @@ function App() {
           console.log(err.message);
         });
     }
-  }, []);
+  }, [authenticated]);
   console.log(userId);
 
   return (

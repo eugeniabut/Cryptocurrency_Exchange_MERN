@@ -21,6 +21,7 @@ const addCoin=async	(e)=>{
 					image:data.image,
 					quantity:counter
 				}
+				
 				setSelectedCrypt([...selectedCrypt,coin])
 				// try {
 				// 	const response = await axios.post(`${process.env.REACT_APP_BE_URL}/exchange/add-coin`,coin,{

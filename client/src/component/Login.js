@@ -16,7 +16,8 @@ import {
 }
 from 'mdb-react-ui-kit';
 function Login(props) {
-  const {setUserData,setAuthenticated, authenticated}=useContext(StorContext)
+  const {setUserData,setAuthenticated,  profileData,
+    setProfileData, authenticated}=useContext(StorContext)
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
   const [responseMsg, setResponseMsg] = useState("");
@@ -35,6 +36,7 @@ function Login(props) {
         `${process.env.REACT_APP_BE_URL}/users/login`,
         userLogin
       );
+      // https://static.vecteezy.com/system/resources/previews/020/974/274/non_2x/avatar-gold-icon-illustration-of-golden-particle-background-isolated-sign-symbol-education-icon-black-background-vector.jpg
       localStorage.setItem("my-app-token", JSON.stringify(response.data.token));
     setAuthenticated(true);
       setUserData({
@@ -45,9 +47,9 @@ function Login(props) {
         avatar:response.data.avatar,
         aboutMe:response.data.aboutMe
       });
-
+      setProfileData(response.data)
       navigate("/profile");
-      
+      console.log(response.data.token);
       e.target.reset();
     } catch (err) {
       setErrorMessage(err.request.response);
