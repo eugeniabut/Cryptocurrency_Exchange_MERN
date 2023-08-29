@@ -3,6 +3,7 @@
 .wallet-container{
   display: flex;
   width: 100vw;
+  height: 75vh;
 }
 
 .sidebar{
@@ -15,7 +16,6 @@
 align-content:space-around;
 justify-content: center;
  width: 80vw;
-  height: 100vh;
 }
 .wallet-item{
   font-size: larger;

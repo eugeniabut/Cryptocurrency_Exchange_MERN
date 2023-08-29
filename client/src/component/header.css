@@ -229,17 +229,18 @@
         width: 80vw;
         /* position:relative;
         height: 90%; */
+      
 margin-top:8px;
         background-color:rgba(40, 40, 40, 0.192);
     }
     
     .nav div.main_list ul li a{
       text-align: center;
-        line-height: 40px;
+        line-height: 10px;
         /* width: 30vw; */
-        height: 40px;
+      
         display: table;
-        color: rgb(198, 177, 124);
+        color: rgb(158, 177, 124);
     }
     
     .nav div.media_button{

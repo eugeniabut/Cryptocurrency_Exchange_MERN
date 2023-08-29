@@ -6,20 +6,29 @@ import StorContext from '../context'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 function CoinsToSell() {
-  const {
+  const {countSell,setCountSell,
     value,setValue,
     coinsToSell,
     setCoinsToSell}= useContext(StorContext)
-
+const noSoldCoin=[]
+setCountSell(0)
     const goToSell=(e,data)=>{
-      console.log(e.target.name["value"]);
-      // const newCoinsToSell=coinsToSell.filter((item)=>
-      //   // item.id!==data.id
-      // )
-      const newVal=e.target.name.value
-      setValue([...value,parsePath(newVal)])
+      console.log(e.target.name);
+     
+      // const newCoinsToSell=coinsToSell.filter((item)=>item.id!==data.id)
+    const selctedCoin=coinsToSell.find((elem)=>{
+if(elem._id===e.target.name){
+  const newVal=elem.current_price+(elem.current_price* elem.price_change_percentage_24h)
+  setValue([...value,parsePath(newVal)])
+}else{
+noSoldCoin.push(elem)
+}
+    })
+setCoinsToSell(noSoldCoin)
+
+   console.log(noSoldCoin);
     }
-    console.log(value);
+   
   return (
     <div className='coins-sell'>
         <div className="sidebar">
@@ -44,10 +53,14 @@ function CoinsToSell() {
        
       if(i>1)
       return (
-        <tr
+        <tr key={i}
           style={{ backgroundColor: "goldenrod" }}
           className="wallet-item"
         >
+                 <div class="img__wrapper">
+  <img src="http://www.savoy-sharm.com/media-room/images/hi-res/king-bed-room-accommodation-savoy-luxury-5-stars-accommodation-sharm-el-sheikh.jpg" alt="" />
+  <p class="sold_out">Sold out</p>
+</div>
           <td>
             <img
               className="coin-img"
@@ -61,11 +74,16 @@ function CoinsToSell() {
         
           <td>{data.current_price+(data.current_price* data.price_change_percentage_24h)}</td>
           <td>
+            {/* {soldOut? */}
             <button
+           
               style={{ background: "red" }}
-              name={{value:data.current_price+(data.current_price* data.price_change_percentage_24h),id:data.id}}
+            //  name={data.current_price+(data.current_price* data.price_change_percentage_24h)}
+            name={data._id}
               className="btn"
-              onClick={(e,data)=>goToSell(e,data)}
+              onClick={(e,data)=>goToSell(e,data)
+              // removeItem(e,data)
+              }
             >
               sell{" "}
             </button>

@@ -2,6 +2,7 @@
     display: flex;
     color: antiquewhite;
     align-content: center;
+    height: 75vh;
 }
 .coins-container{
     padding: 10%;

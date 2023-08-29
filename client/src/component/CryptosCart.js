@@ -19,7 +19,7 @@ const addCoin=async	(e)=>{
 					price_change_percentage_24h:data.price_change_percentage_24h,
 					total_volume:data.total_volume,
 					image:data.image,
-					quantity:counter
+					quantity:1
 				}
 				
 				setSelectedCrypt([...selectedCrypt,coin])

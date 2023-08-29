@@ -26,8 +26,7 @@ function App() {
   const [wallet, setWallet] = useState([{}]);
   const [checkUserId, setCheckUserId] = useState(false);
   const [coinsToSell, setCoinsToSell] = useState([{}]);
-  const [value, setValue] = useState([0]);
-  const [reviewText, setReviewText] = useState("");
+  const [value, setValue] = useState([0])
 
   const [countSell, setCountSell] = useState(0);
   const [bankData, setBankData] = useState({});
@@ -48,6 +47,7 @@ function App() {
       // 	total_volume:0
     },
   ]);
+
   const [profileData, setProfileData] = useState({
     firstName: "",
     lastName: "",
@@ -67,7 +67,7 @@ function App() {
     avatar: "",
     aboutMe: "",
   });
-
+ 
   const logoutHandler = () => {
     localStorage.removeItem("my-app-token");
     setAuthenticated(false);
@@ -87,7 +87,7 @@ function App() {
           },
         })
         .then((response) => {
-          setUserName(response.data.userName);
+          setUserName(response.data.firstName);
           setAuthenticated(true);
           setUserId(response.data.userId);
           setAvatar(response.data.avatar);
@@ -99,8 +99,11 @@ function App() {
         });
     }
   }, [authenticated]);
-  console.log(userId);
-
+  const [reviewText, setReviewText] = useState({
+    text:"",
+    avatar:"",
+    firstName:"",
+  });
   return (
     <div className="bg-animation">
       <StorContext.Provider
@@ -110,6 +113,7 @@ function App() {
           counter,
           userId,
           avatar,
+          userName,
           setAvatar,
           countSell,
           setCountSell,
