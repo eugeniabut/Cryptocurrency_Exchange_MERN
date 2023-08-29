@@ -178,15 +178,6 @@
 
 /* Medai qurey section */
 
-@media screen and (min-width: 400px) and (max-width: 1024px) {
-    
-    .container{
-        margin-right: 0;
-    }
-    
-}
-
-
 
 
 @media screen and (max-width:768px) {
@@ -201,12 +192,13 @@
         left: 0;    }
   
     .nav div.main_list{
-        width: 100vw;
+        width: 100%;
         height: 2rem;
         margin-top: 65px;
         height: 0px;
         overflow:inherit;
-        font-size: small;    
+        font-size: small;   
+     
     }
     
     .nav .container .show_list{
@@ -217,35 +209,22 @@
         
     }
     
-    .nav .container.main_list ul{
-        /* display: flex;
-        flex-direction: column; */
-        /* width: 100vw;
-        height: 200px;
-        top: 80px;
-        right: 0;
-        left: 0; */
-
-    }
-    
+ 
     .nav div.main_list ul li{
-        width: 80vw;
-        height: max-content;
-        /* position:relative;
-        height: 90%; */
-      
-margin-top:8px;
-  
-       
-    }
+margin-top:10px;
+
+}
     
     .nav div.main_list ul li a{
       text-align: center;
-        line-height: 10px;
-        /* width: 30vw; */
+        line-height: 23px;
+        width: 100%;
       
         display: table;
-        color: rgb(216, 211, 199); padding-right: 2rem;
+        color: rgb(216, 211, 199);
+         padding-right: 1rem;
+      
+   
     }
         .nav div.main_list ul li a:hover{
           color: white;
@@ -254,4 +233,7 @@ margin-top:8px;
     .nav div.media_button{
         display: block;
     }
-}
+   
+
+    }
+   

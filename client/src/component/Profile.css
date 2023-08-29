@@ -6,13 +6,13 @@
 .main {
 display: flex;
   justify-content: center;
-  height: 75vh;
+  margin-top: 7vh;
 }
 /* .sidebar {
   margin-left:0.5%;
  margin-bottom: 0.5%;
  margin-top: 0.5%;
- /* height: 75vh; */
+ height: 100vh;
  border-radius: 10px;
  background-color: #9f7d1e65;
  } */
@@ -44,7 +44,7 @@ display: flex;
 
   background-color: #3a3b3b96;
 
-  /* height: 50vw; */
+  height: auto;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -87,7 +87,7 @@ padding-right: 2rem;
   width: 90vw;
 }
 .card-heading {
- height: 10rem;
+ height: 13rem;
 }
 .card-heading-links {
   display: flex;
@@ -111,14 +111,16 @@ padding-right: 2rem;
 @media (max-width: 600px) {
   .card-content {
     width: 100vw;
+    padding-top: 6rem;
   }
  .card-heading {
-  height: 8rem;
+  height: 11rem;
  }
    .card-heading-links {
  display: flex;
  flex-direction: column;
  align-items: center;
+
 
 
  
