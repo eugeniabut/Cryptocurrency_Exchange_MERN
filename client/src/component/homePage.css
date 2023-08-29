@@ -163,8 +163,12 @@ border-bottom: 1px solid  #d2d1cc;
         height: 30vh;
         padding: 1rem;
     }
-   
-    
+   .review-read-write {
+    width: 100vw;
+margin-left: 0;
+margin-right: 0;
+   }
+  
 }
 
 

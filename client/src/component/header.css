@@ -110,6 +110,7 @@
     right: 15px;
     top: 12px;
     display: none;
+    margin-right: 2rem;
 }
 
 .nav div.media_button button.main_media_button {
@@ -123,11 +124,12 @@
 
 .nav div.media_button button.main_media_button span{
     width: 98%;
-    height: 1px;
+    height: 3px;
     display: block;
     background-color: #fff;
     margin-top: 9px;
-    margin-bottom: 10px;
+  padding-right: 40px;
+  
 }
 
 .nav div.media_button button.main_media_button:hover span:nth-of-type(1){
@@ -179,7 +181,7 @@
 @media screen and (min-width: 400px) and (max-width: 1024px) {
     
     .container{
-        margin: 0;
+        margin-right: 0;
     }
     
 }
@@ -188,7 +190,7 @@
 
 
 @media screen and (max-width:768px) {
-    
+   
     .container{
         margin: 0;
         width: 100vw;
@@ -204,7 +206,7 @@
         margin-top: 65px;
         height: 0px;
         overflow:inherit;
-        font-size: small;
+        font-size: small;    
     }
     
     .nav .container .show_list{
@@ -212,6 +214,7 @@
         width: 100vw;
         position: fixed;
         left: 0;
+        
     }
     
     .nav .container.main_list ul{
@@ -227,10 +230,12 @@
     
     .nav div.main_list ul li{
         width: 80vw;
+        height: max-content;
         /* position:relative;
         height: 90%; */
 margin-top:8px;
-        background-color:rgba(40, 40, 40, 0.192);
+  
+       
     }
     
     .nav div.main_list ul li a{
@@ -239,7 +244,10 @@ margin-top:8px;
         /* width: 30vw; */
         height: 40px;
         display: table;
-        color: rgb(198, 177, 124);
+        color: rgb(216, 211, 199); padding-right: 2rem;
+    }
+        .nav div.main_list ul li a:hover{
+          color: white;
     }
     
     .nav div.media_button{
