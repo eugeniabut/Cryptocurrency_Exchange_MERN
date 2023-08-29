@@ -6,13 +6,13 @@
 .main {
 display: flex;
   justify-content: center;
-  margin-top: 7vh;
+  height: 75vh;
 }
 /* .sidebar {
   margin-left:0.5%;
  margin-bottom: 0.5%;
  margin-top: 0.5%;
- height: 100vh;
+ /* height: 75vh; */
  border-radius: 10px;
  background-color: #9f7d1e65;
  } */
@@ -44,7 +44,7 @@ display: flex;
 
   background-color: #3a3b3b96;
 
-  height: auto;
+  /* height: 50vw; */
   border-radius: 10px;
   display: flex;
   flex-direction: column;

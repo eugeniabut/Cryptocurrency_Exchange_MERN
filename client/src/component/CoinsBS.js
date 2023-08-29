@@ -38,7 +38,7 @@ setCountSell(coinsToSell.length)
             Your Bank
           </NavLink>
           <NavLink to="/sell-coins" className="link-name">
-           Coins to sell{countSell > 1 ? (
+           Coins to sell{countSell > 0 ? (
               <>
                 <FontAwesomeIcon
                   icon={faBell}
@@ -61,7 +61,7 @@ setCountSell(coinsToSell.length)
           <tr
             style={{ backgroundColor: "goldenrod" }}
             className="wallet-item"
-          >
+          >zz
             <td>
               <img
                 className="coin-img"
