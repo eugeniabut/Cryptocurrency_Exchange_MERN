@@ -6,7 +6,7 @@
 .main {
 display: flex;
   justify-content: center;
-  height: 75vh;
+  height: 90vh;
 }
 .sidebar {
   margin-left:0.5%;

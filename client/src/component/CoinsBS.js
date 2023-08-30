@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import StorContext from '../context';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
@@ -21,6 +21,7 @@ function CoinsBS() {
     setWalletList,
     authenticated,
   } = useContext(StorContext);
+  const[on, setOn]=useState(false)
 const coinBSOffer =  (e) => {
  
 const coins=[]
@@ -29,6 +30,7 @@ const coin=walletList.find((elem)=>elem._id===e.target.name)
 coins.push(coin)
 setCoinsToSell([...coinsToSell,coin])
 setCountSell(coinsToSell.length)
+
 };
   return (
     <div className='coins-wallet'>
@@ -56,12 +58,11 @@ setCountSell(coinsToSell.length)
       </div>
  <div className='coins-container'>  <h3>your coins :</h3>
     {walletList?.map((data, i) => {
-      if(i>1)
         return (
           <tr
             style={{ backgroundColor: "goldenrod" }}
             className="wallet-item"
-          >zz
+          >
             <td>
               <img
                 className="coin-img"
@@ -80,10 +81,12 @@ setCountSell(coinsToSell.length)
             <td>{data.total_volume}</td>
             <td>
               <button
-                style={{ background: "red" }}
+                style={{ background:on?"green":`red` }}
                 name={data._id}
-                className="btn"
-                onClick={(e)=>coinBSOffer(e)}
+                className={on?"btn toGreen":"btn"}
+                onClick={(e)=>{
+                    setOn(true)
+                  return coinBSOffer(e)}}
               >
                 sell{" "}
               </button>

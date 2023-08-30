@@ -9,13 +9,13 @@ height: 20%;
     color: goldenrod;
     padding-top:5%;
 
-    width:70vw;
+    width:20rem
   
     
     
 }
 .app-text h3{
-    padding: 3rem ;
+    /* padding: 3rem ; */
     height: 15rem;
     font-size: 3rem;
     border-radius: 20%;
@@ -39,7 +39,7 @@ height: 20%;
     display: flex;
     /* justify-content: center; */
     align-items: center;
-    padding-right: 5rem;
+    /* padding-right: 5rem; */
   }
   
   .arrow {

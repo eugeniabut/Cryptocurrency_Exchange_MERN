@@ -1,20 +1,23 @@
 .registration{
-    /* height: 80vh; */
+   
     background-color:rgba(191, 161, 86, 0.216);
-
-
+color: antiquewhite;
+display:grid;
 }
 .body-registration{
     background-color:rgba(191, 161, 86, 0.216);
-    height: 80vh;
-
+    width: 70%;
 
 }
 .main-registration{
-    height: 40%;
-width: 50%;
+    height:100%;
+
 
 }
 .registr-img{
    padding: 30%;
+}
+.icon{
+    padding-right: 10px;
+ height: 30px;
 }

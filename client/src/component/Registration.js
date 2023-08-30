@@ -63,39 +63,39 @@ console.log(userProfile);
               <form  onSubmit={submitHandler} encType="multipart/form-data">
 
               <div className="d-flex flex-row align-items-center mb-4 ">
-                <MDBIcon fas icon="user me-3" size='lg'/>
+                <MDBIcon className='icon' fas icon="user me-3" size='lg'/>
                 <MDBInput label='Your Name' id='form1' type='text' 
           name="firstName"
           placeholder="First Name" className='w-100'/>
               </div>
               <div className="d-flex flex-row align-items-center mb-4 ">
-                <MDBIcon fas icon="user me-3" size='lg'/>
+                <MDBIcon className='icon' fas icon="user me-3" size='lg'/>
                 <MDBInput label='Your Name' id='form1' type='text' 
           name="lastName"
           placeholder="Last Name" className='w-100'/>
               </div>
               <div className="d-flex flex-row align-items-center mb-4">
-                <MDBIcon fas icon="envelope me-3" size='lg'/>
+                <MDBIcon className='icon'fas icon="envelope me-3" size='lg'/>
                 <MDBInput label='Your Email'  name="email"
           placeholder="Email"
           required id='form2' type='email'/>
               </div>
 
               <div className="d-flex flex-row align-items-center mb-4">
-                <MDBIcon fas icon="lock me-3" size='lg'/>
+                <MDBIcon className='icon' fas icon="lock me-3" size='lg'/>
                 <MDBInput label='Password'  name="password"
           placeholder="Password"
           required id='form3' type='password'/>
               </div>
               <div className="d-flex flex-row align-items-center mb-4">
-                <MDBIcon fas icon="lock me-3" size='lg'/>
+                <MDBIcon className='icon'fas icon="lock me-3" size='lg'/>
                 <MDBInput label='confirmPassword'  name="confirmPassword"
           placeholder="Confirm Password"
           required id='form3' type='password'/>
               </div>
 
               <div className="d-flex flex-row align-items-center mb-4">
-                <MDBIcon fas icon="key me-3" size='lg'/>
+                <MDBIcon className='icon' fas icon="key me-3" size='lg'/>
                 <MDBInput label='Street Name' id='form4'  type="text"
           name="streetName"
           placeholder="Street Name"
@@ -103,21 +103,21 @@ console.log(userProfile);
               </div>
 
               <div className="d-flex flex-row align-items-center mb-4">
-                <MDBIcon fas icon="key me-3" size='lg'/>
+                <MDBIcon className='icon' fas icon="key me-3" size='lg'/>
                 <MDBInput label='City Name' id='form4'  type="text"
           name="cityName"
           placeholder="City Name"
           required/>
               </div>
               <div className="d-flex flex-row align-items-center mb-4">
-                <MDBIcon fas icon="key me-3" size='lg'/>
+                <MDBIcon className='icon' fas icon="key me-3" size='lg'/>
                 <MDBInput label='House No.' id='form4'    type="number"
           name="houseNumber"
           placeholder="House No."
           required/>
               </div>
               <div className="d-flex flex-row align-items-center mb-4">
-                <MDBIcon fas icon="key me-3" size='lg'/>
+                <MDBIcon className='icon' fas icon="key me-3" size='lg'/>
                 <MDBInput label='Post code' id='form4'    type="number"
           name="postalCode"
           placeholder="Post code"
@@ -126,15 +126,15 @@ console.log(userProfile);
               {/* <div className='mb-4'>
                 <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
               </div> */}
-              <select size='lg' onChange={onchangeHandler} name="country">
+              {/* <select size='lg' onChange={onchangeHandler} name="country">
             <option selected="" value="Default">(Please select a country)</option>
             <option defaultValue="AF">Australia</option>
             <option defaultValue="AL">Canada</option>
             <option defaultValue="DZ">India</option>
             <option defaultValue="AS">Russia</option>
             <option defaultValue="AD">USA</option>
-          </select>
-              <MDBBtn style={{backgroundColor:'rgb(212, 159, 25)',height:"3rem",width:"14.5rem"}} >Register</MDBBtn>
+          </select> */}
+              <MDBBtn style={{backgroundColor:'rgb(212, 159, 25)',height:"3rem",width:"100%"}} >Register</MDBBtn>
               </form>
            
             <div>{

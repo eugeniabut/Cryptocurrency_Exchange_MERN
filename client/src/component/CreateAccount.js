@@ -28,7 +28,7 @@ const bankData={
         }
       })
         console.log(response.data);
-        navigate("/bank-data")
+        navigate("/my-wallet")
     
  
     } catch (err) {
