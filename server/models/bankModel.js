@@ -14,7 +14,7 @@ const bankSchema = new mongoose.Schema({
  
   transferAmount: {
     type: Number,
-    default: sum
+    default: 0
   },
   balance: {
     type: Number,
