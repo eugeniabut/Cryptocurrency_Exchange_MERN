@@ -143,6 +143,7 @@ function App() {
         }}
       >
         <Header />
+        
         <Routes>
           <Route path="/register" element={<Registration />} />
           <Route path="/trading-live" element={<TradingLive />} />
