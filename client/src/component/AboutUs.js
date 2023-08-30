@@ -10,15 +10,12 @@ function AboutUs() {
         Welcome To Cryptos-Space
       </div>
       <div >
-      <p class="text" >Cryptos-space is the trading and investing platform that empowers you to grow your knowledge and wealth as part of a global community.
+      <p class="text" >  
+                    We believe that in a decade the financial system of the internet — that is, commerce that happens on the internet — will be the largest financial system in the world. And it will be powered by crypto.
+                    "SEMM-DV-Cryptos_Space" enabled anyone to not only examine transactions and study the blockchain, but it is also an API that enabled companies to build on Bitcoin. We also have provided the most popular and widely used crypto wallet that enables anyone anywhere to control their own money.
+                    Our team spans the globe and has worked tirelessly to accelerate the adoption of crypto and usher in the future of finance. We are passionate, relentless, and stoked - and believe that a lean team of world-class visionaries can ship products that empower our customers and drive the business to new heights.
 
-We all want our money to work harder. Some of us are beginners, some more experienced, but we all wish that we could do better. 
-
-eToro was founded in 2007 with the vision of a world where everyone can trade and invest in a simple and transparent way. 
-
-We believe there is power in shared knowledge. So we’ve created an investment community built around social collaboration and investor education. Our platform is designed to provide you with the tools you need to grow your knowledge and wealth. 
-
-We can become more successful by investing together.  </p>    </div>
+               </p>    </div>
     </div>
   </header>
   <div class="container">
@@ -52,7 +49,7 @@ We can become more successful by investing together.  </p>    </div>
           <h4 class="title">Web Developer</h4>
         </div>
         <ul class="social">
-        <li><a href="https://github.com/MerKhadraoui" class="fa fa-twitter" aria-hidden="true"></a></li>
+        <li><a href="https://github.com/eugeniabut" class="fa fa-twitter" aria-hidden="true"></a></li>
 
         </ul>
       </div>
@@ -60,14 +57,14 @@ We can become more successful by investing together.  </p>    </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <div class="our-team">
         <div class="picture">
-          <img class="img-fluid" src="https://picsum.photos/130/130?image=856"/>
+          <img class="img-fluid" src="./profilepic.png"/>
         </div>
         <div class="team-content">
-          <h3 class="name">Sixtus</h3>
+          <h3 class="name">Sixtus Adelehin</h3>
           <h4 class="title">Web Developer</h4>
         </div>
         <ul class="social">
-        <li><a href="https://github.com/MerKhadraoui" class="fa fa-twitter" aria-hidden="true"></a></li>
+        <li><a href="https://github.com/sixtusdci" class="fa fa-twitter" aria-hidden="true"></a></li>
 
         </ul>
       </div>
@@ -82,7 +79,7 @@ We can become more successful by investing together.  </p>    </div>
           <h4 class="title">Web Developer</h4>
         </div>
         <ul class="social">
-        <li><a href="https://github.com/MerKhadraoui" class="fa fa-twitter" aria-hidden="true"></a></li>
+        <li><a href="https://github.com/maryna7777" class="fa fa-twitter" aria-hidden="true"></a></li>
 
         </ul>
       </div>

@@ -84,7 +84,7 @@ function Login(props) {
             placeholder="Password"
             required  size="lg"/>
          
-        <MDBBtn className="mb-4 px-5"  type="submit" value="login" color='dark' size='lg'>Login</MDBBtn>
+        <MDBBtn className="mb-4 px-5"  type="submit" value="login"style={{ height:"3rem",width:"100%"}} color='dark' size='lg'>Login</MDBBtn>
         </form>
         <a className="small text-muted" href="#!">Forgot password?</a>
 

@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Abel|Courgette|Cormorant+Garamond');
 .wallet-container{
   display: flex;
-  width: 100vw;
+  /* width: 100vw; */
   height: 75vh;
 }
 

@@ -32,17 +32,17 @@
 }
 .testimonial .pic{
   display: inline-block;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   overflow: hidden;
   position: absolute;
-  top: 60px;
+  top: 20px;
   left: 20px;
 }
 .testimonial .pic img{
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 .testimonial .description{
   font-size: 15px;
@@ -50,11 +50,13 @@
   color: #6f6f6f;
   line-height: 25px;
   margin-bottom: 15px;
+  overflow: clip;
+
 }
 .testimonial .title{
   display: inline-block;
-  font-size: 20px;
   font-weight: 700;
+  font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #e9d41c;
@@ -62,7 +64,7 @@
 }
 .testimonial .post{
   display: inline-block;
-  font-size: 17px;
+  font-size: 8px;
   color:#e9d41c;
   font-style:italic;
 }
@@ -79,10 +81,10 @@ border-color:#e9d41c;
 }
 .owl-carousel{
   display: flex;
-  width:100%;
+  width:90vw;
   height: 30vh;
-  animation: slide-left 20s; 
-  padding-right: 15%;
+  /* animation: slide-left 20s;  */
+  padding-right: 5%;
 }
 @keyframes slide-left {
   from {
@@ -94,7 +96,7 @@ border-color:#e9d41c;
   }
  }
 .row{
-  width:100%;
+  /* width:100%; */
     overflow:hidden; 
 }
 @media only screen and (max-width: 767px){

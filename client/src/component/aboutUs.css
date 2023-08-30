@@ -7,7 +7,7 @@ body {
   
   .showcase::after {
     content: '';
-    height: 70vh;
+    height: 80vh;
     width: 100%;
     background-image: url(https://image.ibb.co/gzOBup/showcase.jpg);
     background-size: cover;
@@ -64,8 +64,6 @@ height: 100%;
   
 
   }
-  
- 
   
   .grid-3 {
     display: grid;

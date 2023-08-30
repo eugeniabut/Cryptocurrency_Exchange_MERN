@@ -36,7 +36,7 @@ function MyWallet() {
       })
       .then((res) => {
         setWalletList(res.data)
-      })
+console.log(walletList);      })
       .catch((err) => console.log(err.message));
   };
   selectedCrypt.map((data,i) =>{if(i>0) return sum.push(data.current_price)});
@@ -75,8 +75,7 @@ function MyWallet() {
   };
   useEffect(() => {
     getcoins();
-  }, [update]);
-
+  }, [selectedCrypt.length]);
   const postCoins = async () => {
     for (let i = 0; i < selectedCrypt.length; i++) {
       try {

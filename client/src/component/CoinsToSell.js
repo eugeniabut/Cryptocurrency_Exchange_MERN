@@ -51,7 +51,7 @@ setCoinsToSell(noSoldCoin)
      <div className='sell-container'><h3>Your Sell coins list :</h3>
      {coinsToSell?.map((data, i) => {
        
-      if(i>1)
+      if(i>0)
       return (
         <tr key={i}
           style={{ backgroundColor: "goldenrod" }}

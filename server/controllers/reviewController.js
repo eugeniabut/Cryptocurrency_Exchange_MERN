@@ -2,16 +2,16 @@ import Review from "../models/reviewModel.js";
 
 export const createReview = async (req, res, next) => {
   try {
-    const { reviewText, avatar, firstName } = req.body; // Destructuring from req.body
-
-    if (!reviewText || reviewText.trim() === '') {
+    const { text, avatar, firstName } = req.body; // Destructuring from req.body
+console.log(req.body);
+    if (!text || text.trim() === '') {
       return res.status(400).json({ message: "Review text is required and cannot be empty." });
     }
 
     const review = new Review({
       avatar: avatar,
       firstName: firstName,
-      reviewText: reviewText,
+      text: text,
     });
 
     const newReview = await review.save();
@@ -25,11 +25,11 @@ export const createReview = async (req, res, next) => {
 
 export const getAllReviews = async (req, res) => {
   try {
-    const reviews = await Review.find().select('avatar firstName reviewText createdAt');
+    const reviews = await Review.find().select('avatar firstName text createdAt');
     const formattedReviews = reviews.map(review => ({
       avatar: review.avatar,
       firstName: review.firstName,
-      reviewText: review.reviewText,
+      text: review.text,
       date: formatDate(review.createdAt),
     }));
 
