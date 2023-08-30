@@ -6,7 +6,9 @@
 .main {
 display: flex;
   justify-content: center;
+
   margin-top: 7vh;
+
 }
 /* .sidebar {
   margin-left:0.5%;

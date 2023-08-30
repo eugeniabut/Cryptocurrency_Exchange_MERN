@@ -21,7 +21,7 @@ function Profile() {
 
   return (
     <main className="main">
-      <div className="sidebar" style={{display:"none"}}>
+      {/* <div className="sidebar" style={{display:"none"}}>
         <div className="link-list">
 
           <NavLink to="/home" style={{textDecoration: 'none'}} className="link-name">
@@ -34,21 +34,21 @@ function Profile() {
           coins 
           </NavLink>
         </div>
-      </div>
+      </div> */}
       <div className="">
         <div className="card-content">
           <div className="card-heading">
            <div className="card-heading-links">
-           
-              <Link to="/my-wallet"style={{textDecoration: 'none'}} className="link-name">
+           <div><Link to="/my-wallet"style={{textDecoration: 'none'}} className="link-name">
                 My Wallet
-              </Link>
-              <Link to="/trading-live" style={{textDecoration: 'none'}}className="link-name">
+              </Link></div>
+              <div> <Link to="/trading-live" style={{textDecoration: 'none'}}className="link-name">
                 My live Trading
-              </Link>
-              <Link to="/" style={{textDecoration: 'none'}}className=" link-name profile-logout" onClick={logoutHandler} >
+              </Link></div>
+             <div><Link to="/" style={{textDecoration: 'none'}}className=" link-name profile-logout" onClick={logoutHandler} >
               <i className="fas fa-times-circle"></i> 
-              </Link>
+              </Link></div>
+              
             
             </div>
           </div>

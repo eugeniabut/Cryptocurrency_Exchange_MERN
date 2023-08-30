@@ -168,13 +168,10 @@ margin-top: auto;
 }
 
 .section-my-notes{
-margin-top:2rem ;
-} 
-
-
-
-
-@media (max-width: 600px) 
+  margin-top:2rem ;
+}
+/* For iPhon 12Pro width up to 393px */
+@media (max-width: 393px) 
 {
 .main{
   margin-top: 0;
@@ -227,3 +224,5 @@ width: 80%;
 
 
 }
+
+
