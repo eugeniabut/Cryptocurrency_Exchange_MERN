@@ -79,8 +79,8 @@ font-size: large;
     border-radius: 4px;
     letter-spacing: 2px;
     line-height: 1rem;
-    /* margin-left: 1em;
-    margin-right: 1em; */
+    margin-left: 1em;
+    margin-right: 1em;
     margin-top: 4em;
     padding: 0.88rem 1.5em;
     text-decoration: none;
@@ -109,7 +109,7 @@ a.cta-link:hover{
 }
 
 .review-form{
-width: 60vw;
+width: 100%;
 margin-top: 2rem;
 display: flex;
 flex-direction: column;
@@ -119,11 +119,11 @@ padding-right: 2.4rem;
 
 .review-read-write {
   
-   /* margin-left: 20vw;
-   margin-right: 20vw; */
+   margin-left: 20vw;
+   margin-right: 20vw;
 }
 .review-read {
-border-bottom: 1px solid  #786711; 
+border-bottom: 1px solid  #d2d1cc; 
 }
 .review-label {
     margin-top: 1rem;
@@ -163,9 +163,10 @@ border-bottom: 1px solid  #786711;
         height: 30vh;
         padding: 1rem;
     }
-   
-    
+   .review-read-write {
+    width: 100vw;
+margin-left: 0;
+margin-right: 0;
+   }
+  
 }
-
-
-

@@ -22,9 +22,9 @@
 }
 .container{
 
-    /* height:50%; */
-    /* margin-left: 5%;
-    margin-right: 5%;  */
+    height:50%;
+    margin-left: 5%;
+    margin-right: 5%; 
  }
  .profile-pic{
     width: 50px;
@@ -43,7 +43,7 @@
 
 .nav{
     width: 100vw;
-    padding-top: 0.5rem;
+    padding-top: 1rem;
     height: 10vh;
     position: relative;
     /* line-height: 65px; */
@@ -72,7 +72,7 @@
 
 .nav div.main_list{
     width: 80%;
-    /* height: 65px; */
+    height: 65px;
     float: right;
 }
 
@@ -85,7 +85,7 @@
 
 .nav div.main_list ul li{
     width: 300px;
-    /* height: 65px; */
+    height: 65px;
 
 }
 .link{
@@ -110,6 +110,7 @@
     right: 15px;
     top: 12px;
     display: none;
+    margin-right: 2rem;
 }
 
 .nav div.media_button button.main_media_button {
@@ -123,11 +124,12 @@
 
 .nav div.media_button button.main_media_button span{
     width: 98%;
-    height: 1px;
+    height: 3px;
     display: block;
     background-color: #fff;
     margin-top: 9px;
-    margin-bottom: 10px;
+  padding-right: 40px;
+  
 }
 
 .nav div.media_button button.main_media_button:hover span:nth-of-type(1){
@@ -176,19 +178,10 @@
 
 /* Medai qurey section */
 
-@media screen and (min-width: 400px) and (max-width: 1024px) {
-    
-    .container{
-        margin: 0;
-    }
-    
-}
-
-
 
 
 @media screen and (max-width:768px) {
-    
+   
     .container{
         margin: 0;
         width: 100vw;
@@ -199,51 +192,48 @@
         left: 0;    }
   
     .nav div.main_list{
-        width: 100vw;
+        width: 100%;
         height: 2rem;
         margin-top: 65px;
         height: 0px;
         overflow:inherit;
-        font-size: small;
+        font-size: small;   
+     
     }
     
     .nav .container .show_list{
         height: 200px;
-        /* width: 100vw; */
+        width: 100vw;
         position: fixed;
         left: 0;
+        
     }
     
-    .nav .container.main_list ul{
-        /* display: flex;
-        flex-direction: column; */
-        /* width: 100vw;
-        height: 200px;
-        top: 80px;
-        right: 0;
-        left: 0; */
-
-    }
-    
+ 
     .nav div.main_list ul li{
-        /* width: 80vw; */
-        /* position:relative;
-        height: 90%; */
-      
-margin-top:8px;
-        background-color:rgba(40, 40, 40, 0.192);
-    }
+margin-top:10px;
+
+}
     
     .nav div.main_list ul li a{
       text-align: center;
-        line-height: 10px;
-        /* width: 30vw; */
+        line-height: 23px;
+        width: 100%;
       
         display: table;
-        color: rgb(158, 177, 124);
+        color: rgb(216, 211, 199);
+         padding-right: 1rem;
+      
+   
+    }
+        .nav div.main_list ul li a:hover{
+          color: white;
     }
     
     .nav div.media_button{
         display: block;
     }
-}
+   
+
+    }
+   

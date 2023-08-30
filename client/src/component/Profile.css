@@ -6,16 +6,16 @@
 .main {
 display: flex;
   justify-content: center;
-  height: 90vh;
+  margin-top: 7vh;
 }
-.sidebar {
+/* .sidebar {
   margin-left:0.5%;
  margin-bottom: 0.5%;
  margin-top: 0.5%;
- /* height: 75vh; */
+ height: 100vh;
  border-radius: 10px;
  background-color: #9f7d1e65;
- }
+ } */
 
  .link-list {
   margin-top: 10rem;
@@ -41,10 +41,10 @@ display: flex;
 
 .card-content {
  width: 70vw;
-  margin-top: 2rem;
+
   background-color: #3a3b3b96;
 
-  /* height: 50vw; */
+  height: auto;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -61,10 +61,16 @@ display: flex;
 
 }
 
+.card-heading-links {
+  display: flex;
+  margin-top: 2rem;
+ 
+   }
+
  .link-name {
   text-decoration: none;
   color: bisque;
-  margin: 2rem;
+padding-right: 2rem;
   font-size: 2rem;
 }
 .link-name:hover{
@@ -73,35 +79,56 @@ display: flex;
   font-size: 2rem;
 }
 .fa-times-circle {
-  margin-top: 2.4rem;
+
   font-size: 3rem;
 }
-/* For iPad mini */
-@media (max-width: 768px) {
-  .main {
-    flex-direction: column;
-    align-items: center;
-  }
+@media (max-width: 800px){
+.card-content {
+  width: 90vw;
+}
+.card-heading {
+ height: 13rem;
+}
+.card-heading-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+   }
+   .fa-times-circle {
+    margin-top: 0.8rem;
+  
+   }
 
-  .card-content {
-    width: 90vw;
-  }
+.link-name {
+  text-decoration: none;
+  color: bisque;
+
+  font-size: 2rem;
+}
 }
 
-/* For iPhon 12Pro width up to 393px */
-@media (max-width: 393px) {
+@media (max-width: 600px) {
+  .card-content {
+    width: 100vw;
+    padding-top: 6rem;
+  }
+ .card-heading {
+  height: 11rem;
+ }
    .card-heading-links {
  display: flex;
  flex-direction: column;
  align-items: center;
 
+
+
  
   }
 
    .link-name {
-    margin: 0.5rem;
-    font-size: 1.5rem;
+    margin-top: 1rem;
+    font-size: 1.6rem;
 
   }
 
