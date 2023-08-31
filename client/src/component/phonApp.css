@@ -33,14 +33,7 @@ height: 20%;
    
     
 }
-#arrowAnim {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    /* padding-right: 5rem; */
-  }
+
   
   .arrow {
     width: 5vw;

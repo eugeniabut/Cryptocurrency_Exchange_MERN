@@ -72,7 +72,7 @@ setCoinsToSell(noSoldCoin)
           <td>{data.cryptos}</td>
           <td>x{data.quantity}</td>
         
-          <td>{data.current_price+(data.current_price* data.price_change_percentage_24h)}</td>
+          <td>{data.current_price+(data.current_price* data.price_change_percentage_24h)+1}</td>
           <td>
             {/* {soldOut? */}
             <button

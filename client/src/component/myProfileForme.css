@@ -144,21 +144,23 @@ margin-bottom: 1.5rem;
 }
 
 
+
 /* For iPad mini */
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
 .main {
-  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 
+.card-content {
+  width: 90vw;
+}
+ 
 .card-internal-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 2rem;
+flex-direction: column;
+ 
 }
 }
 
@@ -168,33 +170,24 @@ margin-top: auto;
 }
 
 .section-my-notes{
-  margin-top:2rem ;
+margin-top:2rem ;
 }
 /* For iPhon 12Pro width up to 393px */
 @media (max-width: 393px) 
 {
-.main{
-  margin-top: 0;
-}
-.card-internal-container{
- display: flex;
- flex-wrap: wrap;
 
-}
 .section-gold-card {
-  width: 90%;
-
-  margin-top: 0rem;
+  margin: 0.5rem;
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
- 
+
 }
 
 .profile-picture {
 margin-left: 0;
 }
-
 .profile-data {
 margin-top: 1rem;
 display: flex;
@@ -202,7 +195,12 @@ flex-direction: column;
 align-items: center;
 }
 
+ .card-heading-links {
+display: flex;
+flex-direction: column;
+align-items: center;
 
+}
 
 .icon-edit {
   margin-left: 7rem;
@@ -224,5 +222,3 @@ width: 80%;
 
 
 }
-
-

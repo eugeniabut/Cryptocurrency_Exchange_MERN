@@ -60,7 +60,7 @@ function Home() {
               </a>
               <Carousel.Caption>
                 <div className="news-box">
-                  <a className="link" href={`${data.url}`}>
+                  <a className="link" target="_blank" href={`${data.url}`}>
                     {" "}
                     <h3> Title : {data.title}</h3>
                   </a>

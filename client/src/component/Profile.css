@@ -6,7 +6,7 @@
 .main {
 display: flex;
   justify-content: center;
-
+height: 80vh;
   margin-top: 7vh;
 
 }

@@ -25,13 +25,14 @@ function App() {
   useContext(StorContext);
   const [wallet, setWallet] = useState([{}]);
   const [checkUserId, setCheckUserId] = useState(false);
+
   const [coinsToSell, setCoinsToSell] = useState([{}]);
   const [value, setValue] = useState([0])
 
   const [countSell, setCountSell] = useState(0);
   const [bankData, setBankData] = useState({});
   const newsData = myStore((state) => state.newsData);
-  const [avatar, setAvatar] = useState("");
+  const [avatar, setAvatar] = useState("https://www.shutterstock.com/image-vector/user-icon-gold-vector-260nw-331623353.jpg");
   const [counter, setCounter] = useState(1);
   const [walletList, setWalletList] = useState([{}]);
 
