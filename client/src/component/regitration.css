@@ -21,3 +21,18 @@ display:grid;
     padding-right: 10px;
  height: 30px;
 }
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+    .main-registration{
+        background-color:rgba(191, 161, 86, 0.216);
+
+        height: 90vh;
+     width: 100vw;
+    }
+    .body-registration{
+        width: 100%;
+    
+    }
+    
+  
+    
+}

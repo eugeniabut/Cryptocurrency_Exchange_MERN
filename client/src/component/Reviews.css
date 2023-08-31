@@ -8,7 +8,7 @@
   margin: 0 15px 30px 15px;
   overflow: hidden;
   position: relative;
-  width: 15vw;
+  /* width: 15vw; */
 }
 .testimonial:before{
   content: "";
@@ -99,14 +99,39 @@ border-color:#e9d41c;
   /* width:100%; */
     overflow:hidden; 
 }
-@media only screen and (max-width: 767px){
-  .testimonial{
-      padding: 20px;
-      text-align: center;
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+  .container{
   }
-  .testimonial .pic{
-      display: block;
-      position: static;
-      margin: 0 auto 15px;
+  .owl-carousel{
+        width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    align-content: center;
+height: 50vh;
+padding: 0;
+margin: 0;
+  }
+  .title{
+    width: 70%;
+    padding: 0;
+  }
+  .description {
+    display: none;
+    padding: 0;
+    margin: 0;
+  }
+ .pic{
+    display: none;
+  }
+  .testimonial {
+   display: inline;
+
+  }
+  .col-md-12{
+    padding: 0;
+    margin: 0; 
+    width: 100%;
   }
 }

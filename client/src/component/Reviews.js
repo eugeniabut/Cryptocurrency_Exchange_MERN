@@ -61,7 +61,7 @@ console.log(reviews );
                 {reversedReviews.map((review) => (
                   <div class="testimonial">
                     <div class="pic"> 
-                      <img src={review.avatar} alt="avatar" />
+                      <img  src={review.avatar} alt="avatar" />
                     </div>
                     <p class="description">{review.text}</p>
                     <h4 class="title">{review.firstName}</h4>

@@ -77,15 +77,13 @@ function Home() {
           ))}
         </Carousel>
       </div>
-      {/* <div>
-  <CryptosCart /></div> */}
       <div>
         (<CryptosList />)
       </div>
 
       <div>
         {" "}
-        <PhonApp />
+        {/* <PhonApp /> */}
       </div>
       <section className="review-read-write">
         <div className="review-read">

@@ -163,6 +163,8 @@ border-bottom: 1px solid  #d2d1cc;
         height: 30vh;
         padding: 1rem;
     }
-   
+   .news-box{
+    display: none;
+   }
     
 }

@@ -8,7 +8,7 @@ body {
   .showcase::after {
     content: '';
     height: 80vh;
-    width: 100%;
+    /* width: 100%; */
     background-image: url(https://image.ibb.co/gzOBup/showcase.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -204,24 +204,36 @@ height: 100%;
 
   /* Small Screens */
   @media (max-width: 560px) {
+    .showcase{
+      /* width: 50%; */
+    }
     .showcase::after {
       height: 50vh;
     }
   
     .content {
-      top: 5%;
+      display: flex;
+      flex-direction:column;
+      justify-content: center;
+      top: -20%;
       margin-top: 5px;
     }
   
     .content .logo {
-      height: 140px;
-      width: 140px;
+    display: none;
     }
   
     .content .text {
-      display: none;
+      /* display: none; */
+      font-size: 13px;
+      width: 50%;
+
     }
+    .content .title{
+      width: 50%;
+    font-size: 25px;
   
+  }
     .grid-3,
     .grid-2 {
       grid-template-columns: 1fr;
@@ -235,8 +247,8 @@ height: 100%;
   
   /* Landscape */
   @media (max-height: 500px) {
-    .content .title,
-    .content .text {
+    
+    .content .title {
       display: none;
     }
   

@@ -1,5 +1,14 @@
-
+.login-form{
+    height: 74vh;
+}
 .card{
+
 background-color:rgb(212, 159, 25);
 }
 
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+    .login-form{
+        height: 100%;
+    }
+
+}

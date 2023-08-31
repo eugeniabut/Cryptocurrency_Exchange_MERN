@@ -5,7 +5,6 @@
   position: relative;
   bottom: 0;
   height: 15vh;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -77,4 +76,29 @@
   font-size:13px;
   color:#aaa;
   margin-bottom:0;
+}
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+  .footer-basic{
+    padding: 10px 0;
+    color:#eff3f7;
+    position: relative;
+    bottom: 0;
+       width: 100vw;
+      height: 20vh;
+  }
+ .footer-img{
+  display: none;
+ }
+
+  .social{
+    position: absolute;
+    bottom:60%;
+  }
+  .list-inline{
+    display: none;
+  }
+  .copyright{
+    position: absolute;
+        right: 35%;
+  }
 }
