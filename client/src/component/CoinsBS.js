@@ -21,11 +21,11 @@ function CoinsBS() {
     setWalletList,
     authenticated,
   } = useContext(StorContext);
+ 
   const[on, setOn]=useState(false)
 const coinBSOffer =  (e) => {
- 
 const coins=[]
-console.log(e.target.name);
+e.target.style.backgroundColor="green";
 const coin=walletList.find((elem)=>elem._id===e.target.name)
 coins.push(coin)
 setCoinsToSell([...coinsToSell,coin])
@@ -58,7 +58,9 @@ setCountSell(coinsToSell.length)
       </div>
  <div className='coins-container'>  <h3>your coins :</h3>
     {walletList?.map((data, i) => {
-        return (
+       if (i>1)
+       return (
+          
           <tr
             style={{ backgroundColor: "goldenrod" }}
             className="wallet-item"
@@ -81,14 +83,14 @@ setCountSell(coinsToSell.length)
             <td>{data.total_volume}</td>
             <td>
               <button
-                style={{ background:on?"green":`red` }}
+               style={{ background:`red` }}
                 name={data._id}
-                className={on?"btn toGreen":"btn"}
+                className="btn"
                 onClick={(e)=>{
-                    setOn(true)
+                  setOn(true)
                   return coinBSOffer(e)}}
               >
-                sell{" "}
+               { on?<h5>sold</h5>:<h5>sell</h5>}
               </button>
             </td>
           </tr>

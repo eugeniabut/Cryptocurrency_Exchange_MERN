@@ -33,7 +33,7 @@ function App() {
   const [bankData, setBankData] = useState({});
   const newsData = myStore((state) => state.newsData);
   const [avatar, setAvatar] = useState("https://www.shutterstock.com/image-vector/user-icon-gold-vector-260nw-331623353.jpg");
-  const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState(0);
   const [walletList, setWalletList] = useState([{}]);
 
   const [userId, setUserId] = useState("");

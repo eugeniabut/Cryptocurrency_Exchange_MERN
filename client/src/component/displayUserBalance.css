@@ -1,6 +1,7 @@
 
 .bank-container{
   display: flex;
+  height: 75vh;
 }
 .container-balance {
 padding: 10%;

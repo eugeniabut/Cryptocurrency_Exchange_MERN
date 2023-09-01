@@ -29,7 +29,7 @@ function Header() {
            { !authenticated ? <li><NavLink to="/login" className="link" >login</NavLink></li>:<li><NavLink to="/" className="link" onClick={logoutHandler} >logout</NavLink></li>}
             {!authenticated ? <li><NavLink to="/register" className="link" >Register</NavLink></li>:<li><div><img src={avatar} alt='profile'className='profile-pic' /><NavLink to="/profile"  className="link" >Profile</NavLink></div></li>}
 
-         { authenticated ?  <li> <NavLink to="/my-wallet" className="link" >My wallet</NavLink> {counter>1?<><FontAwesomeIcon icon={faBell} style={{color: "#e81111", height:20}} /><small style={{color:"white"}}>{counter}</small></>:""}</li>:"" }
+         { authenticated ?  <li> <NavLink to="/my-wallet" className="link" >My wallet</NavLink> {counter>0?<><FontAwesomeIcon icon={faBell} style={{color: "#e81111", height:20}} /><small style={{color:"white"}}>{counter}</small></>:""}</li>:"" }
            
             </ul>
         </div>

@@ -48,7 +48,7 @@ setCoinsToSell(noSoldCoin)
           </NavLink>
         </div>
       </div>
-     <div className='sell-container'><h3>Your Sell coins list :</h3>
+     <div className='sell-container'><h3>Pleas confirm our Sell  :</h3>
      {coinsToSell?.map((data, i) => {
        
       if(i>0)
@@ -57,10 +57,7 @@ setCoinsToSell(noSoldCoin)
           style={{ backgroundColor: "goldenrod" }}
           className="wallet-item"
         >
-                 <div class="img__wrapper">
-  <img src="http://www.savoy-sharm.com/media-room/images/hi-res/king-bed-room-accommodation-savoy-luxury-5-stars-accommodation-sharm-el-sheikh.jpg" alt="" />
-  <p class="sold_out">Sold out</p>
-</div>
+        
           <td>
             <img
               className="coin-img"
@@ -85,7 +82,7 @@ setCoinsToSell(noSoldCoin)
               // removeItem(e,data)
               }
             >
-              sell{" "}
+              Confirm
             </button>
           </td>
         </tr>

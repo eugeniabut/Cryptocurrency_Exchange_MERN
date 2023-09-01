@@ -7,17 +7,16 @@
 display: flex;
   justify-content: center;
 height: 80vh;
-  margin-top: 7vh;
+  margin-top: 4vh;
 
 }
-/* .sidebar {
+.sidebar {
   margin-left:0.5%;
  margin-bottom: 0.5%;
  margin-top: 0.5%;
- height: 100vh;
  border-radius: 10px;
  background-color: #9f7d1e65;
- } */
+ }
 
  .link-list {
   margin-top: 10rem;
@@ -77,8 +76,9 @@ padding-right: 2rem;
 }
 .link-name:hover{
   color: rgb(238, 165, 8);
-  margin: 2rem;
   font-size: 2rem;
+  text-decoration: none;
+
 }
 .fa-times-circle {
 
