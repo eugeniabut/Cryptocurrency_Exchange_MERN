@@ -5,7 +5,6 @@ const bankSchema = new mongoose.Schema({
   accountNumber: {
     type: String,
     required: true,
-    unique: true
   },
   accountHolder: {
     type: String,
@@ -28,7 +27,8 @@ const bankSchema = new mongoose.Schema({
   owner:{
     type: mongoose.Schema.Types.ObjectId,     //Referenced(Eu)
     ref: "user",
-      unique:true
+    required: true
+
   }
   
 });
