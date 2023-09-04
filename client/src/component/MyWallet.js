@@ -99,8 +99,8 @@ console.log(walletList);      })
 
   const buyCryptos = async () => {
     console.log(bankData);
-    const bankID = bankData[0]._id;
-    console.log(bankData[0]._id);
+    const bankID = bankData._id;
+    console.log(bankData._id);
     try {
       const balancData = { total, bankID };
       const response = await axios.put(

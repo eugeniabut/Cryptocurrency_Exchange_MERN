@@ -28,7 +28,7 @@ setCoinsToSell(noSoldCoin)
 
    console.log(noSoldCoin);
     }
-   
+   console.log(coinsToSell);
   return (
     <div className='coins-sell'>
         <div className="sidebar">
@@ -51,7 +51,7 @@ setCoinsToSell(noSoldCoin)
      <div className='sell-container'><h3>Pleas confirm our Sell  :</h3>
      {coinsToSell?.map((data, i) => {
        
-      if(i>0)
+      if(i>=1)
       return (
         <tr key={i}
           style={{ backgroundColor: "goldenrod" }}

@@ -11,7 +11,7 @@ import axios from "axios";
 import Reviews from "./Reviews";
 
 function Home() {
-  const { userName, reviewText, avatar, setReviewText } =
+  const { userName, reviewText, avatar, setReviewText,authenticated } =
     useContext(StorContext);
 
   const newsData = myStore((state) =>
@@ -90,7 +90,7 @@ function Home() {
           <Reviews />
         </div>
 
-        <div className="review-write">
+        {authenticated?<div className="review-write">
           <form className="review-form" onSubmit={handleReviewSubmit}>
             <label className="review-label" htmlFor="reviewText">
               Write a Review:
@@ -111,7 +111,7 @@ function Home() {
               Submit
             </button>
           </form>
-        </div>
+        </div>:""}
       </section>
     </div>
   );

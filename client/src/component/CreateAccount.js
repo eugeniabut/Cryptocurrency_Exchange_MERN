@@ -22,13 +22,13 @@ const bankData={
 
 }
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BE_URL}/profile/add-bank/${userId}`, bankData, {
+      const response = await axios.post(`${process.env.REACT_APP_BE_URL}/profile/add-bank`, bankData, {
         headers : {
           'Authorization': `Bearer ${JSON.parse(localStorage.getItem('my-app-token'))}`
         }
       })
         console.log(response.data);
-        navigate("/my-wallet")
+        navigate("/bank-data")
     
  
     } catch (err) {
@@ -37,7 +37,7 @@ const bankData={
   };
 
   return (
-    <div>
+    <div className="create-count">
       <h2>Create your account</h2>
       <form className="bank-form" onSubmit={handleFormSubmit}>
         <label>Account Number:</label>
@@ -54,7 +54,7 @@ const bankData={
           onChange={(e) => setAccountHolder(e.target.value)}
         />
 
-        <button type="submit">Submit</button>
+        <button className="button" type="submit">Submit</button>
       </form>
     </div>
   );

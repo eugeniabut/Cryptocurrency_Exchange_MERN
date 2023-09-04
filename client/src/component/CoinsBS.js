@@ -21,7 +21,7 @@ function CoinsBS() {
     setWalletList,
     authenticated,
   } = useContext(StorContext);
- 
+ console.log(walletList);
   const[on, setOn]=useState(false)
 const coinBSOffer =  (e) => {
 const coins=[]
@@ -90,7 +90,7 @@ setCountSell(coinsToSell.length)
                   setOn(true)
                   return coinBSOffer(e)}}
               >
-               { on?<h5>sold</h5>:<h5>sell</h5>}
+             <h5 style={{width:"100%",height:"80%"}}>sell</h5>
               </button>
             </td>
           </tr>

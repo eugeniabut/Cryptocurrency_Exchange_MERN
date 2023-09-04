@@ -13,10 +13,10 @@ const BankData = () => {
   const navigate=useNavigate()
  const{bankData,checkUserId,value,userId,  setCheckUserId,setBankData}=useContext(StorContext)
   const [isLoading, setIsLoading] = useState(true);
-
+console.log(bankData);
 const userIdHandler = (e) => {
   setCheckUserId(true);
-  if (e.target["bankID"].value === bankData._id) navigate("/add-bank");
+  if (e.target["bankID"].value ===userId ) navigate("/add-bank");
   // e.target.style.display="none"
 };
 console.log(value);
@@ -30,7 +30,7 @@ console.log(value);
       // });
       
 
-        const response = await axios.get(`${process.env.REACT_APP_BE_URL}/profile/bank-data`,{
+        const response = await axios.get(`${process.env.REACT_APP_BE_URL}/profile/user-bank`,{
           headers : {
             'Authorization': `Bearer ${JSON.parse(localStorage.getItem('my-app-token'))}`
           }
@@ -39,6 +39,7 @@ console.log(value);
 console.log(response);
         setBankData(response.data);
         setIsLoading(false);
+        console.log(bankData);
       } catch (err) {
         console.log(err.message);
         setIsLoading(false);
@@ -46,7 +47,7 @@ console.log(response);
     };
 
     fetchData();
-  }, [setCheckUserId]);
+  }, []);
   return (<div className="bank-container">
    
    <div className="sidebar">
@@ -93,7 +94,7 @@ console.log(response);
               </b>
             </p>
           </div>
-        ) : (bankData.length>0?
+        ) : (bankData?
           <div className="coin-cart">
             {/* {authenticated ? <BankData /> : ""}{" "} */}
             
@@ -114,12 +115,12 @@ console.log(response);
           </thead>
           <tbody className="tbody">
           
-              <tr key={bankData[0]._id} >
-  <td style={{color:"white"}}>{bankData[0].accountNumber}</td>
-<td style={{color:"green"}}>{bankData[0].accountHolder}</td>
-  <td style={{color:"green"}}>{bankData[0].balance}</td>
-  <td style={{color:"red"}}>{bankData[0].transferAmount}</td>
-  <td style={{color:"white"}}>{bankData[0].createdAt}</td>
+              <tr key={bankData._id} >
+  <td style={{color:"white"}}>{bankData.accountNumber}</td>
+<td style={{color:"green"}}>{bankData.accountHolder}</td>
+  <td style={{color:"green"}}>{bankData.balance}</td>
+  <td style={{color:"red"}}>{bankData.transferAmount}</td>
+  <td style={{color:"white"}}>{bankData.createdAt}</td>
 </tr>
 {value.length>0?value.map((data,i) => {
   console.log(data.pathname);
@@ -128,7 +129,7 @@ console.log(response);
   <tr key={i}>
     <td></td>
   <td ></td>
-    <td style={{color:"green"}}>+{bankData[0].balance+data.pathname}</td>
+    <td style={{color:"green"}}>+{bankData.balance+data.pathname}</td>
     <td style={{color:"green"}}>+{data.pathname}</td>
     {/* <td>{new Date()}</td> */}
   </tr>)}}):""}

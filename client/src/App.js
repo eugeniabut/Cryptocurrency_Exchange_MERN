@@ -26,7 +26,13 @@ function App() {
   const [wallet, setWallet] = useState([{}]);
   const [checkUserId, setCheckUserId] = useState(false);
 
-  const [coinsToSell, setCoinsToSell] = useState([{}]);
+  const [coinsToSell, setCoinsToSell] = useState([{image:"",
+    symbol:"",
+    cryptos:"",
+    current_price:0,
+    quantity:0,
+    price_change_percentage_24h:0,
+    total_volume:0,}]);
   const [value, setValue] = useState([0])
 
   const [countSell, setCountSell] = useState(0);
