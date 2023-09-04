@@ -15,7 +15,7 @@ function Home() {
     useContext(StorContext);
 
   const newsData = myStore((state) =>
-    state.newsData.articles ? state.newsData.articles : []
+    state.newsData.results ? state.newsData.results : []
   );
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
@@ -54,13 +54,14 @@ function Home() {
                 {" "}
                 <img
                   className="d-block w-30 image"
-                  src={`${data.urlToImage}`}
+                  src={`${data.image_url}`}
                   alt="news"
                 />
               </a>
               <Carousel.Caption>
                 <div className="news-box">
-                  <a className="link" target="_blank" href={`${data.url}`}>
+                  <a className="link" target="_blank" href={`${data.article_url
+}`}>
                     {" "}
                     <h3> Title : {data.title}</h3>
                   </a>
