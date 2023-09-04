@@ -146,8 +146,8 @@ margin-bottom: 1.5rem;
 
 
 /* For iPad mini */
-@media (max-width: 768px) {
-.main {
+@media screen and (min-width: 300px) and (max-width: 1024px) {
+  .main {
   flex-direction: column;
   align-items: center;
 }
@@ -156,7 +156,18 @@ margin-bottom: 1.5rem;
 .card-content {
   width: 90vw;
 }
- 
+ .profile-picture img{
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  position: relative;
+ }
+ .data{
+  font-size: small;
+ }
+ .profile-logo img{
+  width: 10rem;
+ }
 .card-internal-container {
   display: flex;
 flex-direction: column;

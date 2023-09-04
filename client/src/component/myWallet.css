@@ -45,3 +45,15 @@ justify-content: center;
    position: absolute;
 right: 10rem;
 }
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+  .wallet-container{
+    width: 90vw;
+  }
+  .sidebar{
+    width: 50%;
+  }
+  .total-cart{
+    font-size: small;
+    display: block;
+  }
+}

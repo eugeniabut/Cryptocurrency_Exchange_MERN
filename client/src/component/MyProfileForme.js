@@ -151,7 +151,7 @@ console.log(userId);
                 alt="Logo"
               />
             </div>
-            <div>
+            <div className="data">
             <h3>
               {profileData.firstName} {profileData.lastName}
             </h3>
