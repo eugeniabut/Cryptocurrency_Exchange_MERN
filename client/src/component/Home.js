@@ -27,7 +27,8 @@ function Home() {
       );
       if (response.status === 201) {
         console.log("Review submitted successfully");
-        setReviewText("");
+        e.target.reset();
+
       } else {
         console.error("Error submitting review");
       }
