@@ -85,7 +85,7 @@ function App() {
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("my-app-token"));
-
+console.log(token);
     if (token !== null) {
       axios
         .get(`${process.env.REACT_APP_BE_URL}/users/authorize-user`, {
