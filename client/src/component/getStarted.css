@@ -109,7 +109,7 @@ a.cta-link:hover{
 
 
 }
-@media screen and (min-width: 400px) and (max-width: 1024px) {
+@media screen and (min-width: 300px) and (max-width: 1024px) {
     .large-cta-section{
         width: 100%;
         height: 35vh;

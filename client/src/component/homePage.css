@@ -152,7 +152,7 @@ border-bottom: 1px solid  #d2d1cc;
 .review-btn:hover{
     background-color: #a77a08;
 }
-@media screen and (min-width: 400px) and (max-width: 1024px) {
+@media screen and (min-width: 300px) and (max-width: 1024px) {
     .d-block{
 
         width: 100vw;

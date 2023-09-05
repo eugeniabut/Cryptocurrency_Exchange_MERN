@@ -77,7 +77,7 @@
   color:#aaa;
   margin-bottom:0;
 }
-@media screen and (min-width: 400px) and (max-width: 1024px) {
+@media screen and (min-width: 300px) and (max-width: 1024px) {
   .footer-basic{
     padding: 10px 0;
     color:#eff3f7;
