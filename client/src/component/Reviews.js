@@ -46,7 +46,6 @@ function Reviews() {
   };
 
   const reversedReviews = [...reviews].reverse();
-console.log(reviews );
   return (
     <>
       <h2 className="review-heading">Reviews</h2>

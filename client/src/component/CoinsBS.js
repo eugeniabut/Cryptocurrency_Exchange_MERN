@@ -16,7 +16,6 @@ function CoinsBS() {
     setCoinsToSell,
     userId,
     selectedCrypt,
-    bankData,
    walletList,
     setWalletList,
     authenticated,
@@ -57,9 +56,10 @@ setCountSell(coinsToSell.length)
         </div>
       </div>
  <div className='coins-container'>  <h3>your coins :</h3>
-    {walletList?.map((data, i) => {
-       if (i>1)
-       return (
+    {walletList?.map((data, i) =>
+    // {
+      //  if (i>0)
+      //  return (
           
           <tr
             style={{ backgroundColor: "goldenrod" }}
@@ -94,8 +94,10 @@ setCountSell(coinsToSell.length)
               </button>
             </td>
           </tr>
-        );
-    })}</div>
+    //     );
+    // }
+    )}
+    </div>
   </div>
   )
 }

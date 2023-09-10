@@ -41,8 +41,16 @@ const addCoin=async	(e)=>{
 				
 				
   return (
-   <> 
-		<tbody>
+   <>  <tr>
+				 <img className='coin-img' src={data.image} alt={data.symbol} style={{width:30,height:30}}/>
+          <td>{data.id} </td>
+          <td>{data.current_price}</td>
+		  {	data.price_change_24h>0?(<td style={{color:"green"}} >{data.price_change_24h}</td>):(<td style={{color:"red"}} >{data.price_change_24h}</td>)}
+		  <td className='th'>{data.price_change_percentage_24h}</td>
+		  {authenticated?<td><button className='Buy-now'  value={data} onClick={addCoin}  >Buy Now</button></td>:""}
+
+		  </tr>
+		{/* <tbody>
 		<tr >
 			<td>
 				 <img className='coin-img' src={data.image} alt={data.symbol} style={{width:30,height:30}}/>
@@ -54,7 +62,7 @@ const addCoin=async	(e)=>{
 			<td className='th'>{data.current_price}</td>
 			<td className='th'>{data.total_volume}</td>
 			{authenticated?<td><button className='Buy-now'  value={data} onClick={addCoin}  >Buy Now</button></td>:""}
-		</tr></tbody>
+		</tr></tbody> */}
 		
       {/* <div className='reviews-card'></div> */}
    </>

@@ -10,22 +10,35 @@ function CryptosList() {
   return (
     <div>
         <> <div className='cryptos-list' >
+		<h1>CRYPTOS SPACE</h1>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th>symbol</th>
+          <th>cryptos</th>
+          <th>Price</th>
+          <th>Change</th>
+          <th>Change %</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+       
+     
+		  {cryptos.map((data,i)=><CryptosCart  key={i}  data={data}/>)}
 
+       </tbody></table></div>
 <table className="container">
 	<thead>
 		<tr>
-			<th><h1>symbol</h1></th>
-			<th><h1>cryptos</h1></th>
-			<th className='th'><h1>current_price</h1></th>
-			<th className='th'><h1>price_change_24h</h1></th>
-			<th className='th'><h1>price_change_percentage_24h</h1></th>
-			<th className='th'><h1>current_price</h1></th>
-			<th className='th'><h1>total_volume</h1></th>
-			{authenticated ?<th ><h1>To Buy</h1></th>:""}
+			
 		</tr>
 	</thead>
 	
-	{cryptos.map((data,i)=><CryptosCart  key={i}  data={data}/>)}
 		</table></div>
       {/* <div className='reviews-card'></div> */}
    </>

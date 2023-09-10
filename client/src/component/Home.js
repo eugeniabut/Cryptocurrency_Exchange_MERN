@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./homePage.css";
 import CryptosCart from "./CryptosCart";
 import GetStated from "./GetStated";
@@ -9,17 +9,17 @@ import CryptosList from "./CryptosList";
 import StorContext from "../context";
 import axios from "axios";
 import Reviews from "./Reviews";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const { userName, reviewText, avatar, setReviewText,authenticated } =
     useContext(StorContext);
-
+const navigate=useNavigate()
   const newsData = myStore((state) =>
     state.newsData.results ? state.newsData.results : []
   );
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
-    console.log(reviewText);
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_BE_URL}/review/review-create`,
@@ -27,7 +27,9 @@ function Home() {
       );
       if (response.status === 201) {
         console.log("Review submitted successfully");
-        e.target.reset();
+setReviewText(...reviewText,{text:""})
+
+        e.target.reset("");
 
       } else {
         console.error("Error submitting review");
@@ -36,7 +38,9 @@ function Home() {
       console.error("Error submitting review:", error);
     }
   };
-  console.log(reviewText);
+  useEffect(() => {
+  }, []);
+
   return (
     <div className="home">
       <div>

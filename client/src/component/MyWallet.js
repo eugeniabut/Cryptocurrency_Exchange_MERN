@@ -206,7 +206,7 @@ console.log(walletList);      })
                   <h4>confirm</h4>
                 </button>
               ) : (
-                <h4
+                <h4 title="pleas check your Bank data"
                   style={{
                     width: "7rem",
                     height: "3rem",

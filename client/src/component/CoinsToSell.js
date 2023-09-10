@@ -13,13 +13,13 @@ function CoinsToSell() {
 const noSoldCoin=[]
 setCountSell(0)
     const goToSell=(e,data)=>{
-      console.log(e.target.name);
      
       // const newCoinsToSell=coinsToSell.filter((item)=>item.id!==data.id)
     const selctedCoin=coinsToSell.find((elem)=>{
 if(elem._id===e.target.name){
-  const newVal=elem.current_price+(elem.current_price* elem.price_change_percentage_24h)
-  setValue([...value,parsePath(newVal)])
+  const multiplVal=(elem.current_price* elem.price_change_percentage_24h)
+  const newVal=+elem.current_price+multiplVal
+  setValue([...value,newVal])
 }else{
 noSoldCoin.push(elem)
 }
@@ -29,6 +29,8 @@ setCoinsToSell(noSoldCoin)
    console.log(noSoldCoin);
     }
    console.log(coinsToSell);
+  console.log(value);
+
   return (
     <div className='coins-sell'>
         <div className="sidebar">
@@ -49,8 +51,20 @@ setCoinsToSell(noSoldCoin)
         </div>
       </div>
      <div className='sell-container'><h3>Pleas confirm our Sell  :</h3>
+     <table className="container">
+{/* 
+     <thead>
+		<tr>
+			<th><h1>symbol</h1></th>
+			<th><h1>cryptos</h1></th>
+			<th className='th'><h1>current_price</h1></th>
+			<th className='th'><h1>price_change_24h</h1></th>
+			<th className='th'><h1>price_change_percentage_24h</h1></th>
+			<th className='th'><h1>total_volume</h1></th>
+		</tr>
+	</thead> */}
      {coinsToSell?.map((data, i) => {
-       
+       console.log(coinsToSell);
       if(i>=1)
       return (
         <tr key={i}
@@ -69,7 +83,7 @@ setCoinsToSell(noSoldCoin)
           <td>{data.cryptos}</td>
           <td>x{data.quantity}</td>
         
-          <td>{data.current_price+(data.current_price* data.price_change_percentage_24h)+1}</td>
+          <td>{data.current_price+1}</td>
           <td>
             {/* {soldOut? */}
             <button
@@ -87,7 +101,7 @@ setCoinsToSell(noSoldCoin)
           </td>
         </tr>
       );
-  })}</div>
+  })}</table></div>
      
     
     </div>

@@ -1,12 +1,13 @@
 
   
 .large-cta-section {
-    background: #1e9fc4 linear-gradient(45deg, #000000, #0a0a0a 57%, 	#DAA520) repeat scroll 0 0;
-    box-shadow: 0 6px 12px -4px rgba(14, 14, 16, 0.25) inset;
+    background: #b1811200 linear-gradient(45deg, #00000091, #0a0a0a86 57%, 	#daa5209b) repeat scroll 0 0;
+    /* box-shadow: 0 6px 12px -4px rgba(14, 14, 16, 0.25) inset; */
     text-align: center;
     z-index: 1;
+    border-radius: 20%;
     height: 35vh;
-    border-bottom: #140f0489 4px solid;
+    /* border-bottom: #140f0489 4px solid; */
     position: relative;
 }
 .medium-large-wrapper{

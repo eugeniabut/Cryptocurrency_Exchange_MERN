@@ -94,7 +94,7 @@ console.log(response);
               </b>
             </p>
           </div>
-        ) : (bankData?
+        ) : (bankData!==null?
           <div className="coin-cart">
             {/* {authenticated ? <BankData /> : ""}{" "} */}
             
@@ -107,9 +107,9 @@ console.log(response);
           <thead className="thead">
             <tr>
               <th>Account Number</th>
-              <th>Account Holder</th>
-              <th>Balance</th>
-              <th>Transfer Amount</th>
+              <th>Account Holder </th>
+              <th>Balance €</th>
+              <th>Transfer Amount €</th>
               <th>Created At</th>
             </tr>
           </thead>
@@ -123,14 +123,15 @@ console.log(response);
   <td style={{color:"white"}}>{bankData.createdAt}</td>
 </tr>
 {value.length>0?value.map((data,i) => {
-  console.log(data.pathname);
+  console.log(data);
   if(i>1)
   {return(
   <tr key={i}>
     <td></td>
   <td ></td>
-    <td style={{color:"green"}}>+{bankData.balance+data.pathname}</td>
-    <td style={{color:"green"}}>+{data.pathname}</td>
+    <td style={{color:"green"}}>+{bankData.balance+data}</td>
+    <td style={{color:"green"}}>+{data}</td>
+    {/* (parseFloat(data).toFixed(2)) */}
     {/* <td>{new Date()}</td> */}
   </tr>)}}):""}
           </tbody>
