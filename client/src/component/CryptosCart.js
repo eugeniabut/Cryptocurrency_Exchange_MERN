@@ -47,7 +47,7 @@ const addCoin=async	(e)=>{
           <td>{data.current_price}</td>
 		  {	data.price_change_24h>0?(<td style={{color:"green"}} >{data.price_change_24h}</td>):(<td style={{color:"red"}} >{data.price_change_24h}</td>)}
 		  <td className='th'>{data.price_change_percentage_24h}</td>
-		  {authenticated?<td><button className='Buy-now'  value={data} onClick={addCoin}  >Buy Now</button></td>:""}
+		  {authenticated?<td><button className='Buy-now hover-btn'  value={data} onClick={addCoin}  >Buy Now</button></td>:""}
 
 		  </tr>
 		{/* <tbody>

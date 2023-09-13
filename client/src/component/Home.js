@@ -76,10 +76,11 @@ setReviewText(...reviewText,{text:""})
                     <i className="fa fa-clock-o"></i>
                     {data.publishedAt}
                   </span>
-                  <button className="hover-btn" style={{content: 'Hover me!', margin:20}} href={`${data.article_url}`}>
-  <div class="left"></div>
+                  <button className="hover-btn" style={{content: 'Hover me!', margin:20}} >
+                    <a href={`${data.article_url}`}style={{textDecoration:"none", color:"white"}} aria-hidden="true">  <div class="left"></div>
   Show More
-  <div class="right"></div>
+  <div class="right"></div></a>
+
 </button>
 
 
