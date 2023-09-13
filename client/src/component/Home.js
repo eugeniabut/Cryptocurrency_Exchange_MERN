@@ -65,11 +65,10 @@ setReviewText(...reviewText,{text:""})
               </a>
               <Carousel.Caption>
                 <div className="news-box">
-                  <a className="link" target="_blank" href={`${data.article_url
-}`}>
-                    {" "}
-                    <h3> Title : {data.title}</h3>
-                  </a>
+      
+                    
+                    <h3> {data.title}</h3>
+                  
                   {/* <p>  {data.description}</p> */}
                   <small>Author : {data.author}</small>
                   <br />
@@ -77,6 +76,13 @@ setReviewText(...reviewText,{text:""})
                     <i className="fa fa-clock-o"></i>
                     {data.publishedAt}
                   </span>
+                  <button className="hover-btn" style={{content: 'Hover me!', margin:20}} href={`${data.article_url}`}>
+  <div class="left"></div>
+  Show More
+  <div class="right"></div>
+</button>
+
+
                 </div>
               </Carousel.Caption>
             </Carousel.Item>
