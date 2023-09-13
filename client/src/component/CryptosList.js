@@ -10,16 +10,16 @@ function CryptosList() {
   return (
     <div>
         <> <div className='cryptos-list' >
-		<h1>CRYPTOS SPACE</h1>
+		<h1 className='cryptos-table'>CRYPTOS SPACE</h1>
   <div class="tbl-header">
     <table cellpadding="0" cellspacing="0" border="0">
       <thead>
         <tr>
           <th>symbol</th>
           <th>cryptos</th>
-          <th>Price</th>
-          <th>Change</th>
-          <th>Change %</th>
+          <th className='th'>Price</th>
+          <th >Change</th>
+          <th className='th'>Change%</th>
         </tr>
       </thead>
     </table>

@@ -24,7 +24,7 @@ function Header() {
 
            <li><NavLink to="/" className="link" >Home</NavLink></li> 
            <li> <NavLink to="/about-us" className="link" >About Us</NavLink></li> 
-           <li> <NavLink to="/trading-live" className="link" >live Trading</NavLink></li> 
+           <li> <NavLink to="/trading-live" className="link trading" >live Trading</NavLink></li> 
 
            { !authenticated ? <li><NavLink to="/login" className="link" >login</NavLink></li>:<li><NavLink to="/" className="link" onClick={logoutHandler} >logout</NavLink></li>}
             {!authenticated ? <li><NavLink to="/register" className="link" >Register</NavLink></li>:<li><div><img src={avatar} alt='profile'className='profile-pic' /><NavLink to="/profile"  className="link" >Profile</NavLink></div></li>}

@@ -102,9 +102,28 @@ h1{
         width: 90vw;
         height: 30vh;
     }
+    .cryptos-table{
+      font-size: 1rem;
+    }
    .th h1{
     display: none;
    }
    
     
+}
+
+@media screen and (max-width: 400px) {
+  .container{
+
+      width: 90vw;
+      height: 30vh;
+  }
+  .cryptos-table{
+    font-size: 1rem;
+  }
+ .th h1{
+  display: none;
+ }
+ 
+  
 }

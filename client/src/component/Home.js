@@ -105,7 +105,7 @@ setReviewText(...reviewText,{text:""})
 
         {authenticated?<div className="review-write">
           <form className="review-form" onSubmit={handleReviewSubmit}>
-            <label className="review-label" htmlFor="reviewText">
+            <label className="review-label" style={{color:"white"}} htmlFor="reviewText">
               Write a Review:
             </label>
             <textarea

@@ -240,30 +240,98 @@ margin-top:10px;
     }
     */
 
-    @media screen and (min-width: 300px) and (max-width: 1024px) {
+    @media screen and (min-width: 400px) and (max-width: 1024px) {
       
-  
-    .nav{
-        width: 100vw;
+        .nav{
+            position: fixed;
+            top: 10px; 
+            left: 0;
+           }
+           .nav div.logo img{
+            width: 35px;
+            height: 35px;
+           }
+        .nav div.main_list{
+            height: 1rem;
+            margin-top: 65px;
+            overflow:inherit;
+        }
+        .profile-pic{
+            width: 50px;
+            height: 50px;
+        }
+        .container{
+            /* width: 100vw; */
+        }
+        .nav .container .show_list{
+            height: 200px;
+            width: 100%; 
+            position: fixed;
+            left: 0;
+            
+        }
+       
+        
+     
+        .nav div.main_list ul li{
+    
+    margin-top:10px;
+    
     }
-    .nav div.logo{
+    
+        
+        .nav div.main_list ul li a{
+          text-align: center;
+            line-height: 20px;
+            /* width: 100%; */
+          font-size: medium;
+            display: table;
+            color: rgb(216, 211, 199);
+             /* padding-right: 1rem; */
+       
+        }
+            .nav div.main_list ul li a:hover{
+              color: white;
+        }
+        
+        .nav div.media_button{
+            display: block;
+        }
+        .trading{
+            display: none;
+        }
+    }
+    @media screen and  (max-width: 400px) {
+      
+    .nav{
         position: fixed;
-        left: 0;    }
-  
+        top: 10px; 
+        left: 0;
+       }
+       .nav div.logo img{
+        width: 35px;
+        height: 35px;
+       }
     .nav div.main_list{
         height: 1rem;
         margin-top: 65px;
         overflow:inherit;
-        font-size: small;   
     }
-    
+    .profile-pic{
+        width: 50px;
+        height: 50px;
+    }
+    .container{
+        /* width: 100vw; */
+    }
     .nav .container .show_list{
         height: 200px;
-        width: 100vw;
+        width: 100%; 
         position: fixed;
         left: 0;
         
     }
+   
     
  
     .nav div.main_list ul li{
@@ -276,7 +344,7 @@ margin-top:10px;
     .nav div.main_list ul li a{
       text-align: center;
         line-height: 20px;
-        width: 100%;
+        /* width: 100%; */
       font-size: medium;
         display: table;
         color: rgb(216, 211, 199);
@@ -290,5 +358,7 @@ margin-top:10px;
     .nav div.media_button{
         display: block;
     }
-        
+    .trading{
+        display: none;
     }
+    }    

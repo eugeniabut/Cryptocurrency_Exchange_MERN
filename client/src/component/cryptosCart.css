@@ -86,9 +86,22 @@
       width: 100vw;
       height: 30vh;
   }
- .th {
-  display: none;
- }
+  .th h1{
+    display: none;
+   }
+ 
+  
+}
+
+@media screen and  (max-width: 400px) {
+  .cryptos-list{
+ padding: 1rem;
+      width: 100vw;
+      height: 30vh;
+  }
+  .th {
+    display: none;
+   }
  
   
 }

@@ -110,12 +110,12 @@ a.cta-link:hover{
 
 
 }
-@media screen and (min-width: 300px) and (max-width: 1024px) {
+@media screen and (min-width: 400px) and (max-width: 1024px) {
     .large-cta-section{
-        width: 100%;
+        /* width: 100%; */
         height: 35vh;
-        font-size: 10px;
-        margin-top: 6.4rem;
+        font-size: 5px;
+        margin-top: 10rem;
     }
   .cta-purple-email, .cta-teal-airplane, .cta-blue-email,.cta-left-line{
     width: 3rem;
@@ -124,6 +124,33 @@ a.cta-link:hover{
     bottom:  50%
   }
    
+  .medium-text-wrapper .h2, .medium-text-wrapper .h3{
+    font-size: 2rem;
+   }
+   .cta-teal-airplane{
+    display: none;
+  }
+}
+@media screen and  (max-width: 400px) {
+    .large-cta-section{
+padding: 1rem;      
+margin: 2rem;       
+ height: 40vh;
+        font-size:3px;
+        margin-top: 10rem;
+    }
+  .cta-purple-email, .cta-teal-airplane, .cta-blue-email,.cta-left-line{
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    bottom:  70%
+  }
+  .cta-teal-airplane{
+    display: none;
+  }
+   .medium-text-wrapper .h2, .medium-text-wrapper .h3{
+    font-size: 1rem;
+   }
     
   
 }
