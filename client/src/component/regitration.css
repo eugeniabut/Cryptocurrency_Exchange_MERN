@@ -36,3 +36,21 @@ display:grid;
   
     
 }
+@media screen and  (max-width: 400px) {
+  
+    .main-registration{
+     
+        padding: 1rem;
+        padding-top: 4em;
+       width: 100vw;
+
+    }
+    .registration{
+        width: 90%;
+    }
+    .body-registration{
+        width: 200px;
+    
+    }
+
+}

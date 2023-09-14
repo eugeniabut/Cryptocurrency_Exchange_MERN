@@ -2,7 +2,7 @@ import React from 'react'
 import "./aboutUs.css"
 function AboutUs() {
   return (
-    <div>
+    <div className='about-us'>
          <header class="showcase">
     <div class="content">
       <img src="./crypto-space.png" style={{height:50}} class="logo" alt="Traversy Media"/>
@@ -13,7 +13,6 @@ function AboutUs() {
       <p class="text" >  
                     We believe that in a decade the financial system of the internet — that is, commerce that happens on the internet — will be the largest financial system in the world. And it will be powered by crypto.
                     "SEMM-DV-Cryptos_Space" enabled anyone to not only examine transactions and study the blockchain, but it is also an API that enabled companies to build on Bitcoin. We also have provided the most popular and widely used crypto wallet that enables anyone anywhere to control their own money.
-                    Our team spans the globe and has worked tirelessly to accelerate the adoption of crypto and usher in the future of finance. We are passionate, relentless, and stoked - and believe that a lean team of world-class visionaries can ship products that empower our customers and drive the business to new heights.
 
                </p>    </div>
     </div>
@@ -32,10 +31,7 @@ function AboutUs() {
         <ul class="social">
         <li><a href="https://github.com/MerKhadraoui"  class="fa fa-twitter" aria-hidden="true"></a></li>
 
-          {/* <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-facebook" aria-hidden="true"></a></li>
-          <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-twitter" aria-hidden="true"></a></li>
-          <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-google-plus" aria-hidden="true"></a></li>
-          <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-linkedin" aria-hidden="true"></a></li> */}
+         
         </ul>
       </div>
     </div>

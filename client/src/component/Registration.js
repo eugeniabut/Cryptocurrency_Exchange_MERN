@@ -52,12 +52,12 @@ console.log(userProfile);
   return (
     <div className='main-registration'>
 
-        <MDBContainer fluid>
+        <MDBContainer className='fluid' fluid>
 
       <MDBCard className='text-black m-5 registration' style={{borderRadius: '25px',backgroundColor: "transparent"}}>
         <MDBCardBody  style={{backgroundColor: "transparent"}} className='registration' >
           <MDBRow className='body-registration'>
-            <MDBCol md='10' lg='6' className='order-2 order-lg-1 d-flex flex-column align-items-center'>
+            <MDBCol md='10' lg='6' className='order-2 order-lg-1 d-flex flex-column align-items-center sing-up'>
 
               <p classNAme="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"><h3>Sign up</h3></p>
               <form  onSubmit={submitHandler} encType="multipart/form-data">

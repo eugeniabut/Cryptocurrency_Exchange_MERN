@@ -63,8 +63,8 @@ function Login(props) {
 {/* <MDBCard style={{backgroundColor: "transparent"}}> */}
   <MDBRow  className='g-0'>
 
-    <MDBCol md='6'>
-      <MDBCardImage src="https://atlas-content-cdn.pixelsquid.com/stock-images/account-avatar-gold-head-4o7K463-600.jpg" alt="login form" style={{height:400}} className='rounded-start w-100'/>
+    <MDBCol className="login-img"  md='6'>
+      <MDBCardImage src="https://atlas-content-cdn.pixelsquid.com/stock-images/account-avatar-gold-head-4o7K463-600.jpg" alt="login form" style={{height:400}} className=' rounded-start w-100'/>
     </MDBCol>
 
     <MDBCol md='6'>

@@ -21,20 +21,7 @@ function Profile() {
 
   return (
     <main className="main">
-      {/* <div className="sidebar" style={{display:"none"}}>
-        <div className="link-list">
-
-          <NavLink to="/home" style={{textDecoration: 'none'}} className="link-name">
-            Home
-          </NavLink>
-          <NavLink to="/my-wallet" style={{textDecoration: 'none'}} className="link-name">
-            My Wallet{" "}
-          </NavLink>
-          <NavLink to="/coins" style={{textDecoration: 'none'}} className="link-name">
-          coins 
-          </NavLink>
-        </div>
-      </div> */}
+     
       <div className="">
         <div className="card-content">
           <div className="card-heading">

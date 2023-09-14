@@ -113,3 +113,32 @@ display: none;
   font-size: 1rem;
 }
 }
+@media screen and  (max-width: 400px) {
+  .card-content {
+    width: 90vw;
+  }
+  .card-heading div{
+    display: inline-block;
+   /* height: 6rem; */
+  }
+  .profile-logout{
+  display: none;
+  }
+  .card-heading-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+     }
+     .fa-times-circle {
+      margin-top: 0.8rem;
+    
+     }
+  
+  .link-name {
+    text-decoration: none;
+    color: bisque;
+  
+    font-size: 1rem;
+  }
+}

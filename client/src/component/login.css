@@ -10,5 +10,18 @@ background-color:rgb(212, 159, 25);
     .login-form{
         height: 100%;
     }
-
+    .login-form{
+        padding: 1rem;
+    }
+.login-img{
+    
+padding-top: 5rem;}
+}
+@media screen and  (max-width: 400px) {
+    .login-form{
+        padding: 1rem;
+    }
+.login-img{
+    
+padding-top: 5rem;}
 }
